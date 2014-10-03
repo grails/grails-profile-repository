@@ -31,6 +31,7 @@ repositories {
   mavenLocal()
   jcenter()
   maven { url "https://repo.spring.io/libs-release" }
+  maven { url "https://repo.grails.org/grails/libs-snapshots-local" }
 }
 
 dependencies {
