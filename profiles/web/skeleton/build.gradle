@@ -10,6 +10,7 @@ buildscript {
         mavenLocal()
         jcenter()
         maven { url "https://repo.spring.io/libs-release" }
+        maven { url "https://repo.grails.org/grails/libs-snapshots-local" }
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
