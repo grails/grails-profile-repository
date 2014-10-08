@@ -45,4 +45,5 @@ dependencies {
   compile "org.hibernate:hibernate-ehcache:4.3.5.Final"
 
   runtime "org.grails.plugins:asset-pipeline:2.0.0-SNAPSHOT"
+  runtime 'org.springframework.boot:spring-boot-starter-logging'
 }

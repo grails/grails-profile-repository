@@ -32,4 +32,6 @@ repositories {
 dependencies {
   compile "org.springframework.boot:spring-boot-autoconfigure"
   compile "org.grails:grails-dependencies:$grailsVersion"
+
+  runtime 'org.springframework.boot:spring-boot-starter-logging'
 }
