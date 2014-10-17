@@ -5,7 +5,7 @@
         {
             "command": "render",
             "template": "templates/artifacts/TagLib.groovy",
-            "destination": "grails-app/controllers/@artifact.package.path@/@artifact.name@.groovy"
+            "destination": "grails-app/taglib/@artifact.package.path@/@artifact.name@.groovy"
         },
         {
             "command": "render",
