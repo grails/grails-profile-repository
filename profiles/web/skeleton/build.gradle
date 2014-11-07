@@ -1,20 +1,21 @@
 ext {
-  grailsVersion = "@grails.version@"
+  grailsVersion = "3.0.0.BUILD-SNAPSHOT"
 }
 
 buildscript {
     ext {
-      grailsVersion = "@grails.version@"
+      grailsVersion = "3.0.0.BUILD-SNAPSHOT"
     }  
     repositories {
         mavenLocal()
-        jcenter()
-        maven { url "https://repo.spring.io/libs-release" }
-        maven { url "https://repo.grails.org/grails/libs-snapshots-local" }
+        mavenCentral()
+        maven { url "http://repo.grails.org/grails/core" }
+
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "org.grails:grails-gsp-gradle-plugin:$grailsVersion"
+        classpath 'com.bertramlabs.plugins:asset-pipeline-core:2.0.2-SNAPSHOT'
     }
 }
 
@@ -24,27 +25,35 @@ group "@grails.app.group@"
 
 apply plugin: "spring-boot"
 apply plugin: "war"
+apply plugin: "asset-pipeline"
 apply plugin: "grails-core"
 apply plugin: "grails-gsp"
 
 
+assets {
+    minifyJs = false
+    minifyCss = true
+}
+
 repositories {
   mavenLocal()
-  jcenter()
-  maven { url "https://repo.spring.io/libs-release" }
-  maven { url "https://repo.grails.org/grails/libs-snapshots-local" }
+  mavenCentral()
+  maven { url "http://repo.grails.org/grails/core" }
 }
 
 dependencies {
+  compile 'org.springframework.boot:spring-boot-starter-logging'
+  compile("org.springframework.boot:spring-boot-starter-actuator")
   compile "org.springframework.boot:spring-boot-autoconfigure"
   compile "org.springframework.boot:spring-boot-starter-tomcat"
   compile "org.grails:grails-dependencies:$grailsVersion"
   compile "org.grails:grails-web-boot:$grailsVersion"
+  compile "org.grails:grails-console:$grailsVersion"
 
 
   compile "org.grails.plugins:hibernate:4.3.5.5.BUILD-SNAPSHOT"
   compile "org.hibernate:hibernate-ehcache:4.3.5.Final"
 
   runtime "org.grails.plugins:asset-pipeline:2.0.0-SNAPSHOT"
-  runtime 'org.springframework.boot:spring-boot-starter-logging'
+
 }
