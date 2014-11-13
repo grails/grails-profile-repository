@@ -1,11 +1,14 @@
-@artifact.package@import grails.test.mixin.TestMixin
-import grails.test.mixin.support.GrailsUnitTestMixin
-import spock.lang.Specification
+@artifact.package@
+
+import grails.test.mixin.integration.Integration
+import grails.transaction.Transactional
+
+import spock.lang.*
 
 /**
  * See the API for {@link grails.test.mixin.support.GrailsUnitTestMixin} for usage instructions
  */
-@TestMixin(GrailsUnitTestMixin)
+@Integration
 class @artifact.name@Spec extends Specification {
 
     def setup() {
@@ -16,6 +19,6 @@ class @artifact.name@Spec extends Specification {
 
     void "test something"() {
         expect:"fix me"
-            true == false        
+            true == false
     }
 }

@@ -14,5 +14,8 @@ class @artifact.name@Spec extends Specification {
     }
 
     void "test something"() {
+        expect:"fix me"
+            true == false
+        
     }
 }

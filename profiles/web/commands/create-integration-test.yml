@@ -1,0 +1,8 @@
+description: Creates an integration test
+usage: |
+ create-integration-test [integration test class name]
+ Creates an integration test
+steps:
+ - command: render
+   template: templates/testing/Integration.groovy
+   destination: src/test/groovy/@artifact.package.path@/@artifact.name@Spec.groovy
