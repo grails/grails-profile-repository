@@ -7,3 +7,7 @@ info:
         name: '@info.app.name@'
         version: '@info.app.version@'
         grailsVersion: '@info.app.grailsVersion@'
+spring:
+  groovy:
+    template:
+      check-template-location: false
