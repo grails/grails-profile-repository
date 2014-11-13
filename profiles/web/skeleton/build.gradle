@@ -56,4 +56,6 @@ dependencies {
 
   runtime "org.grails.plugins:asset-pipeline:2.0.0-SNAPSHOT"
 
+  testCompile "org.grails:grails-plugin-testing:$grailsVersion"
+
 }
