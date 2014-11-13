@@ -1,0 +1,8 @@
+description: Creates a unit test
+usage: |
+ create-unit-test [unit test class name]
+ Creates a unit test
+steps:
+ - command: render
+   template: templates/testing/Generic.groovy
+   destination: src/test/groovy/@artifact.package.path@/@artifact.name@Spec.groovy

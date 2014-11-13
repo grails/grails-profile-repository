@@ -5,7 +5,7 @@ import spock.lang.Specification
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
 @TestFor(@artifact.testclass@)
-class @artifact.name@ extends Specification {
+class @artifact.name@Spec extends Specification {
 
     def setup() {
     }
