@@ -4,8 +4,8 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.web.GroovyPageUnitTestMixin} for usage instructions
  */
-@TestFor(@artifact.testclass@)
-class @artifact.name@Spec extends Specification {
+@TestFor(@artifact.name@TagLib)
+class @artifact.name@TagLibSpec extends Specification {
 
     def setup() {
     }

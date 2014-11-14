@@ -4,8 +4,8 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
  */
-@TestFor(@artifact.testclass@)
-class @artifact.name@Spec extends Specification {
+@TestFor(@artifact.name@Service)
+class @artifact.name@ServiceSpec extends Specification {
 
     def setup() {
     }
