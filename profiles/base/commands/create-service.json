@@ -5,12 +5,12 @@
         {
             "command": "render",
             "template": "templates/artifacts/Service.groovy",
-            "destination": "grails-app/services/@artifact.package.path@/@artifact.name@.groovy"
+            "destination": "grails-app/services/@artifact.package.path@/@artifact.name@Service.groovy"
         },
         {
             "command": "render",
             "template": "templates/testing/Service.groovy",
-            "destination": "src/test/groovy/@artifact.package.path@/@artifact.name@Spec.groovy"
+            "destination": "src/test/groovy/@artifact.package.path@/@artifact.name@ServiceSpec.groovy"
         }
     ]
 }

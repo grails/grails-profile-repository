@@ -5,12 +5,12 @@
         {
             "command": "render",
             "template": "templates/artifacts/TagLib.groovy",
-            "destination": "grails-app/taglib/@artifact.package.path@/@artifact.name@.groovy"
+            "destination": "grails-app/taglib/@artifact.package.path@/@artifact.name@TagLib.groovy"
         },
         {
             "command": "render",
             "template": "templates/testing/TagLib.groovy",
-            "destination": "src/test/groovy/@artifact.package.path@/@artifact.name@Spec.groovy"
+            "destination": "src/test/groovy/@artifact.package.path@/@artifact.name@TagLibSpec.groovy"
         }
     ]
 }
