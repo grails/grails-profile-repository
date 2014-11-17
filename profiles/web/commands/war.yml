@@ -1,0 +1,8 @@
+description: Creates a WAR file for deployment to a container (like Tomcat)
+minArguments: 0
+usage: |
+ war
+steps:
+ - command: gradle
+   tasks:
+     - war

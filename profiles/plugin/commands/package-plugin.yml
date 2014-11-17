@@ -1,0 +1,8 @@
+description: Packages the plugin into a JAR file
+minArguments: 0
+usage: |
+ package-plugin
+steps:
+ - command: gradle
+   tasks:
+     - assemble
