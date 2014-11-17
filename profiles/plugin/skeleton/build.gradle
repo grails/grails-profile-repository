@@ -38,8 +38,14 @@ configurations {
 }
 
 dependencies {
+  compile 'org.springframework.boot:spring-boot-starter-logging'
+  compile "org.springframework.boot:spring-boot-autoconfigure"
+  
+  provided "org.grails:grails-dependencies:$grailsVersion"
+  provided "org.grails:grails-web-boot:$grailsVersion"
   provided "org.grails:grails-dependencies:$grailsVersion"
   provided 'javax.servlet:javax.servlet-api:3.1.0'
+  provided "org.springframework.boot:spring-boot-starter-tomcat"
 
   testCompile "org.grails:grails-plugin-testing:$grailsVersion"
 }
