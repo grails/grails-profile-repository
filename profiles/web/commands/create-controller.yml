@@ -9,3 +9,5 @@ steps:
  - command: render
    template: templates/testing/Controller.groovy
    destination: src/test/groovy/@artifact.package.path@/@artifact.name@ControllerSpec.groovy
+ - command: mkdir
+   location: grails-app/views/@artifact.propertyName@
