@@ -36,6 +36,8 @@ dependencies {
   compile "org.grails:grails-dependencies:$grailsVersion"
 
   runtime 'org.springframework.boot:spring-boot-starter-logging'
+
+  console "org.grails:grails-console:$grailsVersion"
 }
 
 run {

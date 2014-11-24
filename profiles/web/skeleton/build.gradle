@@ -48,8 +48,6 @@ dependencies {
   compile "org.springframework.boot:spring-boot-starter-tomcat"
   compile "org.grails:grails-dependencies:$grailsVersion"
   compile "org.grails:grails-web-boot:$grailsVersion"
-  compile "org.grails:grails-console:$grailsVersion"
-
 
   compile "org.grails.plugins:hibernate:4.3.5.5.BUILD-SNAPSHOT"
   compile "org.hibernate:hibernate-ehcache:4.3.5.Final"
@@ -58,6 +56,7 @@ dependencies {
 
   testCompile "org.grails:grails-plugin-testing:$grailsVersion"
 
+  console "org.grails:grails-console:$grailsVersion"
 }
 
 run {
