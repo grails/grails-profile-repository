@@ -1,5 +1,6 @@
 ext {
   grailsVersion = "3.0.0.BUILD-SNAPSHOT"
+  isJava8Compatible = org.gradle.api.JavaVersion.current().isJava8Compatible()
 }
 
 buildscript {
