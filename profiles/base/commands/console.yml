@@ -1,0 +1,8 @@
+description: Loads Grails within the Groovy Swing 
+minArguments: 0
+usage: |
+ console
+steps:
+ - command: gradle
+   tasks:
+     - console
