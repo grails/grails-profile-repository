@@ -1,5 +1,6 @@
 ext {
   grailsVersion = "3.0.0.BUILD-SNAPSHOT"
+  isJava8Compatible = org.gradle.api.JavaVersion.current().isJava8Compatible()
 }
 
 buildscript {
@@ -97,4 +98,13 @@ publishing {
             url "https://repo.grails.org/grails/libs-snapshots-local/"
         }
     }
+}
+
+run {
+    minHeapSize = "768m"
+    maxHeapSize = "768m"
+    if(!isJava8Compatible) {
+      jvmArgs "-XX:PermSize=96m", "-XX:MaxPermSize=256m"
+    }
+    jvmArgs "-XX:+TieredCompilation", "-XX:TieredStopAtLevel=1", "-XX:CICompilerCount=3"
 }
