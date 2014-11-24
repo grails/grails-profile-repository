@@ -1,9 +1,9 @@
 package @grails.codegen.defaultPackage@
 
 import grails.boot.GrailsApp
-import grails.boot.config.GrailsWebConfiguration
+import grails.boot.config.GrailsAutoConfiguration
 
-class Application extends GrailsWebConfiguration {
+class Application extends GrailsAutoConfiguration {
     static void main(String[] args) {
         GrailsApp.run(Application)
     }
