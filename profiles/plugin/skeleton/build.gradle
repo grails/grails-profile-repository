@@ -103,7 +103,7 @@ run {
     minHeapSize = "768m"
     maxHeapSize = "768m"
     if(!isJava8Compatible) {
-      jvmArgs -XX:MaxPermSize=256m
+      jvmArgs "-XX:PermSize=96m", "-XX:MaxPermSize=256m"
     }
-    jvmArgs "-XX:+TieredCompilation", "-XX:TieredStopAtLevel=1", "-Dsun.reflect.inflationThreshold=100000", "-XX:BiasedLockingStartupDelay=0", "-XX:StarvationMonitorInterval=5000", "-XX:Tier0ProfilingStartPercentage=500"
+    jvmArgs "-XX:+TieredCompilation", "-XX:TieredStopAtLevel=1", "-XX:CICompilerCount=3"
 }
