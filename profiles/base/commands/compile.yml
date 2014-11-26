@@ -1,0 +1,8 @@
+description: Compiles a Grails application
+minArguments: 0
+usage: |
+ compile
+steps:
+ - command: gradle
+   tasks:
+     - classes
