@@ -53,6 +53,7 @@ dependencies {
   compile "org.hibernate:hibernate-ehcache:4.3.5.Final"
 
   runtime "org.grails.plugins:asset-pipeline:2.0.0-SNAPSHOT"
+  runtime "org.grails.plugins:scaffolding:3.0.0-SNAPSHOT"
 
   testCompile "org.grails:grails-plugin-testing:$grailsVersion"
 
