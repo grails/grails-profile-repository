@@ -1,4 +1,9 @@
-description: Creates a controller
+description: 
+    - Creates a controller
+    - usage: 'create-controller [controller name]'
+    - completer: org.grails.cli.interactive.completers.DomainClassCompleter
+    - argument: "Controller Name"
+      description: "The name of the controller"     
 usage: |
  create-controller [controller name]
  Creates a controller class and an associated unit test
