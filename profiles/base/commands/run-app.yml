@@ -1,4 +1,9 @@
-description: Runs the application
+description: 
+    - Runs a Grails application
+    - flag: https
+      target: '-Denable.https'
+    - flag: debug-jvm
+      target: '--debug-jvm'
 minArguments: 0
 usage: |
  run-app
