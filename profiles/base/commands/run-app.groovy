@@ -5,16 +5,7 @@ description("Runs a Grails application") {
 }
 
 
-arguments = []
-
-pattern = commandLine.remainingArgsString
-
-if(pattern) {
-    arguments << "-Dtest.single=$pattern".toString()
-}
-
 // add debug flag if present
-
 if(flag('debug-jvm')) {
     gradle."run --debug-jvm"(*commandLine.remainingArgs)
 }
