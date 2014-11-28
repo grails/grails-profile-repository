@@ -28,8 +28,9 @@ if(debugJvm) arguments << debugJvm.target
 
 try {
     gradle.test(*arguments)    
+    addStatus "Tests PASSED"
     return true
 } catch(e) {
-    console.error "FAILED", "Test execution failed"
+    console.error "Tests FAILED", "Test execution failed"
     return false
 }
