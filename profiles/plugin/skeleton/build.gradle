@@ -1,6 +1,7 @@
 ext {
   grailsVersion = "3.0.0.BUILD-SNAPSHOT"
   isJava8Compatible = org.gradle.api.JavaVersion.current().isJava8Compatible()
+  gradleWrapperVersion = "2.3-20141120230022+0000"
 }
 
 buildscript {
@@ -109,4 +110,8 @@ run {
       jvmArgs "-XX:PermSize=96m", "-XX:MaxPermSize=256m"
     }
     jvmArgs "-XX:+TieredCompilation", "-XX:TieredStopAtLevel=1", "-XX:CICompilerCount=3"
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = gradleWrapperVersion
 }
