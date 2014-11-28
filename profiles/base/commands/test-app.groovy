@@ -1,8 +1,9 @@
-import org.grails.cli.interactive.completers.DomainClassCompleter
+import org.grails.cli.interactive.completers.*
 
 description("Runs the applications tests") {
     usage "grails test-app [TEST NAME]"
-    completer DomainClassCompleter
+    completer AllClassCompleter
+    synonyms 'test'
     argument name:"Test Name", description:"The name of the test to run (optional)", required:false
     flag name:'debug-jvm', target:"-Dtest.debug"
 }
