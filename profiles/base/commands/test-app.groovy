@@ -11,8 +11,13 @@ description("Runs the applications tests") {
 
 arguments = []
 
-pattern = commandLine.remainingArgsString
+// configure environment to test is not specified
+if(!commandLine.isEnvironmentSet()) {
+    System.setProperty('grails.env', 'test')
+}
 
+// add test.single argument if specified
+pattern = commandLine.remainingArgsString
 if(pattern) {
     arguments << "-Dtest.single=$pattern".toString()
 }
@@ -21,4 +26,10 @@ if(pattern) {
 debugJvm = flag('debug-jvm')
 if(debugJvm) arguments << debugJvm.target 
 
-gradle.test(*arguments)
+try {
+    gradle.test(*arguments)    
+    return true
+} catch(e) {
+    console.error "FAILED", "Test execution failed"
+    return false
+}
