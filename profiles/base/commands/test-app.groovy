@@ -5,7 +5,7 @@ description("Runs the applications tests") {
     completer AllClassCompleter
     synonyms 'test'
     argument name:"Test Name", description:"The name of the test to run (optional)", required:false
-    flag name:'debug-jvm', target:"-Dtest.debug"
+    flag name:'debug-jvm'
 }
 
 
@@ -17,17 +17,16 @@ if(!commandLine.isEnvironmentSet()) {
 }
 
 // add test.single argument if specified
-pattern = commandLine.remainingArgsString
-if(pattern) {
-    arguments << "-Dtest.single=$pattern".toString()
-}
+args = commandLine.remainingArgs.collect { "--tests $it".toString() }.join(' ')
 
 // add debug flag if present
-debugJvm = flag('debug-jvm')
-if(debugJvm) arguments << debugJvm.target 
-
 try {
-    gradle.test(*arguments)    
+    if(flag('debug-jvm')) {
+        gradle."test $args --debug-jvm"(*arguments)        
+    }
+    else {
+        gradle."test $args"(*arguments)        
+    }    
     addStatus "Tests PASSED"
     return true
 } catch(e) {
