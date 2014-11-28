@@ -1,7 +1,6 @@
 description("Runs a Grails application") {
     usage "grails run-app"
     synonyms 'run'
-    argument name:"Test Name", description:"The name of the test to run (optional)", required:false
     flag name:'debug-jvm'
 }
 
