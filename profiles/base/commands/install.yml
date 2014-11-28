@@ -1,0 +1,8 @@
+description: Installs a Grails application or plugin into the local Maven cache
+minArguments: 0
+usage: |
+ install
+steps:
+ - command: gradle
+   tasks:
+     - install
