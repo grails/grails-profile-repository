@@ -11,7 +11,9 @@ args =  allResources
 args.addAll commandLine.remainingArgs
 if(spring.test(*args) == 0) {
     addStatus "Tests PASSED"
+    return true
 }
 else {
     error "Tests FAILED"
+    return false
 }
