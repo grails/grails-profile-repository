@@ -3,9 +3,15 @@ description("Tests a Grails application") {
     synonyms 'test'
 }
 
-args = ['Application.groovy']
+allResources = resources("file:**/*.groovy")
+args =  allResources
+               .sort { it.filename == "Application.groovy" ? 1 : 0 }
+               .collect { projectPath(it.file) }
+
 args.addAll commandLine.remainingArgs
-return spring.test(*args) == 0 ? true : false
-
-
-
+if(spring.test(*args) == 0) {
+    addStatus "Tests PASSED"
+}
+else {
+    error "Tests FAILED"
+}
