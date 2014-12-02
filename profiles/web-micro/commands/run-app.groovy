@@ -5,7 +5,11 @@ description("Runs a Grails application") {
     synonyms 'run'
 }
 
-args = ['Application.groovy']
+allResources = resources("file:**/*.groovy")
+args = allResources.findAll { res -> !['Spec', 'Test', 'Tests'].any { res.filename.endsWith(it) }  }
+                   .sort { it.filename == "Application.groovy" ? 1 : 0 }
+                   .collect { projectPath(it.file) }
+
 args.addAll commandLine.remainingArgs
 if(spring.run(*args) == 0) {
     if(!GrailsCli.isInteractiveModeActive()) {
