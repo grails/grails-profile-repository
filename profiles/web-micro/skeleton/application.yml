@@ -4,9 +4,9 @@ grails:
     defaultPackage: @grails.codegen.defaultPackage@
 info:
     app:
-        name: '@info.app.name@'
-        version: '@info.app.version@'
-        grailsVersion: '@info.app.grailsVersion@'
+        name: @grails.app.name@
+        version: 0.1
+        grailsVersion: @grails.version@
 spring:
   groovy:
     template:
