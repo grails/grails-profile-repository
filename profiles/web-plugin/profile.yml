@@ -1,0 +1,12 @@
+description: Profile for Plugins used for Servlet applications
+extends: plugin,web
+skeleton:
+    excludes:
+        - grails-app/assets/**/*.*
+        - grails-app/i18n/*.properties
+        - grails-app/conf/spring/**
+        - grails-app/controllers/UrlMappings.groovy
+        - grails-app/init/BootStrap.groovy
+command:
+    excludes:
+        - war

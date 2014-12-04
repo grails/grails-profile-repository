@@ -16,13 +16,17 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+        classpath 'com.bertramlabs.plugins:asset-pipeline-core:2.0.2-SNAPSHOT'
     }
 }
 
 version "0.1-SNAPSHOT"
 group "org.grails.plugins"
 
+apply plugin: "spring-boot"
+apply plugin: "asset-pipeline"
 apply plugin: "grails-plugin"
+apply plugin: "grails-gsp"
 apply plugin: "maven"
 apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
@@ -35,10 +39,18 @@ repositories {
   maven { url "http://repo.grails.org/grails/core" }
 }
 
-
 dependencies {
-  provided "org.grails:grails-dependencies:$grailsVersion"  
+  provided 'org.springframework.boot:spring-boot-starter-logging'
+  provided "org.springframework.boot:spring-boot-starter-actuator"
+  provided "org.springframework.boot:spring-boot-autoconfigure"
+  provided "org.springframework.boot:spring-boot-starter-tomcat"
+
+  provided "org.grails:grails-web-boot:$grailsVersion"
+  provided "org.grails:grails-dependencies:$grailsVersion"
+  provided 'javax.servlet:javax.servlet-api:3.1.0'
+
   testCompile "org.grails:grails-plugin-testing:$grailsVersion"
+
   console "org.grails:grails-console:$grailsVersion"
 }
 
