@@ -51,6 +51,7 @@ dependencies {
   compile "org.grails:grails-web-boot:$grailsVersion"
 
   compile "org.grails.plugins:hibernate:4.3.5.5.BUILD-SNAPSHOT"
+  compile "org.grails.plugins:cache:3.0.0-SNAPSHOT"
   compile "org.hibernate:hibernate-ehcache:4.3.5.Final"
 
   runtime "org.grails.plugins:asset-pipeline:2.0.0-SNAPSHOT"
