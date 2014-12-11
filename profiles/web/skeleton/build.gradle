@@ -58,6 +58,10 @@ dependencies {
   runtime "org.grails.plugins:scaffolding:3.0.0-SNAPSHOT"
 
   testCompile "org.grails:grails-plugin-testing:$grailsVersion"
+  testCompile "org.grails.plugins:geb:0.1-SNAPSHOT"
+
+  // Note: It is recommended to update to a more robust driver (Chrome, Firefox etc.)
+  testRuntime 'org.seleniumhq.selenium:selenium-htmlunit-driver:2.44.0'
 
   console "org.grails:grails-console:$grailsVersion"
 }
