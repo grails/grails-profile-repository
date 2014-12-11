@@ -16,7 +16,7 @@ buildscript {
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath 'com.bertramlabs.plugins:asset-pipeline-core:2.0.2-SNAPSHOT'
+        classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.0.18'
     }
 }
 
