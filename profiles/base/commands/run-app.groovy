@@ -6,11 +6,17 @@ description("Runs a Grails application") {
 
 
 // add debug flag if present
-if(flag('debug-jvm')) {
-    gradle."run --debug-jvm"(*commandLine.remainingArgs)
+try {
+	if(flag('debug-jvm')) {
+	    gradle."run --debug-jvm"(*commandLine.remainingArgs)
+	}
+	else {
+	    gradle.run(*commandLine.remainingArgs)
+	}
 }
-else {
-    gradle.run(*commandLine.remainingArgs)
+catch(Throwable e) {
+	console.error "Failed to start server", e
+	return false
 }
 
 
