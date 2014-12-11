@@ -12,13 +12,17 @@ appender('STDOUT', ConsoleAppender) {
 root(ERROR, ['STDOUT'])
 
 if(Environment.current == Environment.DEVELOPMENT) {
-    appender("FULL_STACKTRACE", FileAppender) {
-        file = "${BuildSettings.TARGET_DIR}/stacktrace.log"
-        append = true
-        encoder(PatternLayoutEncoder) {
-            pattern = "%level %logger - %msg%n"
-        }
-    }
+    def targetDir = BuildSettings.TARGET_DIR
+    if(targetDir) {
 
-    logger("StackTrace", ERROR, ['FULL_STACKTRACE'], false )
+        appender("FULL_STACKTRACE", FileAppender) {
+
+            file = "${targetDir}/stacktrace.log"
+            append = true
+            encoder(PatternLayoutEncoder) {
+                pattern = "%level %logger - %msg%n"
+            }
+        }
+        logger("StackTrace", ERROR, ['FULL_STACKTRACE'], false )
+    }
 }
