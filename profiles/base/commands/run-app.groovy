@@ -14,6 +14,10 @@ try {
 	    gradle.run(*commandLine.remainingArgs)
 	}
 }
+catch(org.gradle.tooling.BuildCancelledException e) {
+	console.updateStatus("Application stopped")
+	return true
+}
 catch(Throwable e) {
 	console.error "Failed to start server", e
 	return false
