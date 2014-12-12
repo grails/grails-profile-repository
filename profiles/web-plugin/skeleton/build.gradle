@@ -66,16 +66,6 @@ idea {
     }
 }
 
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from 'build/docs/javadoc'
-}
-
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
 publishing {
     publications {
         maven(MavenPublication) {
@@ -83,8 +73,8 @@ publishing {
             from components.java
             artifact sourcesJar
             artifact javadocJar
-            artifact source:"${sourceSets.main.output.classesDir}/META-INF/grails-plugin.xml", 
-                     classifier:"plugin", 
+            artifact source:"${sourceSets.main.output.classesDir}/META-INF/grails-plugin.xml",
+                     classifier:"plugin",
                      extension:'xml'
         }
     }
