@@ -1,0 +1,33 @@
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId project.name
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            artifact source:"${sourceSets.main.output.classesDir}/META-INF/grails-plugin.xml", 
+                     classifier:"plugin", 
+                     extension:'xml'
+        }
+    }
+
+
+    repositories {
+        maven {
+            credentials {
+                def user = System.getenv('GRAILS_CENTRAL_USERNAME') ?: project.properties.get('grailsPluginsUsername')
+                def pass = System.getenv("GRAILS_CENTRAL_PASSWORD") ?: project.properties.get('grailsPluginsPassword')
+
+                username user
+                password pass
+
+            }
+            if(version.endsWith('-SNAPSHOT')) {
+              url "https://repo.grails.org/grails/plugins3-snapshots-local"  
+            }
+            else {
+              url "https://repo.grails.org/grails/plugins3-releases-local"   
+            }
+        }
+    }
+}
