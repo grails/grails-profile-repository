@@ -1,9 +1,0 @@
-description: Creates a new command line script that can be used for code generation
-usage: |
- create-script [script name]
- Creates a script
-steps:
- - command: render
-   template: templates/artifacts/Script.groovy
-   destination: src/main/scripts/@artifact.name@.groovy
- 
