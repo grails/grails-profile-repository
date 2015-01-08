@@ -1,35 +1,36 @@
-ext {
-  grailsVersion = "3.0.0.BUILD-SNAPSHOT"
-  isJava8Compatible = org.gradle.api.JavaVersion.current().isJava8Compatible()
-  gradleWrapperVersion = "2.3-20141120230022+0000"
-}
-
 buildscript {
     ext {
       grailsVersion = "3.0.0.BUILD-SNAPSHOT"
     }  
     repositories {
         mavenLocal()
-        mavenCentral()
         maven { url "http://repo.grails.org/grails/core" }
-
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.0.18'
+        classpath 'com.bertramlabs.plugins:asset-pipeline-gradle:2.0.20'
     }
 }
 
-version "0.1"
-group "@grails.app.group@"
+plugins {
+    id "io.spring.dependency-management" version "0.3.1.RELEASE"
+}
 
+ext {
+  grailsVersion = "3.0.0.BUILD-SNAPSHOT"
+  isJava8Compatible = org.gradle.api.JavaVersion.current().isJava8Compatible()
+  gradleWrapperVersion = "2.3-20141120230022+0000"
+}
 
+apply plugin: "io.spring.dependency-management"
 apply plugin: "spring-boot"
 apply plugin: "war"
 apply plugin: "asset-pipeline"
 apply plugin: "grails-core"
 apply plugin: "grails-gsp"
 
+version "0.1"
+group "@grails.app.group@"
 
 assets {
     minifyJs = false
@@ -42,6 +43,13 @@ repositories {
   maven { url "http://repo.grails.org/grails/core" }
 }
 
+dependencyManagement {
+    imports {
+        mavenBom "org.grails:grails-bom:$grailsVersion"
+    }
+    applyMavenExclusions false
+}
+
 dependencies {
   compile 'org.springframework.boot:spring-boot-starter-logging'
   compile("org.springframework.boot:spring-boot-starter-actuator")
@@ -50,20 +58,20 @@ dependencies {
   compile "org.grails:grails-dependencies:$grailsVersion"
   compile "org.grails:grails-web-boot:$grailsVersion"
 
-  compile "org.grails.plugins:hibernate:4.3.5.5.BUILD-SNAPSHOT"
-  compile "org.grails.plugins:cache:3.0.0-SNAPSHOT"
+  compile "org.grails.plugins:hibernate"
+  compile "org.grails.plugins:cache"
   compile "org.hibernate:hibernate-ehcache:4.3.5.Final"
 
-  runtime "org.grails.plugins:asset-pipeline:2.0.0-SNAPSHOT"
-  runtime "org.grails.plugins:scaffolding:3.0.0-SNAPSHOT"
+  runtime "org.grails.plugins:asset-pipeline"
+  runtime "org.grails.plugins:scaffolding"
 
-  testCompile "org.grails:grails-plugin-testing:$grailsVersion"
-  testCompile "org.grails.plugins:geb:1.0-SNAPSHOT"
+  testCompile "org.grails:grails-plugin-testing"
+  testCompile "org.grails.plugins:geb"
 
   // Note: It is recommended to update to a more robust driver (Chrome, Firefox etc.)
   testRuntime 'org.seleniumhq.selenium:selenium-htmlunit-driver:2.44.0'
 
-  console "org.grails:grails-console:$grailsVersion"
+  console "org.grails:grails-console"
 }
 
 run {

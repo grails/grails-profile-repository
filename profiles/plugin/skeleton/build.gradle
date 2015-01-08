@@ -1,27 +1,30 @@
-ext {
-  grailsVersion = "3.0.0.BUILD-SNAPSHOT"
-  isJava8Compatible = org.gradle.api.JavaVersion.current().isJava8Compatible()
-  gradleWrapperVersion = "2.3-20141120230022+0000"
-}
-
 buildscript {
     ext {
       grailsVersion = "3.0.0.BUILD-SNAPSHOT"
     }
     repositories {
         mavenLocal()
-        mavenCentral()
         maven { url "http://repo.grails.org/grails/core" }
-        maven { url "http://repo.spring.io/libs-release" }
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
     }
 }
 
+plugins {
+    id "io.spring.dependency-management" version "0.3.1.RELEASE"
+}
+
+ext {
+  grailsVersion = "3.0.0.BUILD-SNAPSHOT"
+  isJava8Compatible = org.gradle.api.JavaVersion.current().isJava8Compatible()
+  gradleWrapperVersion = "2.3-20141120230022+0000"
+}
+
 version "0.1-SNAPSHOT"
 group "org.grails.plugins"
 
+apply plugin: "io.spring.dependency-management"
 apply plugin: "grails-plugin"
 apply plugin: "maven"
 apply plugin: 'maven-publish'
@@ -36,10 +39,18 @@ repositories {
 }
 
 
+dependencyManagement {
+    imports {
+        mavenBom "org.grails:grails-bom:$grailsVersion"
+    }
+    applyMavenExclusions false
+}
+
+
 dependencies {
-  provided "org.grails:grails-dependencies:$grailsVersion"  
-  testCompile "org.grails:grails-plugin-testing:$grailsVersion"
-  console "org.grails:grails-console:$grailsVersion"
+  provided "org.grails:grails-dependencies"  
+  testCompile "org.grails:grails-plugin-testing"
+  console "org.grails:grails-console"
 }
 
 eclipse {
