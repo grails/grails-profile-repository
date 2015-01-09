@@ -15,17 +15,17 @@ plugins {
     id "io.spring.dependency-management" version "0.3.1.RELEASE"
 }
 
-ext {
-  grailsVersion = project.properties['grailsVersion']
-  gradleWrapperVersion = project.properties['gradleWrapperVersion']
-}
-
 apply plugin: "org.grails.grails-plugin"
 apply plugin: "maven"
 apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/grailsCentralPublishing.gradle'
+
+ext {
+  grailsVersion = project.properties['grailsVersion']
+  gradleWrapperVersion = project.properties['gradleWrapperVersion']
+}
 
 version "0.1-SNAPSHOT"
 group "org.grails.plugins"

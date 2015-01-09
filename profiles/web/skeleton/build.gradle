@@ -16,17 +16,17 @@ plugins {
     id "io.spring.dependency-management" version "0.3.1.RELEASE"
 }
 
-ext {
-  grailsVersion = project.properties['grailsVersion']
-  gradleWrapperVersion = project.properties['gradleWrapperVersion']
-}
-
 apply plugin: "spring-boot"
 apply plugin: "war"
 apply plugin: "asset-pipeline"
 apply plugin: "org.grails.grails-web"
 apply plugin: "org.grails.grails-gsp"
 apply plugin: "maven"
+
+ext {
+  grailsVersion = project.properties['grailsVersion']
+  gradleWrapperVersion = project.properties['gradleWrapperVersion']
+}
 
 version "0.1"
 group "@grails.app.group@"
@@ -38,7 +38,6 @@ assets {
 
 repositories {
   mavenLocal()
-  mavenCentral()
   maven { url "http://repo.grails.org/grails/core" }
 }
 
