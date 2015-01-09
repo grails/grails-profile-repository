@@ -25,7 +25,7 @@ apply plugin: "io.spring.dependency-management"
 apply plugin: "spring-boot"
 apply plugin: "war"
 apply plugin: "asset-pipeline"
-apply plugin: "grails-core"
+apply plugin: "grails-web"
 apply plugin: "grails-gsp"
 
 version "0.1"
