@@ -1,6 +1,6 @@
 buildscript {
     ext {
-      grailsVersion = "3.0.0.BUILD-SNAPSHOT"
+      grailsVersion = project.properties['grailsVersion']
     }  
     repositories {
         mavenLocal()
@@ -17,9 +17,8 @@ plugins {
 }
 
 ext {
-  grailsVersion = "3.0.0.BUILD-SNAPSHOT"
-  isJava8Compatible = org.gradle.api.JavaVersion.current().isJava8Compatible()
-  gradleWrapperVersion = "2.3-20141120230022+0000"
+  grailsVersion = project.properties['grailsVersion']
+  gradleWrapperVersion = project.properties['gradleWrapperVersion']
 }
 
 apply plugin: "io.spring.dependency-management"
@@ -72,15 +71,6 @@ dependencies {
   testRuntime 'org.seleniumhq.selenium:selenium-htmlunit-driver:2.44.0'
 
   console "org.grails:grails-console"
-}
-
-run {
-    minHeapSize = "768m"
-    maxHeapSize = "768m"
-    if(!isJava8Compatible) {
-      jvmArgs "-XX:PermSize=96m", "-XX:MaxPermSize=256m"
-    }
-    jvmArgs "-XX:+TieredCompilation", "-XX:TieredStopAtLevel=1", "-XX:CICompilerCount=3"
 }
 
 task wrapper(type: Wrapper) {

@@ -1,53 +1,52 @@
-ext {
-  grailsVersion = "@grails.version@"
-  isJava8Compatible = org.gradle.api.JavaVersion.current().isJava8Compatible()
-  gradleWrapperVersion = "2.3-20141120230022+0000"
-}
-
 buildscript {
     ext {
       grailsVersion = "@grails.version@"
     }  
     repositories {
         mavenLocal()
-        jcenter()
-        maven { url "https://repo.spring.io/libs-release" }
-        maven { url "https://repo.grails.org/grails/libs-snapshots-local" }
+        maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
     }
 }
 
+plugins {
+    id "io.spring.dependency-management" version "0.3.1.RELEASE"
+}
+
+ext {
+  grailsVersion = "@grails.version@"
+  gradleWrapperVersion = "2.3-20141120230022+0000"
+}
+
+
 version "0.1"
 group "@grails.app.group@"
 
 apply plugin: "spring-boot"
 apply plugin: "grails-core"
+apply plugin: "io.spring.dependency-management"
 
 repositories {
   mavenLocal()
-  jcenter()
-  maven { url "https://repo.spring.io/libs-release" }
-  maven { url "https://repo.grails.org/grails/libs-snapshots-local" }
+  maven { url "https://repo.grails.org/grails/core" }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.grails:grails-bom:$grailsVersion"
+    }
+    applyMavenExclusions false
 }
 
 dependencies {
   compile "org.springframework.boot:spring-boot-autoconfigure"
-  compile "org.grails:grails-dependencies:$grailsVersion"
+  compile "org.grails:grails-dependencies"
 
   runtime 'org.springframework.boot:spring-boot-starter-logging'
 
-  console "org.grails:grails-console:$grailsVersion"
-}
-
-run {
-    minHeapSize = "768m"
-    maxHeapSize = "768m"
-    if(!isJava8Compatible) {
-      jvmArgs "-XX:PermSize=96m", "-XX:MaxPermSize=256m"
-    }
-    jvmArgs "-XX:+TieredCompilation", "-XX:TieredStopAtLevel=1", "-XX:CICompilerCount=3"
+  console "org.grails:grails-console"
 }
 
 task wrapper(type: Wrapper) {

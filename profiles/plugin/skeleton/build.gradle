@@ -1,6 +1,6 @@
 buildscript {
     ext {
-      grailsVersion = "3.0.0.BUILD-SNAPSHOT"
+      grailsVersion = project.properties['grailsVersion']
     }
     repositories {
         mavenLocal()
@@ -16,9 +16,8 @@ plugins {
 }
 
 ext {
-  grailsVersion = "3.0.0.BUILD-SNAPSHOT"
-  isJava8Compatible = org.gradle.api.JavaVersion.current().isJava8Compatible()
-  gradleWrapperVersion = "2.3-20141120230022+0000"
+  grailsVersion = project.properties['grailsVersion']
+  gradleWrapperVersion = project.properties['gradleWrapperVersion']
 }
 
 version "0.1-SNAPSHOT"
