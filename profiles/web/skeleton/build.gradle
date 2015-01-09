@@ -27,6 +27,7 @@ apply plugin: "war"
 apply plugin: "asset-pipeline"
 apply plugin: "grails-web"
 apply plugin: "grails-gsp"
+apply plugin: "maven"
 
 version "0.1"
 group "@grails.app.group@"

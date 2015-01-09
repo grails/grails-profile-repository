@@ -24,9 +24,11 @@ ext {
 version "0.1"
 group "@grails.app.group@"
 
+apply plugin: "io.spring.dependency-management"
 apply plugin: "spring-boot"
 apply plugin: "grails-core"
-apply plugin: "io.spring.dependency-management"
+apply plugin: "maven"
+
 
 repositories {
   mavenLocal()
