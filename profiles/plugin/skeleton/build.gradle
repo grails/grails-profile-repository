@@ -16,11 +16,11 @@ plugins {
 }
 
 apply plugin: "org.grails.grails-plugin"
-apply plugin: "maven"
 apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/grailsCentralPublishing.gradle'
+apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/bintrayPublishing.gradle'
 
 ext {
   grailsVersion = project.grailsVersion

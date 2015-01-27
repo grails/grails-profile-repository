@@ -32,3 +32,5 @@ publishing {
         }
     }
 }
+
+task install(dependsOn: project.tasks.withType(PublishToMavenLocal))
