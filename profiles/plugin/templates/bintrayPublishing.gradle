@@ -17,6 +17,7 @@ bintray {
         licenses = ['Apache-2.0']
         publicDownloadNumbers = true
         version {
+            attributes = ['grails-plugin': "org.grails.plugins:$project.name"]
             name = project.version
             gpg {
                 sign = false
