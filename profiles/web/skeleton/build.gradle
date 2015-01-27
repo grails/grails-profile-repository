@@ -1,6 +1,6 @@
 buildscript {
     ext {
-      grailsVersion = project.properties['grailsVersion']
+      grailsVersion = project.grailsVersion
     }  
     repositories {
         mavenLocal()
@@ -24,8 +24,8 @@ apply plugin: "org.grails.grails-gsp"
 apply plugin: "maven"
 
 ext {
-  grailsVersion = project.properties['grailsVersion']
-  gradleWrapperVersion = project.properties['gradleWrapperVersion']
+  grailsVersion = project.grailsVersion
+  gradleWrapperVersion = project.gradleWrapperVersion
 }
 
 version "0.1"
