@@ -29,9 +29,6 @@ publishing {
             if(version.endsWith('-SNAPSHOT')) {
               url "https://repo.grails.org/grails/plugins3-snapshots-local"  
             }
-            else {
-              url "https://repo.grails.org/grails/plugins3-releases-local"   
-            }
         }
     }
 }
