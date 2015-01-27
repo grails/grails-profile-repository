@@ -1,6 +1,10 @@
 publishing {
     publications {
         maven(MavenPublication) {
+            pom.withXml {
+                def node = asNode()
+                node.dependencyManagement.replaceNode {}
+            }
             artifactId project.name
             from components.java
             artifact sourcesJar
