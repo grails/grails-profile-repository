@@ -32,7 +32,7 @@ version "0.1"
 group "@grails.app.group@"
 
 assets {
-    minifyJs = false
+    minifyJs = true
     minifyCss = true
 }
 
