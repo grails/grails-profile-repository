@@ -5,4 +5,4 @@ usage: |
 steps:
  - command: gradle
    tasks:
-     - war
+     - assemble
