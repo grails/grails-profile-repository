@@ -1,4 +1,4 @@
-@Grab("org.grails.plugins:hibernate:4.3.5.5.BUILD-SNAPSHOT")
+@Grab("hibernate")
 @Grab("h2")
 import grails.persistence.Entity
 
