@@ -1,7 +1,7 @@
 buildscript {
     ext {
       grailsVersion = project.grailsVersion
-    }  
+    }
     repositories {
         mavenLocal()
         maven { url "http://repo.grails.org/grails/core" }
@@ -16,6 +16,9 @@ plugins {
     id "io.spring.dependency-management" version "0.3.1.RELEASE"
 }
 
+version "0.1"
+group "@grails.app.group@"
+
 apply plugin: "spring-boot"
 apply plugin: "war"
 apply plugin: "asset-pipeline"
@@ -27,9 +30,6 @@ ext {
   grailsVersion = project.grailsVersion
   gradleWrapperVersion = project.gradleWrapperVersion
 }
-
-version "0.1"
-group "@grails.app.group@"
 
 assets {
     minifyJs = true

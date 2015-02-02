@@ -15,6 +15,9 @@ plugins {
     id "io.spring.dependency-management" version "0.3.1.RELEASE"
 }
 
+version "0.1-SNAPSHOT"
+group "org.grails.plugins"
+
 apply plugin: "org.grails.grails-plugin"
 apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
@@ -27,8 +30,6 @@ ext {
   gradleWrapperVersion = project.gradleWrapperVersion
 }
 
-version "0.1-SNAPSHOT"
-group "org.grails.plugins"
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
@@ -48,7 +49,7 @@ dependencyManagement {
 
 
 dependencies {
-  provided "org.grails:grails-dependencies"  
+  provided "org.grails:grails-dependencies"
   testCompile "org.grails:grails-plugin-testing"
   console "org.grails:grails-console"
 }
