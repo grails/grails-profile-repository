@@ -1,13 +1,15 @@
-description:     
+description:
     - Creates a Service
     - usage: 'create-service [service name]'
     - completer: org.grails.cli.interactive.completers.DomainClassCompleter
     - argument: "Service Name"
-      description: "The name of the service"     
+      description: "The name of the service"
 steps:
  - command: render
    template: templates/artifacts/Service.groovy
    destination: grails-app/services/@artifact.package.path@/@artifact.name@Service.groovy
+   convention: Service
  - command: render
    template: templates/testing/Service.groovy
    destination: src/test/groovy/@artifact.package.path@/@artifact.name@ServiceSpec.groovy
+   convention: Service
