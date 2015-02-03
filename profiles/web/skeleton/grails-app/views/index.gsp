@@ -85,6 +85,7 @@
 		<div id="status" role="complementary">
 			<h1>Application Status</h1>
 			<ul>
+				<li>App profile: ${grailsApplication.config.grails?.profile}</li>
 				<li>App version: <g:meta name="info.app.version"/></li>
 				<li>Grails version: <g:meta name="info.app.grailsVersion"/></li>
 				<li>Groovy version: ${GroovySystem.getVersion()}</li>
