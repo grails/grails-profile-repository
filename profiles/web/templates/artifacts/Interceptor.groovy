@@ -6,7 +6,7 @@ class @artifact.name@Interceptor {
 
   boolean after() { true }
 
-  void afterView(Throwable t) {
+  void afterView() {
     // no-op
   }
 

@@ -13,10 +13,14 @@ class @artifact.name@InterceptorSpec extends Specification {
     }
 
     def cleanup() {
+
     }
 
-    void "test something"() {
-        expect:"fix me"
-            true == false
+    void "Test @artifact.propertyName@ interceptor matching"() {
+        when:"A request matches the interceptor"
+            withRequest(controller:"@artifact.propertyName@")
+
+        then:"The interceptor does match"
+            interceptor.doesMatch()
     }
 }
