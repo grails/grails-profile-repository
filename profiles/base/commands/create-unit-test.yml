@@ -1,9 +1,11 @@
-description: 
+description:
     - Creates a unit test
     - usage: 'create-unit-test [test name]'
     - completer: org.grails.cli.interactive.completers.AllClassCompleter
     - argument: "Unit Test Name"
-      description: "The name of the unit test"   
+      description: "The name of the unit test"
+    - flag: force
+      description: Whether to override existing files      
 steps:
  - command: render
    template: templates/testing/Generic.groovy

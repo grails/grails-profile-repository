@@ -4,6 +4,8 @@ description:
     - completer: org.grails.cli.interactive.completers.DomainClassCompleter
     - argument: "Service Name"
       description: "The name of the service"
+    - flag: force
+      description: Whether to override existing files      
 steps:
  - command: render
    template: templates/artifacts/Service.groovy

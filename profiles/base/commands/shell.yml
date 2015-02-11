@@ -1,0 +1,8 @@
+description: Loads Grails within the Groovy Interactive Shell
+minArguments: 0
+usage: |
+  shell
+steps:
+ - command: gradle
+   tasks:
+     - shell 

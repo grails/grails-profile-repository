@@ -2,8 +2,10 @@ description:
     - Creates a controller
     - usage: 'create-controller [controller name]'
     - completer: org.grails.cli.interactive.completers.DomainClassCompleter
-    - argument: "Controller Name"
-      description: "The name of the controller"
+    - argument: Controller Name
+      description: The name of the controller
+    - flag: force
+      description: Whether to override existing files
 steps:
  - command: render
    template: templates/artifacts/Controller.groovy
