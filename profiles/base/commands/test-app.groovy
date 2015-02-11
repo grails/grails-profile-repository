@@ -6,6 +6,7 @@ description("Runs the applications tests") {
     flag name:'debug-jvm'
     flag name:'unit', description:"Run unit tests (test target)"
     flag name:'integration', description:"Run integration tests (integrationTest target)"
+    flag name:'clean', description:"Re-run all tests (cleanTest cleanIntegrationTest target)"
 }
 
 // configure environment to test is not specified
@@ -19,6 +20,9 @@ boolean debugJvm = flag('debug-jvm')
 
 def handleTestPhase = { targetName ->
     def args = []
+    if(flag('clean')) {
+        args << "clean${targetName.capitalize()}"
+    }
     args << targetName
     if(testsFilter) {
         args << testsFilter
