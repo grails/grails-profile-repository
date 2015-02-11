@@ -1,3 +1,5 @@
+import org.grails.io.watch.*
+
 description("Runs the applications tests") {
     usage "grails test-app [TEST NAME]"
     completer TestsCompleter
@@ -7,6 +9,7 @@ description("Runs the applications tests") {
     flag name:'unit', description:"Run unit tests (test target)"
     flag name:'integration', description:"Run integration tests (integrationTest target)"
     flag name:'clean', description:"Re-run all tests (cleanTest cleanIntegrationTest target)"
+    flag name:'continuous', description:"Monitor the project for changes and reruns tests automatically on each change"
 }
 
 // configure environment to test is not specified
@@ -39,7 +42,7 @@ def gradleArgs = []
 boolean executeUnitTests = flag('unit') || !flag('integration')
 if(executeUnitTests) {
     gradleArgs += handleTestPhase('test')
-} 
+}
 
 boolean hasIntegrationTests = file("src/integration-test").isDirectory()
 boolean executeIntegrationTests = hasIntegrationTests && (flag('integration') || !flag('unit'))
@@ -47,11 +50,41 @@ if(executeIntegrationTests) {
     gradleArgs += handleTestPhase('integrationTest')
 }
 
-try {
-    gradle."${gradleArgs.join(' ')}"()
-    addStatus "Tests PASSED"
-    return true
-} catch(e) {
-    console.error "Tests FAILED", "Test execution failed"
-    return false
+runTests = { List args ->
+  try {
+      gradle."${gradleArgs.join(' ')}"()
+      addStatus "Tests PASSED"
+      return true
+  } catch(e) {
+      console.error "Tests FAILED", "Test execution failed"
+      return false
+  }
+}
+
+
+if(flag('continuous')) {
+  def watcher = new DirectoryWatcher()
+  def ext = ['groovy', 'java']
+  watcher.addWatchDirectory( file("grails-app"), ext)
+  watcher.addWatchDirectory( file("src/main/groovy"), ext)
+  watcher.addWatchDirectory( file("src/test/groovy"), ext)
+  watcher.addWatchDirectory( file("src/integration-test/groovy"), ext)
+  watcher.addListener( new FileExtensionFileChangeListener(ext) {
+      void onChange(File file, List<String> extensions) {
+        console.addStatus "File ${projectPath(file)} changed. Running tests..."
+        runTests(gradleArgs)
+      }
+      void onNew(File file, List<String> extensions) {
+        console.addStatus "File ${projectPath(file)} changed. Running tests..."
+        runTests(gradleArgs)
+      }
+    }
+  )
+
+  watcher.sleepTime = 0
+  watcher.start()
+  console.addStatus "Started continuous test runner. Monitoring files for changes..."
+}
+else {
+  runTests(gradleArgs)
 }
