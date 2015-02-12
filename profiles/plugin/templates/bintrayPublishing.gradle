@@ -12,8 +12,8 @@ bintray {
         name = "org.grails.plugins:$project.name"
         desc = "Grails $project.name plugin"
         websiteUrl = "http://grails.org/plugin/$project.name"
-        issueTrackerUrl = "https://github.com/grails3-plugins/$project.name"
-        vcsUrl = "https://github.com/grails3-plugins/${project.name}/issues"
+        issueTrackerUrl = "https://github.com/grails3-plugins/$project.name/issues"
+        vcsUrl = "https://github.com/grails3-plugins/${project.name}"
         licenses = ['Apache-2.0']
         publicDownloadNumbers = true
         version {
