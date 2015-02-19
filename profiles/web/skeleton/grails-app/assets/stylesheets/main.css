@@ -28,10 +28,6 @@ html.no-cssgradients {
 	background-color: #aaa;
 }
 
-.ie6 html {
-	height: 100%;
-}
-
 html * {
 	margin: 0;
 }
@@ -49,19 +45,6 @@ body {
 
 #grailsLogo {
 	background-color: #abbf78;
-}
-
-/* replace with .no-boxshadow body if you have modernizr available */
-.ie6 body,
-.ie7 body,
-.ie8 body {
-	border-color: #255b17;
-	border-style: solid;
-	border-width: 0 1px;
-}
-
-.ie6 body {
-	height: 100%;
 }
 
 a:link, a:visited, a:hover {
@@ -295,11 +278,6 @@ ul.one-to-many {
 	display: inline-block;
 	list-style-position: inside;
 	vertical-align: top;
-}
-
-.ie6 ul.one-to-many, .ie7 ul.one-to-many {
-	display: inline;
-	zoom: 1;
 }
 
 ul.one-to-many li.add {
@@ -571,11 +549,6 @@ th:hover, tr:hover {
 	background-position: 0.7em center;
 	background-repeat: no-repeat;
 	text-indent: 25px;
-}
-
-.ie6 .buttons input.delete, .ie6 .buttons input.edit, .ie6 .buttons input.save,
-.ie7 .buttons input.delete, .ie7 .buttons input.edit, .ie7 .buttons input.save {
-	padding-left: 36px;
 }
 
 .buttons .delete {
