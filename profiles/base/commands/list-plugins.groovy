@@ -4,7 +4,7 @@ description("Lists available plugins from the Plugin Repository") {
 
 try {
 	console.addStatus "Available Plugins"
-	def text = new URL('http://repo.grails.org/grails/plugins3/org/grails/plugins/').text
+	def text = new URL('https://repo.grails.org/grails/plugins3/org/grails/plugins/').text
 	text.eachMatch(/<a href="([a-z-]+)\/">.+/) {
 		console.log "* ${it[1]}"
 	}

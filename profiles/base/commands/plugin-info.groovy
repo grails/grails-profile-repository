@@ -5,7 +5,7 @@ description("Prints information about the given plugin") {
     argument name:"Plugin Name", description:"The name of the plugin"
 }
 
-def pluginRepoURL = "http://repo.grails.org/grails/plugins3/org/grails/plugins"
+def pluginRepoURL = "https://repo.grails.org/grails/plugins3/org/grails/plugins"
 def pluginName = args[0]
 try {
 	console.addStatus "Plugin Info: ${pluginName}"
