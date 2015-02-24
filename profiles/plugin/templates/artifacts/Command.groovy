@@ -1,12 +1,10 @@
 @artifact.package@
 
-import grails.dev.commands.ApplicationContextCommand
-import org.grails.build.parsing.CommandLine
-import org.springframework.context.ConfigurableApplicationContext
+import grails.dev.commands.*
 
-class @artifact.name@Command implements ApplicationContextCommand {
+class @artifact.name@Command implements ApplicationCommand {
 
-  boolean handle(ConfigurableApplicationContext applicationContext, CommandLine commandLine) {
+  boolean handle(ExecutionContext ctx) {
       return false
   }
 }
