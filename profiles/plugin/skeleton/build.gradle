@@ -19,10 +19,10 @@ plugins {
 version "0.1-SNAPSHOT"
 group "org.grails.plugins"
 
-apply plugin: "org.grails.grails-plugin"
 apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: "org.grails.grails-plugin"
 apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/grailsCentralPublishing.gradle'
 apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/bintrayPublishing.gradle'
 
@@ -53,18 +53,6 @@ dependencies {
   provided "org.grails:grails-core"
   testCompile "org.grails:grails-plugin-testing"
   console "org.grails:grails-console"
-}
-
-eclipse {
-    classpath {
-        plusConfigurations += [configurations.provided]
-    }
-}
-
-idea {
-    module {
-        scopes.PROVIDED.plus += [configurations.provided]
-    }
 }
 
 task wrapper(type: Wrapper) {
