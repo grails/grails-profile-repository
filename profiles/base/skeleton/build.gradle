@@ -19,6 +19,8 @@ version "0.1"
 group "@grails.app.group@"
 
 apply plugin: "spring-boot"
+apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: "org.grails.grails-core"
 
 ext {

@@ -22,6 +22,8 @@ group "@grails.app.group@"
 apply plugin: "spring-boot"
 apply plugin: "war"
 apply plugin: "asset-pipeline"
+apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: "org.grails.grails-web"
 apply plugin: "org.grails.grails-gsp"
 
