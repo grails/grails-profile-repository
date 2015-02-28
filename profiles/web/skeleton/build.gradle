@@ -24,7 +24,6 @@ apply plugin: "war"
 apply plugin: "asset-pipeline"
 apply plugin: "org.grails.grails-web"
 apply plugin: "org.grails.grails-gsp"
-apply plugin: "maven"
 
 ext {
   grailsVersion = project.grailsVersion
