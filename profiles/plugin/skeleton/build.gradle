@@ -1,6 +1,6 @@
 buildscript {
     ext {
-      grailsVersion = project.grailsVersion
+        grailsVersion = project.grailsVersion
     }
     repositories {
         mavenLocal()
@@ -27,17 +27,17 @@ apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/m
 apply from:'https://raw.githubusercontent.com/grails/grails-profile-repository/master/profiles/plugin/templates/bintrayPublishing.gradle'
 
 ext {
-  grailsVersion = project.grailsVersion
-  gradleWrapperVersion = project.gradleWrapperVersion
+    grailsVersion = project.grailsVersion
+    gradleWrapperVersion = project.gradleWrapperVersion
 }
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 repositories {
-  mavenLocal()
-  mavenCentral()
-  maven { url "https://repo.grails.org/grails/core" }
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://repo.grails.org/grails/core" }
 }
 
 
@@ -50,11 +50,11 @@ dependencyManagement {
 
 
 dependencies {
-  provided "org.grails:grails-core"
-  testCompile "org.grails:grails-plugin-testing"
-  console "org.grails:grails-console"
+    provided "org.grails:grails-core"
+    testCompile "org.grails:grails-plugin-testing"
+    console "org.grails:grails-console"
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = gradleWrapperVersion
+    gradleVersion = gradleWrapperVersion
 }

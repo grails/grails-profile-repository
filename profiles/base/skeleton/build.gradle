@@ -1,6 +1,6 @@
 buildscript {
     ext {
-      grailsVersion = "@grails.version@"
+        grailsVersion = "@grails.version@"
     }
     repositories {
         mavenLocal()
@@ -24,13 +24,13 @@ apply plugin: 'idea'
 apply plugin: "org.grails.grails-core"
 
 ext {
-  grailsVersion = "@grails.version@"
-  gradleWrapperVersion = "2.3"
+    grailsVersion = "@grails.version@"
+    gradleWrapperVersion = "2.3"
 }
 
 repositories {
-  mavenLocal()
-  maven { url "https://repo.grails.org/grails/core" }
+    mavenLocal()
+    maven { url "https://repo.grails.org/grails/core" }
 }
 
 dependencyManagement {
@@ -41,14 +41,14 @@ dependencyManagement {
 }
 
 dependencies {
-  compile "org.springframework.boot:spring-boot-autoconfigure"
-  compile "org.grails:grails-dependencies"
+    compile "org.springframework.boot:spring-boot-autoconfigure"
+    compile "org.grails:grails-dependencies"
 
-  runtime 'org.springframework.boot:spring-boot-starter-logging'
+    runtime 'org.springframework.boot:spring-boot-starter-logging'
 
-  console "org.grails:grails-console"
+    console "org.grails:grails-console"
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = gradleWrapperVersion
+    gradleVersion = gradleWrapperVersion
 }

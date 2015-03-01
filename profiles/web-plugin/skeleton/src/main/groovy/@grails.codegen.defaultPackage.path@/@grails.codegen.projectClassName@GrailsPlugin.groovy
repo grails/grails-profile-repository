@@ -4,7 +4,7 @@ import grails.plugins.*
 
 class @grails.codegen.projectClassName@GrailsPlugin extends Plugin {
 
-   // the version or versions of Grails the plugin is designed for
+    // the version or versions of Grails the plugin is designed for
     def grailsVersion = "@grails.version@ > *"
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
