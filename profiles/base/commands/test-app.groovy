@@ -51,40 +51,40 @@ if(executeIntegrationTests) {
 }
 
 runTests = { List args ->
-  try {
-      gradle."${gradleArgs.join(' ')}"()
-      addStatus "Tests PASSED"
-      return true
-  } catch(e) {
-      console.error "Tests FAILED", "Test execution failed"
-      return false
-  }
+    try {
+        gradle."${gradleArgs.join(' ')}"()
+        addStatus "Tests PASSED"
+        return true
+    } catch(e) {
+        console.error "Tests FAILED", "Test execution failed"
+        return false
+    }
 }
 
 
 if(flag('continuous')) {
-  def watcher = new DirectoryWatcher()
-  def ext = ['groovy', 'java']
-  watcher.addWatchDirectory( file("grails-app"), ext)
-  watcher.addWatchDirectory( file("src/main/groovy"), ext)
-  watcher.addWatchDirectory( file("src/test/groovy"), ext)
-  watcher.addWatchDirectory( file("src/integration-test/groovy"), ext)
-  watcher.addListener( new FileExtensionFileChangeListener(ext) {
-      void onChange(File file, List<String> extensions) {
-        console.addStatus "File ${projectPath(file)} changed. Running tests..."
-        runTests(gradleArgs)
-      }
-      void onNew(File file, List<String> extensions) {
-        console.addStatus "File ${projectPath(file)} changed. Running tests..."
-        runTests(gradleArgs)
-      }
+    def watcher = new DirectoryWatcher()
+    def ext = ['groovy', 'java']
+    watcher.addWatchDirectory( file("grails-app"), ext)
+    watcher.addWatchDirectory( file("src/main/groovy"), ext)
+    watcher.addWatchDirectory( file("src/test/groovy"), ext)
+    watcher.addWatchDirectory( file("src/integration-test/groovy"), ext)
+    watcher.addListener( new FileExtensionFileChangeListener(ext) {
+        void onChange(File file, List<String> extensions) {
+            console.addStatus "File ${projectPath(file)} changed. Running tests..."
+            runTests(gradleArgs)
+        }
+        void onNew(File file, List<String> extensions) {
+            console.addStatus "File ${projectPath(file)} changed. Running tests..."
+            runTests(gradleArgs)
+        }
     }
-  )
+    )
 
-  watcher.sleepTime = 0
-  watcher.start()
-  console.addStatus "Started continuous test runner. Monitoring files for changes..."
+    watcher.sleepTime = 0
+    watcher.start()
+    console.addStatus "Started continuous test runner. Monitoring files for changes..."
 }
 else {
-  runTests(gradleArgs)
+    runTests(gradleArgs)
 }
