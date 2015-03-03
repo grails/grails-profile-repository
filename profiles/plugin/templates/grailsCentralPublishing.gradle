@@ -4,15 +4,14 @@ publishing {
             pom.withXml {
                 def pomNode = asNode()
                 pomNode.dependencyManagement.replaceNode {}
-                def pomDependencies = node.get('dependencies').get(0).get('dependency')
-                pomDependencies.each() { pomDep ->
-                    String pomVer = pomDep.get("version").text()
-                    // simply remove dependencies without a version
-                    // version-less dependencies are handled with dependencyManagement
-                    // see https://github.com/spring-gradle-plugins/dependency-management-plugin/issues/8 for more complete solutions
-                    if(pomVer.isEmpty()) {
-                        pomDep.replaceNode {}
-                    }
+
+                // simply remove dependencies without a version
+                // version-less dependencies are handled with dependencyManagement
+                // see https://github.com/spring-gradle-plugins/dependency-management-plugin/issues/8 for more complete solutions
+                pomNode.dependencies.dependency.findAll {
+                    it.version.text().isEmpty()
+                }.each {
+                    it.replaceNode {}
                 }
             }
             artifactId project.name
