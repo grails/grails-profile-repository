@@ -15,6 +15,8 @@ description("Runs the applications tests") {
 // configure environment to test is not specified
 if(!commandLine.isEnvironmentSet()) {
     System.setProperty('grails.env', 'test')
+} else {
+    System.setProperty('grails.env', commandLine.environment)
 }
 
 // add test.single argument if specified

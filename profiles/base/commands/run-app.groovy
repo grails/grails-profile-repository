@@ -6,7 +6,11 @@ description("Runs a Grails application") {
     flag name:'port', description:"Specifies the port which to start Grails on (defaults to 8080 or 8443 for HTTPS)"
 }
 
-
+if(!commandLine.isEnvironmentSet()) {
+    System.setProperty('grails.env', 'dev')
+} else {
+    System.setProperty('grails.env', commandLine.environment)
+}
 // add debug flag if present
 try {
 
