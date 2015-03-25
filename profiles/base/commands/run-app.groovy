@@ -42,10 +42,10 @@ try {
     }
 
     if(flag('debug-jvm')) {
-        gradle."run --debug-jvm"(*arguments)
+        gradle."bootRun --debug-jvm"(*arguments)
     }
     else {
-        gradle.run(*arguments)
+        gradle.bootRun(*arguments)
     }
 }
 catch(org.gradle.tooling.BuildCancelledException e) {
