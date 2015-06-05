@@ -53,8 +53,13 @@ if(executeIntegrationTests) {
 }
 
 runTests = { List args ->
+    def additionalArguments = []
+    commandLine.systemProperties.each { key, value ->
+        additionalArguments << "-D${key}=$value".toString()
+    }
+
     try {
-        gradle."${gradleArgs.join(' ')}"()
+        gradle."${args.join(' ')}"(*additionalArguments)
         addStatus "Tests PASSED"
         return true
     } catch(e) {
