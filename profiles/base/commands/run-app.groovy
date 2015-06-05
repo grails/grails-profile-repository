@@ -18,6 +18,11 @@ try {
     arguments.addAll commandLine.remainingArgs
 
     def port = flag('port')
+
+    commandLine.systemProperties.each { key, value ->
+        arguments << "-D${key}=$value".toString()
+    }
+    
     if(port) {
         arguments << "-Dgrails.server.port=$port"
     }
