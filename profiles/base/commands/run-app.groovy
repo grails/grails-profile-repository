@@ -22,7 +22,7 @@ try {
     commandLine.systemProperties.each { key, value ->
         arguments << "-D${key}=$value".toString()
     }
-    
+
     if(port) {
         arguments << "-Dgrails.server.port=$port"
     }
@@ -43,9 +43,9 @@ try {
                     console.updateStatus "Generated SSL certificate"
                 }
                 else {
-                    console.warn "Unable to automatically generate SSL certificate, manual configuration required. Set 'server.ssl.key-store' in application.yml"   
+                    console.warn "Unable to automatically generate SSL certificate, manual configuration required. Set 'server.ssl.key-store' in application.yml"
                 }
-                
+
             }
             else {
                 keyStoreParametersAvailable = true
@@ -100,7 +100,7 @@ protected boolean createSSLCertificate(File keystoreDir) {
         catch(Throwable e) {
             return false
         }
-        
+
         return true
     }
     else {
@@ -110,17 +110,18 @@ protected boolean createSSLCertificate(File keystoreDir) {
 
 protected Class getKeyToolClass() {
     try {
+        // Sun JDK 8
+        return Class.forName( 'sun.security.tools.keytool.Main' )
+    }
+    catch(ClassNotFoundException e1) {
         try {
+            // Sun pre-JDK 8
             return Class.forName( 'sun.security.tools.KeyTool' )
         }
-        catch (ClassNotFoundException e) {
+        catch (ClassNotFoundException e2) {
             // no try/catch for this one, if neither is found let it fail
             return Class.forName( 'com.ibm.crypto.tools.KeyTool' )
         }
-        
     }
-    catch(Throwable e) {
-        return null
-    }
-    
+
 }
