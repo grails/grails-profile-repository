@@ -1,7 +1,7 @@
-description: Packages the plugin into a JAR file
+description: Packages a Grails plugin
 minArguments: 0
 usage: |
- package-plugin
+ package
 steps:
  - command: gradle
    tasks:
