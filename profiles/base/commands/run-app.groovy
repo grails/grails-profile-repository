@@ -5,6 +5,7 @@ description("Runs a Grails application") {
     flag name:'https', description:"Starts Grails in HTTPS mode on port 8443"
     flag name:'port', description:"Specifies the port which to start Grails on (defaults to 8080 or 8443 for HTTPS)"
     flag name:'host', description:"Specifies the host to bind to"
+    flag name:'verbose', description:"Show more output from the build during startup"
 }
 
 if(!commandLine.isEnvironmentSet()) {
@@ -15,7 +16,14 @@ if(!commandLine.isEnvironmentSet()) {
 // add debug flag if present
 try {
 
-    def arguments = ['--quiet', '-Dgrails.endpoints.shutdown.enabled=true']
+    def arguments = []
+
+
+    if( !(flag('verbose') || console.verbose)) {
+        arguments << '--quiet'
+    }
+
+    arguments << '-Dgrails.endpoints.shutdown.enabled=true'
 
 
     arguments.addAll commandLine.remainingArgs
