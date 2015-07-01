@@ -14,7 +14,7 @@ if(!commandLine.isEnvironmentSet()) {
 // add debug flag if present
 try {
 
-    def arguments = []
+    def arguments = ['--quiet']
     arguments.addAll commandLine.remainingArgs
 
     def port = flag('port')
@@ -59,11 +59,21 @@ try {
         }
     }
 
+    console.updateStatus "Running application..."
+    def future
     if(flag('debug-jvm')) {
-        gradle."bootRun --debug-jvm"(*arguments)
+        future = gradle.async."bootRun --debug-jvm"(*arguments)
     }
     else {
-        gradle.bootRun(*arguments)
+        future = gradle.async."bootRun"(*arguments)
+    }
+
+    while(!isServerAvailable()) {
+        if(future.done) {
+            // the server exited for some reason, so break
+            break
+        }
+        sleep 100
     }
 }
 catch(org.gradle.tooling.BuildCancelledException e) {
