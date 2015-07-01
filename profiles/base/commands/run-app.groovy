@@ -88,12 +88,11 @@ try {
         if(future.done) {
             // the server exited for some reason, so break
             if(future.get() instanceof Throwable) {
-                sleep 200
                 break    
             }            
         }
-        sleep 200
     }
+    sleep 500
 }
 catch(org.gradle.tooling.BuildCancelledException e) {
     console.updateStatus("Application stopped")
