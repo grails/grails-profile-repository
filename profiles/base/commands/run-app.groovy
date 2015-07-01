@@ -4,6 +4,7 @@ description("Runs a Grails application") {
     flag name:'debug-jvm', description:"Starts the JVM in debug mode allowing attachment of a remote debugger"
     flag name:'https', description:"Starts Grails in HTTPS mode on port 8443"
     flag name:'port', description:"Specifies the port which to start Grails on (defaults to 8080 or 8443 for HTTPS)"
+    flag name:'host', description:"Specifies the host to bind to"
 }
 
 if(!commandLine.isEnvironmentSet()) {
@@ -14,10 +15,14 @@ if(!commandLine.isEnvironmentSet()) {
 // add debug flag if present
 try {
 
-    def arguments = ['--quiet']
+    def arguments = ['--quiet', '-Dgrails.endpoints.shutdown.enabled=true']
+
+
     arguments.addAll commandLine.remainingArgs
 
-    def port = flag('port')
+    Integer port = flag('port') ?: config.getProperty('server.port', Integer)
+    String host = flag('host') ?: config.getProperty('server.address', String)
+
 
     commandLine.systemProperties.each { key, value ->
         arguments << "-D${key}=$value".toString()
@@ -26,6 +31,9 @@ try {
     if(port) {
         arguments << "-Dgrails.server.port=$port"
     }
+    if(host) {
+        arguments << "-Dgrails.server.address=$host"
+    } 
 
     if(flag('https')) {
         if(!port) {
@@ -68,12 +76,15 @@ try {
         future = gradle.async."bootRun"(*arguments)
     }
 
-    while(!isServerAvailable()) {
+    while(!isServerAvailable(host ?: "localhost", port ?: 8080)) {
         if(future.done) {
             // the server exited for some reason, so break
-            break
+            if(future.get() instanceof Throwable) {
+                sleep 200
+                break    
+            }            
         }
-        sleep 100
+        sleep 200
     }
 }
 catch(org.gradle.tooling.BuildCancelledException e) {
