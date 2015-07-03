@@ -92,7 +92,15 @@ try {
             }            
         }
     }
-    sleep 500
+
+    if(!org.grails.cli.GrailsCli.isInteractiveModeActive()) {
+        // if interactive mode is not active, then block and don't exit
+        return future.get()
+    }
+    else {
+        sleep 500    
+    }
+    
 }
 catch(org.gradle.tooling.BuildCancelledException e) {
     console.updateStatus("Application stopped")
