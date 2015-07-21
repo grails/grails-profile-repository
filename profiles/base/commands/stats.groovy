@@ -27,6 +27,7 @@ def DEFAULT_LOC_MATCHER = { file ->
 // maps file path to
 def pathToInfo = [
     [name: "Controllers",        path: "^grails-app.controllers",      filetype: ["Controller.groovy"]],
+    [name: "Interceptors",       path: "^grails-app.controllers",      filetype: ["Interceptor.groovy"]],
     [name: "Domain Classes",     path: "^grails-app.domain",           filetype: [".groovy"]],
     [name: "Jobs",               path: "^grails-app.job",              filetype: [".groovy"]],
     [name: "Services",           path: "^grails-app.services",         filetype: ["Service.groovy"]],
