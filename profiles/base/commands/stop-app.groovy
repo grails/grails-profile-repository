@@ -6,7 +6,7 @@ description("Stops the running Grails application") {
 
 }
 
-Integer port = flag('port') ?: config.getProperty('server.port', Integer) ?: 8080
+Integer port = flag('port')?.toInteger() ?: config.getProperty('server.port', Integer) ?: 8080
 String host = flag('host') ?: config.getProperty('server.address', String) ?: "localhost"
 String path = config.getProperty('server.context-path') ?: config.getProperty('server.contextPath') ?: ""
 console.updateStatus "Shutting down application..."

@@ -28,7 +28,7 @@ try {
 
     arguments.addAll commandLine.remainingArgs
 
-    Integer port = flag('port') ?: config.getProperty('server.port', Integer)
+    Integer port = flag('port')?.toInteger() ?: config.getProperty('server.port', Integer)
     String host = flag('host') ?: config.getProperty('server.address', String)
 
 
