@@ -3,16 +3,27 @@ import groovy.xml.*
 description("Prints information about the given plugin") {
     usage "grails plugin-info [PLUGIN NAME]"
     argument name:"Plugin Name", description:"The name of the plugin"
+    flag name:'snapshots', description:"Whether to list snapshot versions"
 }
 
 def pluginRepoURL = "https://repo.grails.org/grails/plugins3/org/grails/plugins"
 def pluginName = args[0]
+def includeSnapshots = flag('snapshots')
 try {
     console.addStatus "Plugin Info: ${pluginName}"
     def mavenMetadata = new XmlSlurper().parseText(new URL("${pluginRepoURL}/${pluginName}/maven-metadata.xml").text)
-    def latestVersion = mavenMetadata.versioning.latest.text()
+    def latestVersion = mavenMetadata.versioning.release.text()
+    if(!latestVersion) {
+        latestVersion = mavenMetadata.versioning.latest.text()
+    }
     console.addStatus "Latest Version: ${latestVersion}"
-    console.addStatus "All Versions: ${mavenMetadata.versioning.versions.version*.text().join(',')}"
+    allVersions = mavenMetadata.versioning.versions.version*.text()
+    if(!includeSnapshots) {
+        allVersions = allVersions.findAll {
+            !it?.endsWith('-SNAPSHOT')
+        }        
+    }
+    console.addStatus "All Versions: ${allVersions.join(',')}"
 
 
     def pluginInfo
