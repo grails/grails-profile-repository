@@ -57,6 +57,10 @@ hibernate:
         use_query_cache: false
         region.factory_class: 'org.hibernate.cache.ehcache.EhCacheRegionFactory' 
         
+endpoints:
+    jmx:
+        unique-names: true
+
 dataSource:
     pooled: true
     jmxExport: true
