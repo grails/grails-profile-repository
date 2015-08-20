@@ -1,6 +1,6 @@
 description:
     - Creates a domain class that represents a resource
-    - usage: 'create-resource [resource name]'
+    - usage: 'create-domain-resource [resource name]'
     - argument: Resource Name
       description: The name of the resource
     - flag: force
