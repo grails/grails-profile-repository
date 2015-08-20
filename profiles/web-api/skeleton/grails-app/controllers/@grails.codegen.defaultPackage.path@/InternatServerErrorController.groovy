@@ -1,3 +1,5 @@
+package @grails.codegen.defaultPackage@
+
 class InternalServerErrorController {
 
     def index() {

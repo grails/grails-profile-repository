@@ -1,9 +1,10 @@
-import grails.converters.JSON
+package @grails.codegen.defaultPackage@
+
 import grails.core.GrailsApplication
 
 class IndexController {
 
-    def GrailsApplication grailsApplication
+    GrailsApplication grailsApplication
 
     def index() {
         render(contentType: 'application/json') {
