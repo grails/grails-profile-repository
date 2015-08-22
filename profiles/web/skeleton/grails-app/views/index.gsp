@@ -94,7 +94,7 @@
                 <li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
                 <li>Domains: ${grailsApplication.domainClasses.size()}</li>
                 <li>Services: ${grailsApplication.serviceClasses.size()}</li>
-                <li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>                    
+                <li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
             </ul>
             <h1>Installed Plugins</h1>
             <ul>

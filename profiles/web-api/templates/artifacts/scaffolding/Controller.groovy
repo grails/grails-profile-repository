@@ -61,7 +61,7 @@ class ${className}Controller {
 
         ${propertyName}.save flush:true
 
-        respond ${propertyName}, [status: OK] 
+        respond ${propertyName}, [status: OK]
     }
 
     @Transactional
@@ -75,7 +75,6 @@ class ${className}Controller {
 
         ${propertyName}.delete flush:true
 
-        render status: NO_CONTENT 
+        render status: NO_CONTENT
     }
-
 }

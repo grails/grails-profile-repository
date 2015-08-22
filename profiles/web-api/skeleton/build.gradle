@@ -51,8 +51,7 @@ dependencies {
     compile "org.grails:grails-plugin-services"
     compile "org.grails:grails-plugin-datasource"
     compile "org.grails:grails-plugin-async"
-    compile "org.grails:grails-web-boot"    
-    
+    compile "org.grails:grails-web-boot"
 
     compile "org.grails.plugins:hibernate"
     compile "org.grails.plugins:cache"

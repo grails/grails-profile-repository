@@ -8,5 +8,4 @@ class InternalServerErrorController {
             message = "Internal server error"
         }
     }
-
 }

@@ -14,7 +14,7 @@ grails:
             css: text/css
             csv: text/csv
             form: application/x-www-form-urlencoded
-            html: 
+            html:
               - text/html
               - application/xhtml+xml
             js: text/javascript
@@ -25,7 +25,7 @@ grails:
             pdf: application/pdf
             rss: application/rss+xml
             text: text/plain
-            hal: 
+            hal:
               - application/hal+json
               - application/hal+xml
             xml:
@@ -55,8 +55,8 @@ hibernate:
         queries: false
         use_second_level_cache: true
         use_query_cache: false
-        region.factory_class: 'org.hibernate.cache.ehcache.EhCacheRegionFactory' 
-        
+        region.factory_class: 'org.hibernate.cache.ehcache.EhCacheRegionFactory'
+
 endpoints:
     jmx:
         unique-names: true

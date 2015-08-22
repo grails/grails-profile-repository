@@ -6,7 +6,7 @@ description:
       description: "The name of the interceptor"
     - flag: force
       description: Whether to override existing files
-      
+
 steps:
  - command: render
    template: templates/artifacts/Interceptor.groovy

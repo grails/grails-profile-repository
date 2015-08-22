@@ -43,13 +43,13 @@ def gradleArgs = []
 
 boolean executeUnitTests = flag('unit') || !flag('integration')
 if(executeUnitTests) {
-    gradleArgs += handleTestPhase('test')
+    gradleArgs.addAll handleTestPhase('test')
 }
 
 boolean hasIntegrationTests = file("src/integration-test").isDirectory()
 boolean executeIntegrationTests = hasIntegrationTests && (flag('integration') || !flag('unit'))
 if(executeIntegrationTests) {
-    gradleArgs += handleTestPhase('integrationTest')
+    gradleArgs.addAll handleTestPhase('integrationTest')
 }
 
 runTests = { List args ->
@@ -68,7 +68,6 @@ runTests = { List args ->
     }
 }
 
-
 if(flag('continuous')) {
     def watcher = new DirectoryWatcher()
     def ext = ['groovy', 'java']
@@ -85,8 +84,7 @@ if(flag('continuous')) {
             console.addStatus "File ${projectPath(file)} changed. Running tests..."
             runTests(gradleArgs)
         }
-    }
-    )
+    })
 
     watcher.sleepTime = 0
     watcher.start()

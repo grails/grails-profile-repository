@@ -10,8 +10,8 @@ appVersion = config.getProperty('info.app.version', String) ?: '0.1'
 jar = file("${buildDir}/${appName}-${appVersion}.jar")
 args = [ jar.absolutePath ]
 args.addAll allResources.findAll { res -> !['Spec', 'Test', 'Tests'].any { res.filename.endsWith(it) }  }
-                   .sort { it.filename == "Application.groovy" ? 1 : 0 }
-                   .collect { projectPath(it.file) }
+                        .sort { it.filename == "Application.groovy" ? 1 : 0 }
+                        .collect { projectPath(it.file) }
 
 args.addAll commandLine.remainingArgs
 if(spring.jar(*args) == 0) {
@@ -20,6 +20,3 @@ if(spring.jar(*args) == 0) {
 else {
     error "Error building JAR file"
 }
-
-
-

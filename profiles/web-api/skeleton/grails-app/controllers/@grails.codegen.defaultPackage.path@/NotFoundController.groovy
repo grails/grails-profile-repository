@@ -8,5 +8,4 @@ class NotFoundController {
             message = "Not Found"
         }
     }
-
 }

@@ -13,5 +13,3 @@ catch(Throwable e) {
     console.error "Failed to list plugins", e
     return false
 }
-
-

@@ -21,10 +21,9 @@ try {
     if(!includeSnapshots) {
         allVersions = allVersions.findAll {
             !it?.endsWith('-SNAPSHOT')
-        }        
+        }
     }
     console.addStatus "All Versions: ${allVersions.join(',')}"
-
 
     def pluginInfo
     if(latestVersion.endsWith('-SNAPSHOT')) {
@@ -57,11 +56,8 @@ try {
             console.log "* Source: ${pluginInfo.scm.@url.text()}"
         }
     }
-
 }
 catch(Throwable e) {
     console.error "Failed to display plugin info: ${e.message}", e
     return false
 }
-
-
