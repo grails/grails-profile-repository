@@ -1,20 +1,17 @@
 bintray {
-    def u = System.getenv("BINTRAY_USER") ?: project.hasProperty("bintrayUser") ? project.bintrayUser : ''
-    def p = System.getenv("BINTRAY_KEY") ?: project.hasProperty("bintrayKey") ? project.bintrayKey : ''
-
-    user = u
-    key = p
+    user = System.getenv("BINTRAY_USER") ?: project.hasProperty("bintrayUser") ? project.bintrayUser : ''
+    key = System.getenv("BINTRAY_KEY") ?: project.hasProperty("bintrayKey") ? project.bintrayKey : ''
     publications = ['maven']
     publish = true
     pkg {
-        repo = 'plugins'
-        userOrg = 'grails'
+        repo = project.hasProperty('repo') ? project.repo : 'plugins'
+        userOrg = project.hasProperty('userOrg') ? project.userOrg : 'grails'
         name = "org.grails.plugins:$project.name"
-        desc = "Grails $project.name plugin"
-        websiteUrl = "http://grails.org/plugin/$project.name"
-        issueTrackerUrl = "https://github.com/grails3-plugins/$project.name/issues"
-        vcsUrl = "https://github.com/grails3-plugins/${project.name}"
-        licenses = ['Apache-2.0']
+        desc = project.hasProperty('desc') ? project.desc : "Grails $project.name plugin"
+        websiteUrl = project.hasProperty('websiteUrl') ? project.websiteUrl : "http://grails.org/plugin/$project.name"
+        issueTrackerUrl = project.hasProperty('issueTrackerUrl') ? project.issueTrackerUrl : "https://github.com/grails3-plugins/$project.name/issues"
+        vcsUrl = project.hasProperty('vcsUrl') ? project.vcsUrl : "https://github.com/grails3-plugins/$project.name"
+        licenses = project.hasProperty('license') ? [project.license] : ['Apache-2.0']
         publicDownloadNumbers = true
         version {
             attributes = ['grails-plugin': "org.grails.plugins:$project.name"]
@@ -25,12 +22,9 @@ bintray {
             }
             mavenCentralSync {
                 sync = false
-                def ossUser = System.getenv("SONATYPE_USERNAME") ?: project.hasProperty("sonatypeOssUsername") ? project.sonatypeOssUsername : ''
-                def ossPass = System.getenv("SONATYPE_PASSWORD") ?: project.hasProperty("sonatypeOssPassword") ? project.sonatypeOssPassword : ''
-                user = ossUser
-                password = ossPass
+                user = System.getenv("SONATYPE_USERNAME") ?: project.hasProperty("sonatypeOssUsername") ? project.sonatypeOssUsername : ''
+                password = System.getenv("SONATYPE_PASSWORD") ?: project.hasProperty("sonatypeOssPassword") ? project.sonatypeOssPassword : ''
             }
-
         }
     }
 }

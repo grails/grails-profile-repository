@@ -1,6 +1,5 @@
 description("Creates a WAR file for deployment to a container (like Tomcat)") {
     usage "grails [ENV] war"
-
     synonyms 'assemble'
     flag name:'clean', description:"Execute 'clean' prior to creating WAR"
 }
@@ -16,7 +15,6 @@ def arguments = []
 commandLine.systemProperties.each { key, value ->
     arguments << "-D${key}=$value".toString()
 }
-
 
 gradle."assemble"(*arguments)
 

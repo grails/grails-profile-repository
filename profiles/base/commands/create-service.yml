@@ -5,7 +5,7 @@ description:
     - argument: "Service Name"
       description: "The name of the service"
     - flag: force
-      description: Whether to override existing files      
+      description: Whether to override existing files
 steps:
  - command: render
    template: templates/artifacts/Service.groovy

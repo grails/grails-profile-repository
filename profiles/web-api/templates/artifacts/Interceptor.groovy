@@ -9,5 +9,4 @@ class @artifact.name@Interceptor {
     void afterView() {
         // no-op
     }
-
 }

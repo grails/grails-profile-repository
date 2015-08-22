@@ -18,19 +18,16 @@ try {
 
     def arguments = []
 
-
     if( !(flag('verbose') || console.verbose)) {
         arguments << '--quiet'
     }
 
     arguments << '-Dgrails.endpoints.shutdown.enabled=true'
 
-
     arguments.addAll commandLine.remainingArgs
 
     Integer port = flag('port')?.toInteger() ?: config.getProperty('server.port', Integer)
     String host = flag('host') ?: config.getProperty('server.address', String)
-
 
     commandLine.systemProperties.each { key, value ->
         arguments << "-D${key}=$value".toString()
@@ -41,7 +38,7 @@ try {
     }
     if(host) {
         arguments << "-Dgrails.server.address=$host"
-    } 
+    }
 
     if(flag('https')) {
         if(!port) {
@@ -61,7 +58,6 @@ try {
                 else {
                     console.warn "Unable to automatically generate SSL certificate, manual configuration required. Set 'server.ssl.key-store' in application.yml"
                 }
-
             }
             else {
                 keyStoreParametersAvailable = true
@@ -70,7 +66,6 @@ try {
                 arguments << "-Dgrails.server.ssl.key-store=${keystoreFile}"
                 arguments << "-Dgrails.server.ssl.key-store-password=123456"
                 arguments << "-Dgrails.server.ssl.key-password=123456"
-
             }
         }
     }
@@ -88,8 +83,8 @@ try {
         if(future.done) {
             // the server exited for some reason, so break
             if(future.get() instanceof Throwable) {
-                break    
-            }            
+                break
+            }
         }
     }
 
@@ -98,9 +93,9 @@ try {
         return future.get()
     }
     else {
-        sleep 500    
+        sleep 500
     }
-    
+
 }
 catch(org.gradle.tooling.BuildCancelledException e) {
     console.updateStatus("Application stopped")
@@ -110,7 +105,6 @@ catch(Throwable e) {
     console.error "Failed to start server", e
     return false
 }
-
 
 protected boolean createSSLCertificate(File keystoreDir) {
 
@@ -164,5 +158,4 @@ protected Class getKeyToolClass() {
     catch(Throwable e) {
         return null
     }
-
 }

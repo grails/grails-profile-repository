@@ -1,11 +1,7 @@
 .DS_Store
 /build
 /.gradle
-/target
-plugin.xml
 *.log
-*.zip
-*.zip.sha1
 cobertura.ser
 *.idea/**
 *.iml

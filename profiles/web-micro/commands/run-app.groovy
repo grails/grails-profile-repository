@@ -14,13 +14,11 @@ args.addAll commandLine.remainingArgs
 if(spring.run(*args) == 0) {
     if(!GrailsCli.isInteractiveModeActive()) {
         // block if interactive mode is not running
-        while(true)
+        while(true) {
             sleep(Long.MAX_VALUE)
+        }
     }
 }
 else {
     return false
 }
-
-
-
