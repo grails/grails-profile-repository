@@ -64,7 +64,6 @@ if(addresses) {
         return true
     }
     catch(e) {
-    	println "ERROR $e.message"
 		console.addStatus "Application not found via JMX, attempting remote shutdown."
     }
 	finally {
