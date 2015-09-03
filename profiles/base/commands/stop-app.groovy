@@ -12,6 +12,7 @@ description("Stops the running Grails application") {
 System.setProperty("run-app.running", "false")
 def getJMXLocalConnectorAddresses = {->
 	final applicationMainClassName = MainClassFinder.findMainClass()
+
 	if(applicationMainClassName) {
 		try {
 		    final String CONNECTOR_ADDRESS = "com.sun.management.jmxremote.localConnectorAddress"
@@ -45,7 +46,7 @@ def getJMXLocalConnectorAddresses = {->
 		}
 	}
 }
-console.updateStatus "Application shutdown."
+
 
 def addresses = getJMXLocalConnectorAddresses() 
 if(addresses) {
@@ -55,45 +56,45 @@ if(addresses) {
 	try {
 	    def server = connector.MBeanServerConnection
 
-	    def objectName = new ObjectName("org.springframework.boot:type=Endpoint,name=shutdownEndpoint")
-	    def modules = server.queryNames(objectName, null).collect { new GroovyMBean(server, it) }
-	    if(modules) {
-		    modules.each { mbean ->
-		    	console.addStatus "Shutting down application..."
-		        mbean.shutdown()
-		        console.addStatus "Application shutdown."
-		        return true
-		    }
-	    }
-
-	} finally {
+	    def objectName = server.queryNames(null,null).find {  it.canonicalName.contains('name=shutdownEndpoint,type=Endpoint') }
+	    def mbean = new GroovyMBean(server, objectName)
+    	console.addStatus "Shutting down application..."
+        mbean.shutdown()
+        console.addStatus "Application shutdown."
+        return true
+    }
+    catch(e) {
+    	println "ERROR $e.message"
+		console.addStatus "Application not found via JMX, attempting remote shutdown."
+    }
+	finally {
 	    connector.close()
 	}	
 }
-else {
-	console.addStatus "Application not found via JMX, attempting remote shutdown."
-	Integer port = flag('port')?.toInteger() ?: config.getProperty('server.port', Integer) ?: 8080
-	String host = flag('host') ?: config.getProperty('server.address', String) ?: "localhost"
-	String path = config.getProperty('server.context-path') ?: config.getProperty('server.contextPath') ?: ""
-	console.updateStatus "Shutting down application..."
-	def url = new URL("http://$host:${port}${path}/shutdown")
-	try {
-		def connection = url.openConnection()
-		connection.setRequestMethod("POST")
-		connection.doOutput = true
-		connection.connect()
-		console.updateStatus connection.content.text
-		while(isServerAvailable(host, port)) {
-			sleep 100
-		}
-		console.updateStatus "Application shutdown."
-		return true
-		
+
+
+Integer port = flag('port')?.toInteger() ?: config.getProperty('server.port', Integer) ?: 8080
+String host = flag('host') ?: config.getProperty('server.address', String) ?: "localhost"
+String path = config.getProperty('server.context-path') ?: config.getProperty('server.contextPath') ?: ""
+console.updateStatus "Shutting down application..."
+def url = new URL("http://$host:${port}${path}/shutdown")
+try {
+	def connection = url.openConnection()
+	connection.setRequestMethod("POST")
+	connection.doOutput = true
+	connection.connect()
+	console.updateStatus connection.content.text
+	while(isServerAvailable(host, port)) {
+		sleep 100
 	}
-	catch (e) {
-		console.error "Application not running."		
-		return false
-	}
+	console.updateStatus "Application shutdown."
+	return true
 	
 }
+catch (e) {
+	console.error "Application not running."		
+	return false
+}
+	
+
 
