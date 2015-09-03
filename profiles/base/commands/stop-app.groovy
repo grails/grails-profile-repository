@@ -77,15 +77,23 @@ else {
 	String path = config.getProperty('server.context-path') ?: config.getProperty('server.contextPath') ?: ""
 	console.updateStatus "Shutting down application..."
 	def url = new URL("http://$host:${port}${path}/shutdown")
-	def connection = url.openConnection()
-	connection.setRequestMethod("POST")
-	connection.doOutput = true
-	connection.connect()
-	console.updateStatus connection.content.text
-	while(isServerAvailable(host, port)) {
-		sleep 100
+	try {
+		def connection = url.openConnection()
+		connection.setRequestMethod("POST")
+		connection.doOutput = true
+		connection.connect()
+		console.updateStatus connection.content.text
+		while(isServerAvailable(host, port)) {
+			sleep 100
+		}
+		console.updateStatus "Application shutdown."
+		return true
+		
 	}
-	console.updateStatus "Application shutdown."
-	return true
+	catch (e) {
+		console.error "Application not running."		
+		return false
+	}
+	
 }
 
