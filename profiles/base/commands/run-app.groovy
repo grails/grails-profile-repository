@@ -1,3 +1,5 @@
+
+
 description("Runs a Grails application") {
     usage "grails run-app"
     synonyms 'run'
@@ -93,6 +95,14 @@ try {
         return future.get()
     }
     else {
+        if(!Boolean.getBoolean("run-app.shutdown.hook.registered")) {
+            System.setProperty("run-app.shutdown.hook.registered", "true")
+            addShutdownHook {
+                stopApp()
+            }            
+            isShutdownHookRegistered = true
+        }
+
         sleep 500
     }
 
