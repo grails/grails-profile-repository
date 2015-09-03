@@ -9,7 +9,7 @@ description("Stops the running Grails application") {
     flag name:'port', description:"Specifies the port which the Grails application is running on (defaults to 8080 or 8443 for HTTPS)"
     flag name:'host', description:"Specifies the host the Grails application is bound to"
 }
-
+System.setProperty("run-app.running", "false")
 def getJMXLocalConnectorAddresses = {->
 	final applicationMainClassName = MainClassFinder.findMainClass()
 	if(applicationMainClassName) {

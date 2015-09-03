@@ -95,16 +95,18 @@ try {
         return future.get()
     }
     else {
+        System.setProperty("run-app.running", "true")
         if(!Boolean.getBoolean("run-app.shutdown.hook.registered")) {
             System.setProperty("run-app.shutdown.hook.registered", "true")
             addShutdownHook {
-                try {
-                    stopApp()
-                }
-                catch(e) {
-                    // ignore
-                }
-                
+                if(Boolean.getBoolean("run-app.running")) {
+                    try {
+                        stopApp()
+                    }
+                    catch(e) {
+                        // ignore
+                    }                    
+                }                
             }            
             isShutdownHookRegistered = true
         }
