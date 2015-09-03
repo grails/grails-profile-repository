@@ -10,35 +10,44 @@ description("Stops the running Grails application") {
     flag name:'host', description:"Specifies the host the Grails application is bound to"
 }
 
-def getJMXLocalConnectorAddresses = { applicationMainClassName ->
-    final String CONNECTOR_ADDRESS = "com.sun.management.jmxremote.localConnectorAddress"
-    def VirtualMachine = getClass().classLoader.loadClass('com.sun.tools.attach.VirtualMachine')
-    return VirtualMachine.list()
-        .findAll { 
-        	it.displayName() == applicationMainClassName 
-        }
-        .collect { desc ->
-            def vm = VirtualMachine.attach(desc.id())
-            try {
-                def connectorAddress = vm.agentProperties.getProperty(CONNECTOR_ADDRESS)
-                if (connectorAddress == null) {
-                    // Trying to load agent
-                    def agent = [vm.systemProperties.getProperty("java.home"), "lib", "management-agent.jar"].join(File.separator)
-                    vm.loadAgent(agent)
+def getJMXLocalConnectorAddresses = {->
+	final applicationMainClassName = MainClassFinder.findMainClass()
+	if(applicationMainClassName) {
+		try {
+		    final String CONNECTOR_ADDRESS = "com.sun.management.jmxremote.localConnectorAddress"
+		    def VirtualMachine = getClass().classLoader.loadClass('com.sun.tools.attach.VirtualMachine')
+		    return VirtualMachine.list()
+		        .findAll { 
+		        	it.displayName() == applicationMainClassName 
+		        }
+		        .collect { desc ->
+		            def vm = VirtualMachine.attach(desc.id())
+		            try {
+		                def connectorAddress = vm.agentProperties.getProperty(CONNECTOR_ADDRESS)
+		                if (connectorAddress == null) {
+		                    // Trying to load agent
+		                    def agent = [vm.systemProperties.getProperty("java.home"), "lib", "management-agent.jar"].join(File.separator)
+		                    vm.loadAgent(agent)
 
-                    connectorAddress = vm.agentProperties.getProperty(CONNECTOR_ADDRESS)
-                }
-                if (connectorAddress) {
-                    return connectorAddress
-                }
-            } finally {
-                vm.detach()
-            }
-        }.findAll { it }
+		                    connectorAddress = vm.agentProperties.getProperty(CONNECTOR_ADDRESS)
+		                }
+		                if (connectorAddress) {
+		                    return connectorAddress
+		                }
+		            } finally {
+		                vm.detach()
+		            }
+		        }.findAll { it }
+				
+		}
+		catch(Throwable e) {
+			// fallback to REST request if JMX not available
+		}
+	}
 }
 console.updateStatus "Application shutdown."
-final applicationMainClassName = MainClassFinder.findMainClass()
-def addresses = applicationMainClassName ? getJMXLocalConnectorAddresses(applicationMainClassName) : null
+
+def addresses = getJMXLocalConnectorAddresses() 
 if(addresses) {
 	JMXServiceURL url = new JMXServiceURL(addresses[0])
 	def connector = JMXConnectorFactory.connect(url)
