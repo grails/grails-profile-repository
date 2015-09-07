@@ -4,7 +4,7 @@ description("Creates a WAR file for deployment to a container (like Tomcat)") {
     flag name:'clean', description:"Execute 'clean' prior to creating WAR"
 }
 
-// configure environment to production is not specified
+// configure environment to production if it is not specified
 if(!commandLine.isEnvironmentSet()) {
     System.setProperty('grails.env', 'production')
 } else {
