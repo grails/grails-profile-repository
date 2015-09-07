@@ -55,6 +55,14 @@ try {
         if(pluginInfo.scm) {
             console.log "* Source: ${pluginInfo.scm.@url.text()}"
         }
+
+        console.log """* Definition:
+
+dependencies {
+    compile "org.grails.plugins:${pluginName}:${latestVersion}"    
+}
+
+"""
     }
 }
 catch(Throwable e) {
