@@ -25,7 +25,7 @@ apply plugin: "org.grails.grails-core"
 
 ext {
     grailsVersion = "@grails.version@"
-    gradleWrapperVersion = "2.3"
+    gradleWrapperVersion = project.gradleWrapperVersion
 }
 
 repositories {
