@@ -1,0 +1,25 @@
+import grails.core.*
+import grails.util.*
+import grails.plugins.*
+import org.grails.core.artefact.*
+
+model {
+	GrailsApplication grailsApplication	
+	GrailsPluginManager pluginManager
+}
+
+json {
+	message "Welcome to Grails!"
+    environment Environment.current.name
+    appversion grailsApplication.metadata.getApplicationVersion()
+    grailsversion GrailsUtil.grailsVersion
+    appprofile grailsApplication.config.getProperty('grails.profile')
+    groovyversion GroovySystem.getVersion()
+    jvmversion System.getProperty('java.version')
+    controllers grailsApplication.getArtefacts(ControllerArtefactHandler.TYPE), { GrailsClass c ->
+        name c.fullName
+    }
+    plugins pluginManager.allPlugins, { GrailsPlugin plugin ->
+    	name plugin.fullName
+    }	
+}

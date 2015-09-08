@@ -7,8 +7,8 @@ class UrlMappings {
             }
         }
 
-        "/"(controller: 'index')
-        "500"(controller: 'InternalServerError')
-        "404"(controller: 'NotFound')
+        "/"(controller: 'application', 'index')
+        "500"(view: '/application/serverError')
+        "404"(view: '/application/notFound')
     }
 }
