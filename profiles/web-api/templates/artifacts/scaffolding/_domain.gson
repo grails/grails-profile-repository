@@ -1,0 +1,9 @@
+import ${fullName}
+
+model {
+	${className} ${propertyName}
+}
+
+json {
+	// TODO: populate properties
+}

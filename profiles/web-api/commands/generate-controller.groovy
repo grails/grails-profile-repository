@@ -1,9 +1,10 @@
 import org.grails.cli.interactive.completers.DomainClassCompleter
 
 description( "Generates a controller that performs REST operations" ) {
-  usage "grails generate-resource-controller [DOMAIN CLASS]"
+  usage "grails generate-controller [DOMAIN CLASS]"
   argument name:'Domain Class', description:"The name of the domain class", required:true
   completer DomainClassCompleter
+  synonyms 'generate-resource-controller'
   flag name:'force', description:"Whether to overwrite existing files"
 }
 
@@ -22,7 +23,7 @@ if(args) {
              model: model,
              overwrite: overwrite
 
-      // TODO: Produce a test
+      // TODO: Produce a unit test and a functional test using RestBuilder
       // render template: template('scaffolding/Spec.groovy'),
       //        destination: file("src/test/groovy/${model.packagePath}/${model.convention('ControllerSpec')}.groovy"),
       //        model: model,

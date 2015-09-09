@@ -18,10 +18,6 @@ class ${className}Controller {
         respond ${propertyName}
     }
 
-    def create() {
-        respond new ${className}(params)
-    }
-
     @Transactional
     def save(${className} ${propertyName}) {
         if (${propertyName} == null) {
@@ -38,11 +34,7 @@ class ${className}Controller {
 
         ${propertyName}.save flush:true
 
-        respond ${propertyName}, [status: CREATED]
-    }
-
-    def edit(${className} ${propertyName}) {
-        respond ${propertyName}
+        respond ${propertyName}, [status: CREATED, view:"show"]
     }
 
     @Transactional
@@ -61,7 +53,7 @@ class ${className}Controller {
 
         ${propertyName}.save flush:true
 
-        respond ${propertyName}, [status: OK]
+        respond ${propertyName}, [status: OK, view:"show"]
     }
 
     @Transactional
