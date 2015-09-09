@@ -50,6 +50,7 @@ dependencies {
     compile "org.grails:grails-plugin-rest"
     compile "org.grails:grails-plugin-services"
     compile "org.grails:grails-plugin-datasource"
+    compile "org.grails:grails-plugin-databinding"
     compile "org.grails:grails-plugin-async"
     compile "org.grails:grails-web-boot"
 
