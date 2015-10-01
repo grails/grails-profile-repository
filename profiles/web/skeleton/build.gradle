@@ -13,14 +13,9 @@ buildscript {
     }
 }
 
-plugins {
-    id "io.spring.dependency-management" version "0.5.2.RELEASE"
-}
-
 version "0.1"
 group "@grails.app.group@"
 
-apply plugin: "spring-boot"
 apply plugin: "war"
 apply plugin: "asset-pipeline"
 apply plugin: 'eclipse'
