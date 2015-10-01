@@ -3,8 +3,8 @@ sudo: false
 jdk:
 - openjdk7
 script: 
-	- cd profiles
-	-./travis-build.sh
+- cd profiles
+-./travis-build.sh
 env:
   global:
   - GIT_NAME="Graeme Rocher"
