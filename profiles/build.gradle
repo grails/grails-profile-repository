@@ -1,0 +1,4 @@
+subprojects {
+	group 'org.grails.profiles'
+	version project.grailsVersion	
+}
