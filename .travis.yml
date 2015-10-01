@@ -2,7 +2,7 @@ language: groovy
 sudo: false
 jdk:
 - openjdk7
-script: ./travis-build.sh
+script: ./profiles/travis-build.sh
 env:
   global:
   - GIT_NAME="Graeme Rocher"
