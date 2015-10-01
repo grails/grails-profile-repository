@@ -22,18 +22,19 @@ subprojects {
 	            from components.java
 	        }
 	    }	
+        repositories {
+            maven {
+                credentials {
+                    username System.getenv('GRAILS_CENTRAL_USERNAME') ?: project.properties.get('grailsPluginsUsername')
+                    password System.getenv("GRAILS_CENTRAL_PASSWORD") ?: project.properties.get('grailsPluginsPassword')
+                }
+
+                if(version.endsWith('-SNAPSHOT')) {
+                    url "https://repo.grails.org/grails/libs-snapshots-local"
+                }
+            }
+        }           
 	}
 
-    repositories {
-        maven {
-            credentials {
-                username System.getenv('GRAILS_CENTRAL_USERNAME') ?: project.properties.get('grailsPluginsUsername')
-                password System.getenv("GRAILS_CENTRAL_PASSWORD") ?: project.properties.get('grailsPluginsPassword')
-            }
 
-            if(version.endsWith('-SNAPSHOT')) {
-                url "https://repo.grails.org/grails/libs-snapshots-local"
-            }
-        }
-    }	
 }
