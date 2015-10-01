@@ -1,4 +1,39 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "https://repo.grails.org/grails/core" }
+    }
+    dependencies {
+        classpath "org.grails:grails-gradle-plugin:3.1.0.BUILD-SNAPSHOT"
+    }
+}
+
 subprojects {
+	apply plugin: "org.grails.grails-profile"
+	apply plugin: 'maven-publish'
+
 	group 'org.grails.profiles'
 	version project.grailsVersion	
+
+	publishing {
+	    publications {
+	        maven(MavenPublication) {
+	            artifactId project.name
+	            from components.java
+	        }
+	    }	
+	}
+
+    repositories {
+        maven {
+            credentials {
+                username System.getenv('GRAILS_CENTRAL_USERNAME') ?: project.properties.get('grailsPluginsUsername')
+                password System.getenv("GRAILS_CENTRAL_PASSWORD") ?: project.properties.get('grailsPluginsPassword')
+            }
+
+            if(version.endsWith('-SNAPSHOT')) {
+                url "https://repo.grails.org/grails/libs-snapshots-local"
+            }
+        }
+    }	
 }
