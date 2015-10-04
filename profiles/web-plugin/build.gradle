@@ -1,4 +1,4 @@
 dependencies {
-	profile project(":plugin")
-	profile project(":web")
+	runtime project(":plugin")
+	runtime project(":web")
 }

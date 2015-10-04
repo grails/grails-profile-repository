@@ -1,5 +1,4 @@
 description: Profile for Plugins designed for Web applications
-extends: plugin,web
 skeleton:
     excludes:
         - grails-app/assets/**/*.*

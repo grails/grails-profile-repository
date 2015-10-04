@@ -1,15 +1,3 @@
-buildscript {
-    repositories {
-        mavenLocal()
-        maven { url "https://repo.grails.org/grails/core" }
-    }
-    dependencies {
-        classpath "org.grails:grails-gradle-plugin:3.1.0.BUILD-SNAPSHOT"
-    }
-}
-
-apply plugin: "org.grails.grails-profile"
-
 dependencies {
-	profile project(":base")
+	runtime project(":base")
 }
