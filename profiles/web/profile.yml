@@ -1,1 +1,32 @@
 description: Profile for Web applications
+build:
+    plugins:
+        - war
+        - asset-pipeline
+        - org.grails.grails-web
+        - org.grails.grails-gsp
+    excludes:
+        - org.grails.grails-core
+dependencies:
+    build:
+        - 'com.bertramlabs.plugins:asset-pipeline-gradle:2.5.0'
+        - 'org.grails.plugins:hibernate:4.3.10.5'
+    compile:
+        - "org.springframework.boot:spring-boot-starter-actuator"
+        - "org.springframework.boot:spring-boot-starter-tomcat"
+        - "org.grails:grails-dependencies"
+        - "org.grails:grails-web-boot"
+        - "org.grails.plugins:hibernate"
+        - "org.grails.plugins:cache"
+        - "org.hibernate:hibernate-ehcache"
+        - "org.grails.plugins:scaffolding"      
+    runtime:
+        - "org.grails.plugins:asset-pipeline"   
+    testCompile:
+        - "org.grails:grails-plugin-testing"    
+        - "org.grails.plugins:geb"  
+    testRuntime:
+        - 'org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1'
+        - 'net.sourceforge.htmlunit:htmlunit:2.18'
+
+

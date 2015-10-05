@@ -1,2 +1,12 @@
 description: Profile for plugins designed to work across all profiles
+build:
+    plugins:
+        - org.grails.grails-plugin
+        - org.grails.grails-plugin-publish
+    excludes:
+        - org.grails.grails-core
+dependencies:
+    testCompile:
+        - "org.grails:grails-plugin-testing"    
+
 

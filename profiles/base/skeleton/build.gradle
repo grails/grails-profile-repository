@@ -7,16 +7,14 @@ buildscript {
         maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
-        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
+@buildDependencies@
     }
 }
 
 version "0.1"
 group "@grails.app.group@"
 
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: "org.grails.grails-core"
+@buildPlugins@
 
 ext {
     grailsVersion = project.grailsVersion
@@ -36,13 +34,7 @@ dependencyManagement {
 }
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-logging"
-    compile "org.springframework.boot:spring-boot-autoconfigure"
-    compile "org.grails:grails-core"
-
-    runtime 'org.springframework.boot:spring-boot-starter-logging'
-    
-    console "org.grails:grails-console"
+@dependencies@
 }
 
 task wrapper(type: Wrapper) {

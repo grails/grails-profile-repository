@@ -9,3 +9,18 @@ skeleton:
 command:
     excludes:
         - war
+build:
+    merge:
+        - base
+        - plugin
+    excludes:
+        - asset-pipeline
+        - war
+        - org.grails.grails-web
+dependencies:
+    excludes:
+        - "com.bertramlabs.plugins:asset-pipeline-gradle:*"
+    testCompile:
+        - "org.grails:grails-plugin-testing"    
+
+
