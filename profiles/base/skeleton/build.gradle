@@ -11,17 +11,13 @@ buildscript {
     }
 }
 
-plugins {
-    id "io.spring.dependency-management" version "0.5.2.RELEASE"
-}
-
 version "0.1"
 group "@grails.app.group@"
 
-apply plugin: "spring-boot"
+apply plugin: "org.grails.grails-core"
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: "org.grails.grails-core"
+
 
 ext {
     grailsVersion = "@grails.version@"
@@ -42,10 +38,10 @@ dependencyManagement {
 
 dependencies {
     compile "org.springframework.boot:spring-boot-autoconfigure"
-    compile "org.grails:grails-dependencies"
+    compile "org.grails:grails-core"
 
     runtime 'org.springframework.boot:spring-boot-starter-logging'
-
+    
     console "org.grails:grails-console"
 }
 
