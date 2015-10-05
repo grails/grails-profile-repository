@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        grailsVersion = "@grails.version@"
+        grailsVersion = project.grailsVersion
     }
     repositories {
         mavenLocal()
@@ -14,13 +14,12 @@ buildscript {
 version "0.1"
 group "@grails.app.group@"
 
-apply plugin: "org.grails.grails-core"
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-
+apply plugin: "org.grails.grails-core"
 
 ext {
-    grailsVersion = "@grails.version@"
+    grailsVersion = project.grailsVersion
     gradleWrapperVersion = project.gradleWrapperVersion
 }
 
@@ -37,6 +36,7 @@ dependencyManagement {
 }
 
 dependencies {
+    compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
     compile "org.grails:grails-core"
 
