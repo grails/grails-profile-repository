@@ -3,6 +3,8 @@ build:
     plugins:
         - org.grails.grails-web
         - org.grails.plugins.views-json
+    excludes:
+        - org.grails.grails-core
 dependencies:
     build:
         - "org.grails.plugins:views-gradle:1.0.0.M2"
