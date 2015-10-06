@@ -6,7 +6,7 @@ bintray {
     pkg {
         repo = project.hasProperty('repo') ? project.repo : 'plugins'
         userOrg = project.hasProperty('userOrg') ? project.userOrg : 'grails'
-        name = "$project.group:$project.name"
+        name = "$project.name"
         desc = project.hasProperty('desc') ? project.desc : "Grails $project.name plugin"
         websiteUrl = project.hasProperty('websiteUrl') ? project.websiteUrl : "http://grails.org/plugin/$project.name"
         issueTrackerUrl = project.hasProperty('issueTrackerUrl') ? project.issueTrackerUrl : "https://github.com/grails3-plugins/$project.name/issues"
