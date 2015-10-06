@@ -1,3 +1,4 @@
+description: Adds GORM for MongoDB to the project
 dependencies:
     compile:
         - org.grails.plugins:mongodb
