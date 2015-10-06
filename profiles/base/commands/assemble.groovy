@@ -1,6 +1,6 @@
-description("Creates a WAR file for deployment to a container (like Tomcat)") {
-    usage "grails [ENV] war"
-    synonyms 'assemble'
+description("Creates a JAR or WAR archive for production deployment") {
+    usage "grails [ENV] assemble"
+    synonyms 'war', 'package'
     flag name:'clean', description:"Execute 'clean' prior to creating WAR"
 }
 
