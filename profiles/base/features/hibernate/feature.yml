@@ -1,0 +1,6 @@
+dependencies:
+    build:
+        - 'org.grails.plugins:hibernate:4.3.10.5'
+    compile:
+        - "org.grails.plugins:hibernate"
+        - "org.hibernate:hibernate-ehcache"
