@@ -1,0 +1,9 @@
+description: Adds Asset Pipeline to a Grails project
+build:
+    plugins:
+        - asset-pipeline
+dependencies:
+    build:
+        - 'com.bertramlabs.plugins:asset-pipeline-gradle:2.5.0'
+    runtime:
+        - "org.grails.plugins:asset-pipeline"
