@@ -20,3 +20,7 @@ grailsPublish {
   githubSlug = 'your-repo/your-profile'
   license = 'APACHE 2.0'
 }    
+
+dependencies {
+    runtime "org.grails.profiles:base:${project.grailsVersion}"
+}
