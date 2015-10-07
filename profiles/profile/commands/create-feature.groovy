@@ -6,8 +6,6 @@ description( "Creates a new profile feature" ) {
 if(args) {
     def fn = args[0].trim()
     def dir = file("features/${fn}").canonicalPath
-    mkdir( dir )
-    mkdir( "features/${fn}/skeleton/grails-app/conf" )
     render( '''
 # customize configuration here
 # my:
