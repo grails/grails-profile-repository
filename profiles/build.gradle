@@ -13,7 +13,7 @@ subprojects {
 	apply plugin: "org.grails.grails-profile-publish"
 
 	group 'org.grails.profiles'
-	version project.grailsVersion	
+	version '3.1.0.M1'
 
     grailsPublish {
       githubSlug = 'grails/grails-profile-repository'
