@@ -20,4 +20,11 @@ subprojects {
     githubSlug = 'grails/grails-profile-repository'
     license = 'Apache-2.0'
   }    
+
+  bintray {
+        pkg {
+            desc "Grails Core Profiles"
+            name = 'grails-core'
+        }
+  }
 }
