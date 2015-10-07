@@ -18,6 +18,6 @@ subprojects {
     grailsPublish {
       userOrg = 'grails'  
       githubSlug = 'grails/grails-profile-repository'
-      license = 'APACHE 2.0'
+      license = 'Apache-2.0'
     }    
 }
