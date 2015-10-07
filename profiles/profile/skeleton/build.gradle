@@ -19,7 +19,12 @@ grailsPublish {
   key = 'YOUR KEY'
   githubSlug = 'your-repo/your-profile'
   license = 'Apache-2.0'
-}    
+}  
+
+repositories {
+    mavenLocal()
+    maven { url "https://repo.grails.org/grails/core" }
+}  
 
 dependencies {
     runtime "org.grails.profiles:base:${project.grailsVersion}"
