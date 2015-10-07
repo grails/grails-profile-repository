@@ -16,6 +16,7 @@ subprojects {
 	version '3.1.0.M1'
 
     grailsPublish {
+      userOrg = 'grails'  
       githubSlug = 'grails/grails-profile-repository'
       license = 'APACHE 2.0'
     }    
