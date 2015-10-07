@@ -9,22 +9,22 @@ buildscript {
 }
 
 subprojects {
-	apply plugin: "org.grails.grails-profile"
-	apply plugin: "org.grails.grails-profile-publish"
+    apply plugin: "org.grails.grails-profile"
+    apply plugin: "org.grails.grails-profile-publish"
 
-	group 'org.grails.profiles'
-	version '3.1.0.M1'
+    group 'org.grails.profiles'
+    version project.grailsVersion
 
-  grailsPublish {
-    userOrg = 'grails'  
-    githubSlug = 'grails/grails-profile-repository'
-    license = 'Apache-2.0'
-  }    
+    grailsPublish {
+        userOrg = 'grails'  
+        githubSlug = 'grails/grails-profile-repository'
+        license = 'Apache-2.0'
+    }    
 
-  bintray {
+    bintray {
         pkg {
             desc "Grails Core Profiles"
             name = 'grails-core'
         }
-  }
+    }
 }
