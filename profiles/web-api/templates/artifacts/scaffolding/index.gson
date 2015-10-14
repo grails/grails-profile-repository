@@ -4,5 +4,5 @@ model {
 	Iterable<${className}> ${propertyName}List
 }
 
-print tmpl.${propertyName}(${propertyName}List ?: [])
+json tmpl.${propertyName}(${propertyName}List ?: [])
 

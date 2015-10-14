@@ -4,6 +4,4 @@ model {
 	${className} ${propertyName}
 }
 
-json {
-	// TODO: populate properties
-}
+json g.render(${propertyName})
