@@ -21,7 +21,7 @@ dependencies:
         - "org.grails:grails-plugin-async"
         - "org.grails:grails-web-boot"
         - "org.grails:grails-logging"
-        - "org.hibernate:hibernate-ehcache"
+        - "org.grails.plugins:hibernate"
         - "org.grails.plugins:cache"
         - "org.grails.plugins:views-json"
         - "org.hibernate:hibernate-ehcache"
