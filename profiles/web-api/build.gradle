@@ -1,3 +1,4 @@
 dependencies {
 	runtime project(":base")
+    runtime "org.grails.plugins:hibernate"
 }
