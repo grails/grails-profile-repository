@@ -1,0 +1,33 @@
+assets {
+    minifyJs = true
+    minifyCss = true
+}
+
+bower {
+    'angular'('1.4.x') {
+        source 'angular.js'
+    }
+    'angular-resource'('1.4.x') {
+        source 'angular-resource.js' >> '/angular/'
+    }
+    'angular-mocks'('1.4.x') {
+        source 'angular-mocks.js' >> '/angular/'
+    }
+}
+
+karma {
+    profile('default')  {
+        libraryBases = ['grails-app/assets/bower/']
+        libraryFiles = ['angular/angular.js', '**/*.js']
+
+        sourceBases = ['grails-app/assets/javascripts/']
+        sourceFiles = ['**/*.js']
+
+        testBases = ['src/test/assets/']
+        testFiles = ['**/*Spec.js']
+    }
+
+    browsers = ['PhantomJS']
+    frameworks = ['jasmine']
+    reporters = ['progress']
+}
