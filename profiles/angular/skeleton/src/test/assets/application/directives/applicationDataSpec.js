@@ -8,7 +8,8 @@ describe("Application module", function() {
 
         var element, scope;
 
-        beforeEach(angular.mock.inject(function ($compile, $rootScope) {
+        beforeEach(angular.mock.inject(function ($compile, $rootScope, $templateCache) {
+            $templateCache.put('/application/applicationData.html', 'Test');
             scope = $rootScope.$new();
             element = angular.element('<application-data></application-data>');
             $compile(element)(scope);
@@ -16,7 +17,7 @@ describe("Application module", function() {
         }));
 
         it("should be tested", function() {
-            expect(true).toEqual(false);
+            expect(element.innerHTML).toEqual("Test");
         });
 
     });

@@ -15,6 +15,13 @@ if (!file("${basePath}/${model.propertyName}.js").exists()) {
     createNgModule(args[0].replaceFirst(~/\.[^\.]+$/, ''))
 }
 
+render template: template("tests/NgDomainSpec.groovy"),
+        destination: file("src/test/assets/${model.packagePath ?: model.propertyName}/domain/${model.className}Spec.js"),
+        model: [moduleName: model.packageName ?: model.propertyName,
+                className: model.className]
+        overwrite: overwrite
+
+
 render template: template("NgDomain.groovy"),
        destination: file("${basePath}/domain/${model.className}.js"),
        model: [moduleName: model.packageName ?: model.propertyName,

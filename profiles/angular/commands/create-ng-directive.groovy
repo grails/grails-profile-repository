@@ -15,6 +15,14 @@ if (!file("${basePath}/${model.propertyName}.js").exists()) {
     createNgModule(args[0].replaceFirst(~/\.[^\.]+$/, ''))
 }
 
+render template: template("tests/NgDirectiveSpec.groovy"),
+        destination: file("src/test/assets/${model.packagePath ?: model.propertyName}/directives/${model.propertyName}Spec.js"),
+        model: [moduleName: model.packageName ?: model.propertyName,
+                propertyName: model.propertyName,
+                tagName: model.propertyName.replaceAll(/\B[A-Z]/) { '-' + it }.toLowerCase() ],
+        overwrite: overwrite
+
+
 render template: template("NgDirective.groovy"),
        destination: file("${basePath}/directives/${model.propertyName}.js"),
        model: [moduleName: model.packageName ?: model.propertyName,

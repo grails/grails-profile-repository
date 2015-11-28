@@ -16,7 +16,11 @@ if (!file("${basePath}/${model.propertyName}.js").exists()) {
     createNgModule(args[0].replaceFirst(~/\.[^\.]+$/, ''))
 }
 
-final String testPath = "src/test/assets/${model.packagePath ?: model.propertyName}/controllers/${model.propertyName}${type}Spec.js"
+render template: template('tests/NgControllerSpec.groovy'),
+        destination: file("src/test/assets/${model.packagePath ?: model.propertyName}/controllers/${model.propertyName}${type}Spec.js"),
+        model: [moduleName: model.packageName ?: model.propertyName, name: model.convention(type)],
+        overwrite: overwrite
+
 
 render template: template('NgController.groovy'),
        destination: file("${basePath}/controllers/${model.propertyName}${type}.js"),

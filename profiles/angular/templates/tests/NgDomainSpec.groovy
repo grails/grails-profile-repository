@@ -4,14 +4,19 @@ describe("${moduleName} module", function() {
 
     }));
 
-    describe("${propertyName}", function() {
+    describe("${className} domain", function() {
 
-        var scope, ctrl;
+        var ${className}, \$httpBackend;
 
-        beforeEach(angular.mock.inject(function(\$controller, \$rootScope) {
-            scope = \$rootScope.\$new();
-            ctrl = \$controller("${controllerName}", {\$scope: scope});
+        beforeEach(angular.mock.inject(function(_${className}_, _\$httpBackend_) {
+            \$httpBackend = _\$httpBackend_;
+            ${className} = _${className}_;
         }));
+
+        afterEach(function() {
+            \$httpBackend.verifyNoOutstandingExpectation();
+            \$httpBackend.verifyNoOutstandingRequest();
+        });
 
         it("should be tested", function() {
             expect(true).toEqual(false);

@@ -27,6 +27,11 @@ if (!["service", "factory", "value", "provider", "constant"].contains(typeFlag))
         createNgModule(args[0].replaceFirst(~/\.[^\.]+$/, ''))
     }
 
+    render template: template("tests/NgServiceSpec.groovy"),
+            destination: file("src/test/assets/${model.packagePath ?: model.propertyName}/services/${name}Spec.js"),
+            model: [moduleName: model.packageName ?: model.propertyName, name: name],
+            overwrite: overwrite
+
     render template: template("services/Ng${type}.groovy"),
             destination: file("${basePath}/services/${name}.js"),
             model: [moduleName: model.packageName ?: model.propertyName, name: name],
