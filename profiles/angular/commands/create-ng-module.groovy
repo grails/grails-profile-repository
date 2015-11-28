@@ -11,9 +11,15 @@ boolean overwrite = flag('force')
 
 final String folder = "grails-app/assets/javascripts/${model.packagePath}/${model.propertyName}"
 
+List dependencies = ["\"ngResource\""]
+
+if (file("grails-app/assets/javascripts/siteConfig.js").exists()) {
+    dependencies.add("\"siteConfig\"")
+}
+
 render template: template('NgModule.groovy'),
        destination: file("${folder}/${model.propertyName}.js"),
-       model: model,
+       model: [fullName: model.fullName, dependencies: dependencies],
        overwrite: overwrite
 
 ["controllers", "directives", "domain", "services", "templates"].each {

@@ -11,6 +11,6 @@
 (function() {
     "use strict";
 
-    angular.module("${fullName}", ["ngResource", "siteConfig"]);
+    angular.module("${fullName}", [${dependencies.join(', ')}]);
 
 })();
