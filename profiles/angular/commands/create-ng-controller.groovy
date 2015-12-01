@@ -19,13 +19,13 @@ if (!file("${basePath}/${moduleName}.js").exists()) {
     createNgModule(moduleName)
 }
 
-render template: template('tests/NgControllerSpec.groovy'),
+render template: template('tests/NgControllerSpec.js'),
        destination: file("src/test/assets/${modulePath}/controllers/${model.propertyName}${type}Spec.js"),
        model: [moduleName: moduleName, name: model.convention(type)],
        overwrite: overwrite
 
 
-render template: template('NgController.groovy'),
+render template: template('NgController.js'),
        destination: file("${basePath}/controllers/${model.propertyName}${type}.js"),
        model: [moduleName: moduleName, name: model.convention(type)],
        overwrite: overwrite

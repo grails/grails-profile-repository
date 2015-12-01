@@ -22,7 +22,7 @@ if (file("grails-app/assets/javascripts/siteConfig.js").exists()) {
     dependencies.add("\"siteConfig\"")
 }
 
-render template: template('NgModule.groovy'),
+render template: template('NgModule.js'),
        destination: file("${folder}/${model.propertyName}.js"),
        model: [fullName: model.fullName, dependencies: dependencies],
        overwrite: overwrite

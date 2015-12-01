@@ -18,14 +18,14 @@ if (!file("${basePath}/${moduleName}.js").exists()) {
     createNgModule(moduleName)
 }
 
-render template: template("tests/NgDomainSpec.groovy"),
+render template: template("tests/NgDomainSpec.js"),
         destination: file("src/test/assets/${modulePath}/domain/${model.className}Spec.js"),
         model: [moduleName: moduleName,
                 className: model.className]
         overwrite: overwrite
 
 
-render template: template("NgDomain.groovy"),
+render template: template("NgDomain.js"),
        destination: file("${basePath}/domain/${model.className}.js"),
        model: [moduleName: moduleName,
                propertyName: model.propertyName,

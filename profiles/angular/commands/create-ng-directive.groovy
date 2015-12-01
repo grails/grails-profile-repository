@@ -18,7 +18,7 @@ if (!file("${basePath}/${moduleName}.js").exists()) {
     createNgModule(moduleName)
 }
 
-render template: template("tests/NgDirectiveSpec.groovy"),
+render template: template("tests/NgDirectiveSpec.js"),
         destination: file("src/test/assets/${modulePath}/directives/${model.propertyName}Spec.js"),
         model: [moduleName: moduleName,
                 propertyName: model.propertyName,
@@ -26,7 +26,7 @@ render template: template("tests/NgDirectiveSpec.groovy"),
         overwrite: overwrite
 
 
-render template: template("NgDirective.groovy"),
+render template: template("NgDirective.js"),
        destination: file("${basePath}/directives/${model.propertyName}.js"),
        model: [moduleName: moduleName,
                propertyName: model.propertyName,

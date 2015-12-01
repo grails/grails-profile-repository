@@ -30,12 +30,12 @@ if (!["service", "factory", "value", "provider", "constant"].contains(typeFlag))
         createNgModule(moduleName)
     }
 
-    render template: template("tests/NgServiceSpec.groovy"),
+    render template: template("tests/NgServiceSpec.js"),
             destination: file("src/test/assets/${modulePath}/services/${name}Spec.js"),
             model: [moduleName: moduleName, name: name],
             overwrite: overwrite
 
-    render template: template("services/Ng${type}.groovy"),
+    render template: template("services/Ng${type}.js"),
             destination: file("${basePath}/services/${name}.js"),
             model: [moduleName: moduleName, name: name],
             overwrite: overwrite
