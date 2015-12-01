@@ -15,7 +15,7 @@ String typeFlag = flag('type') ?: "factory"
 if (!["service", "factory", "value", "provider", "constant"].contains(typeFlag)) {
     error "Service type \"${typeFlag}\" is not a valid option"
 } else {
-    final String type = MetaClassHelper.capitalize(typeFlag)
+    final String type = GrailsNameUtils.getClassName(typeFlag)
     String name = model.propertyName + type
 
     if (["Constant", "Value"].contains(type)) {

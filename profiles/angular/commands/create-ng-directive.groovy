@@ -22,7 +22,7 @@ render template: template("tests/NgDirectiveSpec.groovy"),
         destination: file("src/test/assets/${modulePath}/directives/${model.propertyName}Spec.js"),
         model: [moduleName: moduleName,
                 propertyName: model.propertyName,
-                tagName: model.propertyName.replaceAll(/\B[A-Z]/) { '-' + it }.toLowerCase() ],
+                tagName: GrailsNameUtils.getScriptName(model.propertyName)],
         overwrite: overwrite
 
 
