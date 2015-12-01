@@ -1,7 +1,8 @@
 describe("Application module", function() {
 
-    beforeEach(angular.mock.module("application", function() {
-
+    beforeEach(angular.mock.module("application", function($controllerProvider) {
+        $controllerProvider.register('IndexController', function($scope) {
+        });
     }));
 
     describe("applicationData directive", function() {
@@ -17,7 +18,7 @@ describe("Application module", function() {
         }));
 
         it("should be tested", function() {
-            expect(element.innerHTML).toEqual("Test");
+            expect(element[0].innerHTML).toEqual("Test");
         });
 
     });

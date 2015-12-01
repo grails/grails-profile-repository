@@ -11,7 +11,7 @@
             templateUrl: "/${templatePath}/templates/<example_template>.html",
             controller: "<ExampleController>",
             controllerAs: "<exampleCtrl>",
-            scope: true,
+            scope: {},
             bindToController: {
             }
         };
