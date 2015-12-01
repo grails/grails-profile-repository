@@ -1,6 +1,6 @@
 //= require /angular/angular
 //= require /angular/angular-resource
-//= require /app.config
+//= require /siteConfig
 //= require_self
 //= require_tree services
 //= require_tree controllers
