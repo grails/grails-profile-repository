@@ -27,7 +27,7 @@ if (!["service", "factory", "value", "provider", "constant"].contains(typeFlag))
 
     final String basePath = "grails-app/assets/javascripts/${modulePath}"
     if (!file("${basePath}/${moduleName}.js").exists()) {
-        createNgModule(model.packageName)
+        createNgModule(moduleName)
     }
 
     render template: template("tests/NgServiceSpec.groovy"),

@@ -16,7 +16,7 @@ final String moduleName = model.packageName ?: model.propertyName
 
 final String basePath = "grails-app/assets/javascripts/${modulePath}"
 if (!file("${basePath}/${moduleName}.js").exists()) {
-    createNgModule(model.packageName)
+    createNgModule(moduleName)
 }
 
 render template: template('tests/NgControllerSpec.groovy'),
