@@ -11,18 +11,21 @@ boolean overwrite = flag('force')
 
 final String type = "Controller"
 
-final String basePath = "grails-app/assets/javascripts/${model.packagePath ?: model.propertyName}"
-if (!file("${basePath}/${model.propertyName}.js").exists()) {
-    createNgModule(args[0].replaceFirst(~/\.[^\.]+$/, ''))
+final String modulePath = model.packagePath ?: model.propertyName
+final String moduleName = model.packageName ?: model.propertyName
+
+final String basePath = "grails-app/assets/javascripts/${modulePath}"
+if (!file("${basePath}/${moduleName}.js").exists()) {
+    createNgModule(model.packageName)
 }
 
 render template: template('tests/NgControllerSpec.groovy'),
-        destination: file("src/test/assets/${model.packagePath ?: model.propertyName}/controllers/${model.propertyName}${type}Spec.js"),
-        model: [moduleName: model.packageName ?: model.propertyName, name: model.convention(type)],
-        overwrite: overwrite
+       destination: file("src/test/assets/${modulePath}/controllers/${model.propertyName}${type}Spec.js"),
+       model: [moduleName: moduleName, name: model.convention(type)],
+       overwrite: overwrite
 
 
 render template: template('NgController.groovy'),
        destination: file("${basePath}/controllers/${model.propertyName}${type}.js"),
-       model: [moduleName: model.packageName ?: model.propertyName, name: model.convention(type)],
+       model: [moduleName: moduleName, name: model.convention(type)],
        overwrite: overwrite

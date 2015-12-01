@@ -10,21 +10,24 @@ description( "Creates an Angular domain" ) {
 def model = model(args[0])
 boolean overwrite = flag('force')
 
-final String basePath = "grails-app/assets/javascripts/${model.packagePath ?: model.propertyName}"
-if (!file("${basePath}/${model.propertyName}.js").exists()) {
-    createNgModule(args[0].replaceFirst(~/\.[^\.]+$/, ''))
+final String modulePath = model.packagePath ?: model.propertyName
+final String moduleName = model.packageName ?: model.propertyName
+
+final String basePath = "grails-app/assets/javascripts/${modulePath}"
+if (!file("${basePath}/${moduleName}.js").exists()) {
+    createNgModule(model.packageName)
 }
 
 render template: template("tests/NgDomainSpec.groovy"),
-        destination: file("src/test/assets/${model.packagePath ?: model.propertyName}/domain/${model.className}Spec.js"),
-        model: [moduleName: model.packageName ?: model.propertyName,
+        destination: file("src/test/assets/${modulePath}/domain/${model.className}Spec.js"),
+        model: [moduleName: moduleName,
                 className: model.className]
         overwrite: overwrite
 
 
 render template: template("NgDomain.groovy"),
        destination: file("${basePath}/domain/${model.className}.js"),
-       model: [moduleName: model.packageName ?: model.propertyName,
+       model: [moduleName: moduleName,
                propertyName: model.propertyName,
                className: model.className]
        overwrite: overwrite

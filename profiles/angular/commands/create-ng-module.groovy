@@ -6,7 +6,12 @@ description( "Creates an Angular module" ) {
     flag name:'force', description:"Whether to overwrite existing files"
 }
 
-def model = model(args[0])
+def model = [:]
+model.fullName = args[0]
+model.propertyName = GrailsNameUtils.getPropertyName(model.fullName)
+model.packageName = GrailsNameUtils.getPackageName(model.fullName)
+model.packagePath = model.packageName.replace('.' as char, File.separatorChar)
+
 boolean overwrite = flag('force')
 
 final String folder = "grails-app/assets/javascripts/${model.packagePath}/${model.propertyName}"
@@ -25,4 +30,3 @@ render template: template('NgModule.groovy'),
 ["controllers", "directives", "domain", "services", "templates"].each {
     fileSystemInteraction.mkdir "${folder}/${it}"
 }
-

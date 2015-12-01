@@ -22,19 +22,22 @@ if (!["service", "factory", "value", "provider", "constant"].contains(typeFlag))
         name = model.propertyName
     }
 
-    final String basePath = "grails-app/assets/javascripts/${model.packagePath ?: model.propertyName}"
-    if (!file("${basePath}/${model.propertyName}.js").exists()) {
-        createNgModule(args[0].replaceFirst(~/\.[^\.]+$/, ''))
+    final String modulePath = model.packagePath ?: model.propertyName
+    final String moduleName = model.packageName ?: model.propertyName
+
+    final String basePath = "grails-app/assets/javascripts/${modulePath}"
+    if (!file("${basePath}/${moduleName}.js").exists()) {
+        createNgModule(model.packageName)
     }
 
     render template: template("tests/NgServiceSpec.groovy"),
-            destination: file("src/test/assets/${model.packagePath ?: model.propertyName}/services/${name}Spec.js"),
-            model: [moduleName: model.packageName ?: model.propertyName, name: name],
+            destination: file("src/test/assets/${modulePath}/services/${name}Spec.js"),
+            model: [moduleName: moduleName, name: name],
             overwrite: overwrite
 
     render template: template("services/Ng${type}.groovy"),
             destination: file("${basePath}/services/${name}.js"),
-            model: [moduleName: model.packageName ?: model.propertyName, name: name],
+            model: [moduleName: moduleName, name: name],
             overwrite: overwrite
 }
 
