@@ -1,5 +1,4 @@
 import grails.util.*
-import org.codehaus.groovy.runtime.MetaClassHelper
 
 description( "Creates an Angular domain" ) {
     usage "grails create-ng-domain [NAME]"

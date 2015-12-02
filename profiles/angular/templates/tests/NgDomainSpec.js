@@ -17,7 +17,7 @@ describe("${moduleName} module", function() {
 
         var ${className};
 
-        beforeEach(angular.mock.inject(function(_${className}_, ) {
+        beforeEach(angular.mock.inject(function(_${className}_) {
             ${className} = _${className}_;
         }));
 
