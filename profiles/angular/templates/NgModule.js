@@ -1,3 +1,4 @@
+//= wrapped
 //= require /angular/angular
 //= require /angular/angular-resource
 //= require /siteConfig
@@ -8,9 +9,5 @@
 //= require_tree domain
 //= require_tree templates
 
-(function() {
-    "use strict";
+angular.module("${fullName}", [${dependencies.join(', ')}]);
 
-    angular.module("${fullName}", [${dependencies.join(', ')}]);
-
-})();

@@ -1,14 +1,11 @@
-(function() {
-    "use strict";
+//= wrapped
 
-    angular
-        .module("${moduleName}")
-        .factory("${name}", ${name});
+angular
+    .module("${moduleName}")
+    .factory("${name}", ${name});
 
-    function ${name}() {
-        /*return function() {
+function ${name}() {
+    /*return function() {
 
-        };*/
-    }
-
-})();
+    };*/
+}

@@ -1,7 +1,6 @@
 describe("${moduleName} module", function() {
 
     beforeEach(angular.mock.module("${moduleName}", function() {
-
     }));
 
     describe("${name}", function() {
@@ -15,5 +14,7 @@ describe("${moduleName} module", function() {
         it("should be tested", function() {
             expect(true).toEqual(false);
         });
+
     });
+
 });

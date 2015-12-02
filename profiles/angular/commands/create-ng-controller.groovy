@@ -19,13 +19,15 @@ if (!file("${basePath}/${moduleName}.js").exists()) {
     createNgModule(moduleName)
 }
 
+final String fileName = model.propertyName.endsWith(type) ? model.propertyName : "${model.propertyName}${type}"
+final String controllerName = model.className.endsWith(type) ? model.className : model.convention(type)
+
 render template: template('tests/NgControllerSpec.js'),
-       destination: file("src/test/assets/${modulePath}/controllers/${model.propertyName}${type}Spec.js"),
-       model: [moduleName: moduleName, name: model.convention(type)],
+       destination: file("src/test/assets/${modulePath}/controllers/${fileName}Spec.js"),
+       model: [moduleName: moduleName, name: controllerName],
        overwrite: overwrite
 
-
 render template: template('NgController.js'),
-       destination: file("${basePath}/controllers/${model.propertyName}${type}.js"),
-       model: [moduleName: moduleName, name: model.convention(type)],
+       destination: file("${basePath}/controllers/${fileName}.js"),
+       model: [moduleName: moduleName, name: controllerName],
        overwrite: overwrite

@@ -16,10 +16,10 @@ if (!["service", "factory", "value", "provider", "constant"].contains(typeFlag))
     error "Service type \"${typeFlag}\" is not a valid option"
 } else {
     final String type = GrailsNameUtils.getClassName(typeFlag)
-    String name = model.propertyName + type
+    String name = model.propertyName
 
-    if (["Constant", "Value"].contains(type)) {
-        name = model.propertyName
+    if (!["Constant", "Value"].contains(type) && !name.endsWith(type)) {
+        name += type
     }
 
     final String modulePath = model.packagePath ?: model.propertyName

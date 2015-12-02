@@ -1,14 +1,11 @@
-(function() {
-    "use strict";
+//= wrapped
 
-    angular
-        .module("${moduleName}")
-        .service("${name}", ${name});
+angular
+    .module("${moduleName}")
+    .service("${name}", ${name});
 
-    function ${name}() {
-        /*this.exampleFunction = function() {
+function ${name}() {
+    /*this.exampleFunction = function() {
 
-        };*/
-    }
-
-})();
+    };*/
+}

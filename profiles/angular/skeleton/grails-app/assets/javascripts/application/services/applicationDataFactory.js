@@ -1,16 +1,14 @@
-(function() {
-    "use strict";
+//= wrapped
 
-    angular
-        .module("application")
-        .factory("applicationDataFactory", applicationDataFactory);
+angular
+    .module("application")
+    .factory("applicationDataFactory", applicationDataFactory);
 
-    function applicationDataFactory($http) {
-        return {
-            get: function() {
-                return $http({method: "GET", url: "application/index"});
-            }
+function applicationDataFactory($http) {
+    return {
+        get: function() {
+            return $http({method: "GET", url: "application/index"});
         }
     }
+}
 
-})();

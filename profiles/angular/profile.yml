@@ -16,5 +16,6 @@ dependencies:
         - "gradle.plugin.com.craigburke.gradle:bower-installer-gradle:2.4.1"
     assets:
         - "com.craigburke.angular:angular-annotate-asset-pipeline:2.4.0"
+        - "com.craigburke:js-closure-wrap-asset-pipeline:1.2.0"
     runtime:
         - "org.grails.plugins:asset-pipeline"

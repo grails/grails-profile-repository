@@ -1,3 +1,4 @@
+//= wrapped
 //= require /angular/angular
 //= require /angular/angular-resource
 //= require /siteConfig
@@ -8,9 +9,4 @@
 //= require_tree domain
 //= require_tree templates
 
-(function() {
-    "use strict";
-
-    angular.module("@grails.codegen.defaultPackage@", ["siteConfig"]);
-
-})();
+angular.module("@grails.codegen.defaultPackage@", ["siteConfig"]);

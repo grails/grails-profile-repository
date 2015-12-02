@@ -1,8 +1,5 @@
-(function() {
-    "use strict";
+//= wrapped
 
-    angular
-        .module("${moduleName}")
-        .constant("${name}", {});
-
-})();
+angular
+    .module("${moduleName}")
+    .constant("${name}", {});

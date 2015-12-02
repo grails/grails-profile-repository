@@ -1,18 +1,15 @@
-(function() {
-    "use strict";
+//= wrapped
 
-    angular
-        .module("application")
-        .controller("IndexController", IndexController);
+angular
+    .module("application")
+    .controller("IndexController", IndexController);
 
-    function IndexController(applicationDataFactory, contextPath) {
-        var vm = this;
+function IndexController(applicationDataFactory, contextPath) {
+    var vm = this;
 
-        vm.contextPath = contextPath;
+    vm.contextPath = contextPath;
 
-        applicationDataFactory.get().then(function(response) {
-            vm.applicationData = response.data;
-        });
-    }
-
-})();
+    applicationDataFactory.get().then(function(response) {
+        vm.applicationData = response.data;
+    });
+}

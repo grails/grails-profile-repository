@@ -1,21 +1,20 @@
-(function() {
-    "use strict";
+//= wrapped
 
-    angular
-        .module("application")
-        .directive("applicationData", applicationData);
+angular
+    .module("application")
+    .directive("applicationData", applicationData);
 
-    function applicationData() {
-        var directive = {
-            templateUrl: "/application/applicationData.html",
-            controller: "IndexController",
-            controllerAs: "idxCtrl",
-            scope: true,
-            bindToController: {
-            }
-        };
+function applicationData() {
+    var directive = {
+        restrict: "E",
+        templateUrl: "/application/applicationData.html",
+        controller: "IndexController",
+        controllerAs: "vm",
+        transclude: true,
+        scope: {},
+        bindToController: {
+        }
+    };
 
-        return directive;
-    }
-
-})();
+    return directive;
+}

@@ -8,12 +8,13 @@ describe("${moduleName} module", function() {
         scope = \$rootScope.\$new();
     }));
 
-    describe("${name}", function() {
+    describe("${propertyName} directive", function() {
+        var element;
 
-        var ctrl;
-
-        beforeEach(angular.mock.inject(function(\$controller) {
-            ctrl = \$controller("${name}", {});
+        beforeEach(angular.mock.inject(function (\$compile) {
+            element = angular.element('<${tagName}></${tagName}>');
+            \$compile(element)(scope);
+            scope.\$digest();
         }));
 
         it("should be tested", function() {

@@ -1,17 +1,22 @@
 describe("Application module", function() {
 
+    var scope;
+
     beforeEach(angular.mock.module("application", function($controllerProvider) {
         $controllerProvider.register('IndexController', function($scope) {
         });
     }));
 
+    beforeEach(angular.mock.inject(function($rootScope) {
+        scope = $rootScope.$new();
+    }));
+
     describe("applicationData directive", function() {
 
-        var element, scope;
+        var element;
 
         beforeEach(angular.mock.inject(function ($compile, $rootScope, $templateCache) {
             $templateCache.put('/application/applicationData.html', 'Test');
-            scope = $rootScope.$new();
             element = angular.element('<application-data></application-data>');
             $compile(element)(scope);
             scope.$digest();

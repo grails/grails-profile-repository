@@ -1,17 +1,14 @@
-(function() {
-    "use strict";
+//= wrapped
 
-    angular
-        .module("${moduleName}")
-        .provider("${name}", ${name});
+angular
+    .module("${moduleName}")
+    .provider("${name}", ${name});
 
-    function ${name}() {
-        return {
-            \$get: function() {
+function ${name}() {
+    return {
+        \$get: function() {
 
-            }
-        };
-    }
-
-})();
+        }
+    };
+}
 

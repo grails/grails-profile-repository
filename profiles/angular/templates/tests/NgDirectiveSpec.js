@@ -1,16 +1,19 @@
 describe("${moduleName} module", function() {
+    var scope;
 
     beforeEach(angular.mock.module("${moduleName}", function() {
+    }));
 
+    beforeEach(angular.mock.inject(function(\$rootScope) {
+        scope = \$rootScope.\$new();
     }));
 
     describe("${propertyName} directive", function() {
 
-        var element, scope;
+        var element;
 
-        beforeEach(angular.mock.inject(function (\$compile, \$rootScope) {
-            scope = \$rootScope.\$new();
-            element = angular.element('<${tagName}></${tagName}>');
+        beforeEach(angular.mock.inject(function (\$compile) {
+            element = angular.element('<div ${tagName}></div>');
             \$compile(element)(scope);
             scope.\$digest();
         }));

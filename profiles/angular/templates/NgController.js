@@ -1,12 +1,9 @@
-(function() {
-    "use strict";
+//= wrapped
 
-    angular
-        .module("${moduleName}")
-        .controller("${name}", ${name});
+angular
+    .module("${moduleName}")
+    .controller("${name}", ${name});
 
-    function ${name}() {
-        var vm = this;
-    }
-
-})();
+function ${name}() {
+    var vm = this;
+}

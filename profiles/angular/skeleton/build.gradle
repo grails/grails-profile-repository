@@ -22,7 +22,8 @@ karma {
         libraryFiles = ['angular/angular.js', '**/*.js']
 
         sourceBases = ['grails-app/assets/javascripts/']
-        sourceFiles = ['**/*.js']
+        //To ensure the modules get loaded first
+        sourceFiles = ['**/!(controllers|directives|services|domain)/*.js', '**/*.js']
 
         testBases = ['src/test/assets/']
         testFiles = ['**/*Spec.js']
