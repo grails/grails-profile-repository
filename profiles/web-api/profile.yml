@@ -7,8 +7,8 @@ build:
         - org.grails.grails-core
 dependencies:
     build:
-        - "org.grails.plugins:views-gradle:1.0.0.RC1"
-        - 'org.grails.plugins:hibernate:4.3.10.7'
+        - "org.grails.plugins:views-gradle:1.0.0.RC2"
+        - 'org.grails.plugins:hibernate4:5.0.0.RC2'
     compile:
         - "org.springframework.boot:spring-boot-starter-actuator"
         - "org.springframework.boot:spring-boot-starter-tomcat"
@@ -21,7 +21,7 @@ dependencies:
         - "org.grails:grails-plugin-async"
         - "org.grails:grails-web-boot"
         - "org.grails:grails-logging"
-        - "org.grails.plugins:hibernate"
+        - "org.grails.plugins:hibernate4"
         - "org.grails.plugins:cache"
         - "org.grails.plugins:views-json"
         - "org.hibernate:hibernate-ehcache"
