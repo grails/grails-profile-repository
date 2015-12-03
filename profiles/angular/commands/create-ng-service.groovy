@@ -1,5 +1,4 @@
 import grails.util.*
-import org.codehaus.groovy.runtime.MetaClassHelper
 
 description( "Creates an Angular service" ) {
     usage "grails create-ng-service [NAME]"
