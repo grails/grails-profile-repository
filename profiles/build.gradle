@@ -4,7 +4,7 @@ buildscript {
         maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
-        classpath "org.grails:grails-gradle-plugin:3.1.0.M2"
+        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
     }
 }
 
@@ -19,6 +19,9 @@ subprojects {
         userOrg = 'grails'  
         githubSlug = 'grails/grails-profile-repository'
         license = 'Apache-2.0'
+        title = "Grails Profiles"
+        desc = "A collection of profiles that extend Grails and provide additional development environment functionality"
+        developers = [graemerocher:'Graeme Rocher']
     }    
 
     bintray {
