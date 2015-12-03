@@ -1,5 +1,5 @@
 describe("${moduleName} module", function() {
-    var $httpBackend;
+    var \$httpBackend;
 
     beforeEach(angular.mock.module("${moduleName}", function() {
     }));
