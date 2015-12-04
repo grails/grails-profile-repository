@@ -1,7 +1,7 @@
 grailsPublish {
     // TODO: Provide values here
-    bintrayUser = 'user'
-    bintrayKey = 'key'
-    githubSlug = 'foo/bar'        
+    user = 'user'
+    key = 'key'
+    githubSlug = 'foo/bar'
     license = 'Apache-2.0'
 }
