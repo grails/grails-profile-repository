@@ -15,6 +15,7 @@ dependencies:
         - "org.springframework.boot:spring-boot-starter-tomcat"
         - "org.grails:grails-plugin-url-mappings"
         - "org.grails:grails-plugin-rest"
+        - "org.grails:grails-plugin-codecs"
         - "org.grails:grails-plugin-interceptors"
         - "org.grails:grails-plugin-services"        
         - "org.grails:grails-plugin-datasource"

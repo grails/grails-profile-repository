@@ -11,6 +11,8 @@ description( "Generates a controller that performs REST operations" ) {
 if(args) {
     generateController(*args)
     generateViews(*args)
+    generateUnitTest(*args)
+    generateFunctionalTest(*args)    
 }
 else {
     error "No domain class specified"
