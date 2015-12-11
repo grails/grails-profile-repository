@@ -9,4 +9,4 @@
 //= require_tree domain
 //= require_tree templates
 
-angular.module("@grails.codegen.defaultPackage@", ["siteConfig"]);
+angular.module("@grails.codegen.defaultPackage@", ["ngResource", "siteConfig"]);
