@@ -15,11 +15,17 @@ group 'org.grails.profiles'
 version '1.0.0-SNAPSHOT'
 
 grailsPublish {
-  user = 'YOUR USERNAME'
-  key = 'YOUR KEY'
-  githubSlug = 'your-repo/your-profile'
-  license = 'Apache-2.0'
-}  
+    // TODO: Provide values here
+    user = 'user'
+    key = 'key'
+    githubSlug = 'foo/bar'
+    license {
+        name = 'Apache-2.0'
+    }
+    title = "My Profile"
+    desc = "Full profile description"
+    developers = [johndoe:"John Doe"]
+}
 
 repositories {
     mavenLocal()
