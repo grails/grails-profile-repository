@@ -1,6 +1,9 @@
 import org.springframework.validation.*
 import static org.springframework.http.HttpStatus.*
 
+/**
+ * Renders validation errors according to vnd.error: https://github.com/blongden/vnd.error
+ */
 model {
     BeanPropertyBindingResult errors
 }
