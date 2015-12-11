@@ -1,0 +1,8 @@
+grails:
+    neo4j:
+        type: embedded
+        location: data/neo4j
+        options:
+            cache_type: soft
+        # username: ""
+        # password: ""

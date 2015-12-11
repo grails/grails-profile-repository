@@ -1,8 +1,12 @@
 description: A profile for creating applications using AngularJS
+features:
+    defaults: 
+        - hibernate
+        - json-views
+        - asset-pipeline
 build:
     plugins:
         - org.grails.grails-gsp
-        - asset-pipeline
         - com.craigburke.karma
         - com.craigburke.bower-installer
 dependencies:
@@ -17,5 +21,3 @@ dependencies:
     assets:
         - "com.craigburke.angular:angular-annotate-asset-pipeline:2.4.0"
         - "com.craigburke:js-closure-wrap-asset-pipeline:1.2.0"
-    runtime:
-        - "org.grails.plugins:asset-pipeline"
