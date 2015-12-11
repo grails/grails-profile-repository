@@ -2,6 +2,7 @@ description: Profile for Web API applications
 features:
     defaults: 
         - hibernate
+    required:
         - json-views
 build:
     plugins:
