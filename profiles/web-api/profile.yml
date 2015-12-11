@@ -23,9 +23,6 @@ dependencies:
         - "org.grails:grails-web-boot"
         - "org.grails:grails-logging"
         - "org.grails.plugins:cache"
-
-    runtime:
-        - "com.h2database:h2"
     testCompile:
         - "org.grails:grails-plugin-testing"    
         - "org.grails.plugins:geb" 

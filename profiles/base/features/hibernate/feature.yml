@@ -5,3 +5,5 @@ dependencies:
     compile:
         - "org.grails.plugins:hibernate4"
         - "org.hibernate:hibernate-ehcache"
+    runtime:
+        - "com.h2database:h2"
