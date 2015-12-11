@@ -9,6 +9,6 @@ grailsPublish {
     title = "My Plugin"
     desc = "Full plugin description"
     developers = [johndoe:"John Doe"]
-    portalUsername = ""
+    portalUser = ""
     portalPassword = ""    
 }
