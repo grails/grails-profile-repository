@@ -3,5 +3,12 @@ grailsPublish {
     user = 'user'
     key = 'key'
     githubSlug = 'foo/bar'
-    license = 'Apache-2.0'
+    license {
+        name = 'Apache-2.0'
+    }
+    title = "My Plugin"
+    desc = "Full plugin description"
+    developers = [johndoe:"John Doe"]
+    portalUsername = ""
+    portalPassword = ""    
 }
