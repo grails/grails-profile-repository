@@ -1,9 +1,3 @@
-
-assets {
-    minifyJs = true
-    minifyCss = true
-}
-
 bower {
     'angular'('1.4.x') {
         source 'angular.js'
@@ -33,3 +27,4 @@ karma {
     frameworks = ['jasmine']
     reporters = ['progress']
 }
+
