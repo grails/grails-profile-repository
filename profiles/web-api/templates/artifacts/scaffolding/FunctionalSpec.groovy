@@ -10,7 +10,7 @@ import grails.plugins.rest.client.RestBuilder
 
 @Integration
 @Rollback
-class ${className}Spec extends GebSpec {
+class ${className}FunctionalSpec extends GebSpec {
 
     RestBuilder getRestBuilder() {
         new RestBuilder()
