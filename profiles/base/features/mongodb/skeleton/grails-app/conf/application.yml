@@ -5,5 +5,3 @@ grails:
         username: ""
         password: ""
         databaseName: "@grails.app.name@"
-    }
-}
