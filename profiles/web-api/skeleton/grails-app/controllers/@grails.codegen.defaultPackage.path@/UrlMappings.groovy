@@ -1,3 +1,5 @@
+package @grails.codegen.defaultPackage@
+
 class UrlMappings {
 
     static mappings = {
@@ -7,7 +9,7 @@ class UrlMappings {
             }
         }
 
-        "/"(view: 'index')
+        "/"(controller: 'application', 'index')
         "500"(view: '/application/serverError')
         "404"(view: '/application/notFound')
     }
