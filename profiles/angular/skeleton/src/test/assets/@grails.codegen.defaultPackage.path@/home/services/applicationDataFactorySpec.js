@@ -1,5 +1,6 @@
-describe("Application module", function() {
-    beforeEach(angular.mock.module('application', function($provide) {
+describe("Home module", function() {
+
+    beforeEach(angular.mock.module('@grails.codegen.defaultPackage@.home', function($provide) {
         $provide.constant('contextPath', '/GrailsApp');
     }));
 
