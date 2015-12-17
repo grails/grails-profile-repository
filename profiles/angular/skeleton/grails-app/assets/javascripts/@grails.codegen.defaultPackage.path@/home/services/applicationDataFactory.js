@@ -1,7 +1,7 @@
 //= wrapped
 
 angular
-    .module("application")
+    .module("@grails.codegen.defaultPackage@.home")
     .factory("applicationDataFactory", applicationDataFactory);
 
 function applicationDataFactory($http) {

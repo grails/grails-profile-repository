@@ -1,8 +1,9 @@
 //= wrapped
-//= require angular/angular
+//= require /angular/angular
+//= require /angular/angular-resource
 //= require_self
 
-angular.module("siteConfig", [])
+angular.module("@grails.codegen.defaultPackage@.core", ['ngResource'])
     .constant("contextPath", window.contextPath)
     .config(config);
 
