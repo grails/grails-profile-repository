@@ -1,6 +1,6 @@
 description: A profile for creating applications using AngularJS
 features:
-    defaults: 
+    defaults:
         - hibernate
     required:
         - json-views
@@ -13,12 +13,11 @@ build:
 dependencies:
     compile:
         - "org.grails:grails-plugin-gsp"
-        - "com.craigburke.angular:angular-template-asset-pipeline:2.2.6"
     build:
-        - "com.craigburke.angular:angular-template-asset-pipeline:2.2.6"
         - "com.bertramlabs.plugins:asset-pipeline-gradle:2.6.4"
         - "gradle.plugin.com.craigburke.gradle:karma-gradle:1.2.1"
-        - "gradle.plugin.com.craigburke.gradle:bower-installer-gradle:2.4.1"
+        - "gradle.plugin.com.craigburke.gradle:bower-installer-gradle:2.5.1"
     assets:
+        - "com.craigburke.angular:angular-template-asset-pipeline:2.2.6"
         - "com.craigburke.angular:angular-annotate-asset-pipeline:2.4.0"
         - "com.craigburke:js-closure-wrap-asset-pipeline:1.2.0"
