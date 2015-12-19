@@ -2,6 +2,7 @@
 //= require /angular/angular
 //= require /angular/angular-resource
 //= require_self
+//= require_tree services
 
 angular.module("@grails.codegen.defaultPackage@.core", ['ngResource'])
     .constant("contextPath", window.contextPath)
