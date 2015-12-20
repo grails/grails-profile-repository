@@ -16,7 +16,7 @@ describe("Index module", function() {
         var element;
 
         beforeEach(angular.mock.inject(function ($compile, $rootScope, $templateCache) {
-            $templateCache.put('/application/applicationData.html', 'Test');
+            $templateCache.put('/@grails.codegen.defaultPackage.path@/index/applicationData.html', 'Test');
             element = angular.element('<application-data></application-data>');
             $compile(element)(scope);
             scope.$digest();
