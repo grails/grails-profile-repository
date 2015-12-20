@@ -1,6 +1,6 @@
 //= wrapped
 //= require /@grails.codegen.defaultPackage.path@/core/core
-//= require /@grails.codegen.defaultPackage.path@/home/home
+//= require /@grails.codegen.defaultPackage.path@/index/index
 //= require_self
 //= require_tree services
 //= require_tree controllers
@@ -10,5 +10,5 @@
 
 angular.module("@grails.codegen.defaultPackage@", [
     "@grails.codegen.defaultPackage@.core",
-    "@grails.codegen.defaultPackage@.home"
+    "@grails.codegen.defaultPackage@.index"
 ]);

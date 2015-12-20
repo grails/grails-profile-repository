@@ -1,6 +1,6 @@
-describe('Application module', function() {
+describe('Index module', function() {
 
-    beforeEach(angular.mock.module('@grails.codegen.defaultPackage@.home', function() {
+    beforeEach(angular.mock.module('@grails.codegen.defaultPackage@.index', function() {
     }));
 
     describe("IndexController", function() {

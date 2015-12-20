@@ -5,4 +5,4 @@
 //= require_tree directives
 //= require_tree templates
 
-angular.module("@grails.codegen.defaultPackage@.home", ["@grails.codegen.defaultPackage@.core"]);
+angular.module("@grails.codegen.defaultPackage@.index", ["@grails.codegen.defaultPackage@.core"]);
