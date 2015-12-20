@@ -1,4 +1,5 @@
 //= wrapped
+//= require /angular/angular
 //= require /@grails.codegen.defaultPackage.path@/core/core
 //= require /@grails.codegen.defaultPackage.path@/index/index
 //= require_self
