@@ -11,10 +11,13 @@ angular
 
 function DomainServiceFactory($resource) {
     return function(url, paramDefaults, actions, options) {
+        var resourceActions = {"update": {method: "PUT"}, "list": {method: "GET", isArray: true}};
+        angular.extend(resourceActions, actions);
+
         return $resource(
             url,
             paramDefaults || null,
-            actions || {"update": {method: "PUT"}, "list": {method: "GET", isArray: true}},
+            resourceActions,
             options || {}
         );
     }
