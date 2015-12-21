@@ -1,4 +1,4 @@
-page.status 500
+response.status 500
 
 json {    
     message "Internal server error"

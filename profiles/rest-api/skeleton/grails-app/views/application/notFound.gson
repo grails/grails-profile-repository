@@ -1,4 +1,4 @@
-page.status 404
+response.status 404
 
 json {
 	message "Not Found"
