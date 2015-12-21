@@ -8,6 +8,10 @@ buildscript {
     }
 }
 
+allprojects {
+	apply plugin: "idea"
+}
+
 subprojects {
     apply plugin: "org.grails.grails-profile"
     apply plugin: "org.grails.grails-profile-publish"
