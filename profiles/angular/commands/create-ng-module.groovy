@@ -14,19 +14,27 @@ model.packagePath = model.packageName.replace('.' as char, File.separatorChar)
 
 boolean overwrite = flag('force')
 
-final String folder = "grails-app/assets/javascripts/${model.packagePath}/${model.propertyName}"
+final String basePath = "grails-app/assets/javascripts"
+final String modulePath = "${model.packagePath}/${model.propertyName}"
 
-List dependencies = ["\"ngResource\""]
+Map dependencies = [:]
 
-if (file("grails-app/assets/javascripts/siteConfig.js").exists()) {
-    dependencies.add("\"siteConfig\"")
+if (file("${basePath}/${model.packagePath}/core/core.js").exists()) {
+    String moduleName = "\"${model.packageName}.core\""
+    String assetPath = "/${model.packagePath}/core/core"
+    dependencies[moduleName] = assetPath
 }
 
+render template: template('tests/NgModuleSpec.js'),
+        destination: file("src/test/assets/${modulePath}/${model.propertyName}Spec.js"),
+        model: [fullName: model.fullName],
+        overwrite: overwrite
+
 render template: template('NgModule.js'),
-       destination: file("${folder}/${model.propertyName}.js"),
-       model: [fullName: model.fullName, dependencies: dependencies],
+       destination: file("${basePath}/${modulePath}/${model.propertyName}.js"),
+       model: [fullName: model.fullName, rootPath: model.packagePath, dependencies: dependencies],
        overwrite: overwrite
 
 ["controllers", "directives", "domain", "services", "templates"].each {
-    fileSystemInteraction.mkdir "${folder}/${it}"
+    fileSystemInteraction.mkdir "${basePath}/${modulePath}/${it}"
 }

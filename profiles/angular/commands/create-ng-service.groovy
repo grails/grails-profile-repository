@@ -7,7 +7,7 @@ description( "Creates an Angular service" ) {
     flag name:'force', description:"Whether to overwrite existing files"
 }
 
-def model = model(args[0])
+def serviceModel = model(args[0])
 boolean overwrite = flag('force')
 String typeFlag = flag('type') ?: "factory"
 
@@ -15,17 +15,20 @@ if (!["service", "factory", "value", "provider", "constant"].contains(typeFlag))
     error "Service type \"${typeFlag}\" is not a valid option"
 } else {
     final String type = GrailsNameUtils.getClassName(typeFlag)
-    String name = model.propertyName
+    String name = serviceModel.propertyName
 
-    if (!["Constant", "Value"].contains(type) && !name.endsWith(type)) {
-        name += type
+    Map typeSuffixes = [service: "Service", factory: "Service", provider: "Provider"]
+    if (typeSuffixes.containsKey(typeFlag) && !name.endsWith(typeSuffixes[typeFlag])) {
+        name += typeSuffixes[typeFlag]
     }
 
-    final String modulePath = model.packagePath ?: model.propertyName
-    final String moduleName = model.packageName ?: model.propertyName
+    final String modulePath = serviceModel.packagePath ?: serviceModel.propertyName
+    final String moduleName = serviceModel.packageName ?: serviceModel.propertyName
+
+    def moduleModel = model(moduleName)
 
     final String basePath = "grails-app/assets/javascripts/${modulePath}"
-    if (!file("${basePath}/${moduleName}.js").exists()) {
+    if (!file("${basePath}/${moduleModel.propertyName}.js").exists()) {
         createNgModule(moduleName)
     }
 

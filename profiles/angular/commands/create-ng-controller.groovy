@@ -6,21 +6,23 @@ description( "Creates an Angular controller" ) {
     flag name:'force', description:"Whether to overwrite existing files"
 }
 
-def model = model(args[0])
+def controllerModel = model(args[0])
 boolean overwrite = flag('force')
 
 final String type = "Controller"
 
-final String modulePath = model.packagePath ?: model.propertyName
-final String moduleName = model.packageName ?: model.propertyName
+final String modulePath = controllerModel.packagePath ?: controllerModel.propertyName
+final String moduleName = controllerModel.packageName ?: controllerModel.propertyName
+
+def moduleModel = model(moduleName)
 
 final String basePath = "grails-app/assets/javascripts/${modulePath}"
-if (!file("${basePath}/${moduleName}.js").exists()) {
+if (!file("${basePath}/${moduleModel.propertyName}.js").exists()) {
     createNgModule(moduleName)
 }
 
-final String fileName = model.propertyName.endsWith(type) ? model.propertyName : "${model.propertyName}${type}"
-final String controllerName = model.className.endsWith(type) ? model.className : model.convention(type)
+final String fileName = controllerModel.propertyName.endsWith(type) ? controllerModel.propertyName : "${controllerModel.propertyName}${type}"
+final String controllerName = controllerModel.className.endsWith(type) ? controllerModel.className : controllerModel.convention(type)
 
 render template: template('tests/NgControllerSpec.js'),
        destination: file("src/test/assets/${modulePath}/controllers/${fileName}Spec.js"),

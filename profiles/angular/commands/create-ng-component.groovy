@@ -6,34 +6,36 @@ description( "Creates an Angular directive" ) {
     flag name:'force', description:"Whether to overwrite existing files"
 }
 
-def model = model(args[0])
+def directiveModel = model(args[0])
 boolean overwrite = flag('force')
 
-final String modulePath = model.packagePath ?: model.propertyName
-final String moduleName = model.packageName ?: model.propertyName
+final String modulePath = directiveModel.packagePath ?: directiveModel.propertyName
+final String moduleName = directiveModel.packageName ?: directiveModel.propertyName
+
+def moduleModel = model(moduleName)
 
 final String basePath = "grails-app/assets/javascripts/${modulePath}"
-if (!file("${basePath}/${moduleName}.js").exists()) {
+if (!file("${basePath}/${moduleModel.propertyName}.js").exists()) {
     createNgModule(moduleName)
 }
 
 render template: template("tests/NgComponentSpec.js"),
-        destination: file("src/test/assets/${modulePath}/directives/${model.propertyName}Spec.js"),
+        destination: file("src/test/assets/${modulePath}/directives/${directiveModel.propertyName}Spec.js"),
         model: [moduleName: moduleName,
-                propertyName: model.propertyName,
-                tagName: GrailsNameUtils.getScriptName(model.propertyName)],
+                propertyName: directiveModel.propertyName,
+                tagName: GrailsNameUtils.getScriptName(directiveModel.propertyName)],
         overwrite: overwrite
 
-File htmlTemplate = file("${basePath}/templates/${model.propertyName}.tpl.html")
+File htmlTemplate = file("${basePath}/templates/${directiveModel.propertyName}.tpl.html")
 if (!htmlTemplate.exists()) {
     htmlTemplate.createNewFile()
     addStatus "Created blank template at ${projectPath(htmlTemplate)}"
 }
 
 render template: template("NgComponent.js"),
-       destination: file("${basePath}/directives/${model.propertyName}.js"),
+       destination: file("${basePath}/directives/${directiveModel.propertyName}.js"),
        model: [moduleName: moduleName,
-               propertyName: model.propertyName,
-               templatePath: model.packagePath?.replaceAll("\\\\", "/") ?: model.propertyName,
-               controllerName: "${model.className}Controller"]
+               propertyName: directiveModel.propertyName,
+               templatePath: directiveModel.packagePath?.replaceAll("\\\\", "/") ?: directiveModel.propertyName,
+               controllerName: "${directiveModel.className}Controller"]
        overwrite: overwrite
