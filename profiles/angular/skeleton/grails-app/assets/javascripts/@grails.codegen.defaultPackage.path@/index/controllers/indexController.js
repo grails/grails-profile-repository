@@ -1,7 +1,7 @@
 //= wrapped
 
 angular
-    .module("application")
+    .module("@grails.codegen.defaultPackage@.index")
     .controller("IndexController", IndexController);
 
 function IndexController(applicationDataFactory, contextPath) {

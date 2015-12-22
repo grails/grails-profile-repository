@@ -81,11 +81,11 @@
         }
     </style>
 </head>
-<body ng-app="application">
+<body ng-app="@grails.codegen.defaultPackage@">
     <div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
     <a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
     <application-data></application-data>
     <div class="footer" role="contentinfo"></div>
-    <asset:javascript src="application/application" />
+    <asset:javascript src="@grails.codegen.defaultPackage.path@/app" />
 </body>
 </html>
