@@ -11,20 +11,5 @@ bower {
 }
 
 karma {
-    profile('default')  {
-        libraryBases = ['grails-app/assets/bower/']
-        libraryFiles = ['angular/angular.js', '**/*.js']
-
-        sourceBases = ['grails-app/assets/javascripts/']
-        //To ensure the modules get loaded first
-        sourceFiles = ['**/!(controllers|directives|services|domain)/*.js', '**/*.js']
-
-        testBases = ['src/test/assets/']
-        testFiles = ['**/*Spec.js']
-    }
-
-    browsers = ['PhantomJS']
-    frameworks = ['jasmine']
-    reporters = ['progress']
+    profile 'angularJS'
 }
-
