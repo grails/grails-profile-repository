@@ -7,7 +7,7 @@ description( "Creates an Angular domain" ) {
     flag name:'force', description:"Whether to overwrite existing files"
 }
 
-def model = model(args[0])
+def domainModel = model(args[0])
 boolean overwrite = flag('force')
 
 final String javascriptRoot = "grails-app/assets/javascripts/"
@@ -22,27 +22,27 @@ def hasFactoryFile = {
     factoryFileExists
 }
 
-final String modulePath = model.packagePath ?: model.propertyName
-final String moduleName = model.packageName ?: model.propertyName
+final String modulePath = domainModel.packagePath ?: domainModel.propertyName
+final String moduleName = domainModel.packageName ?: domainModel.propertyName
 
-final String basePath = "${javascriptRoot}${modulePath}"
-if (!file("${basePath}/${moduleName}.js").exists()) {
+def moduleModel = model(moduleName)
+
+final String basePath = "grails-app/assets/javascripts/${modulePath}"
+if (!file("${basePath}/${moduleModel.propertyName}.js").exists()) {
     createNgModule(moduleName)
 }
 
 render template: template("tests/NgDomainSpec.js"),
-        destination: file("src/test/assets/${modulePath}/domain/${model.className}Spec.js"),
+        destination: file("src/test/assets/${modulePath}/domain/${domainModel.className}Spec.js"),
         model: [moduleName: moduleName,
-                className: model.className]
+                className: domainModel.className]
         overwrite: overwrite
-
-
 
 String templateName = hasFactoryFile() ? 'NgDomainFactory.js' : 'NgDomain.js'
 
 render template: template(templateName),
-       destination: file("${basePath}/domain/${model.className}.js"),
+       destination: file("${basePath}/domain/${domainModel.className}.js"),
        model: [moduleName: moduleName,
-               propertyName: model.propertyName,
-               className: model.className]
+               propertyName: domainModel.propertyName,
+               className: domainModel.className]
        overwrite: overwrite

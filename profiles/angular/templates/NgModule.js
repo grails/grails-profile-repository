@@ -1,4 +1,5 @@
-//= wrapped ${dependencies.collect{ '\n//= require ' + it.value }.join('\n') }
+//= wrapped
+//= require /angular/angular ${dependencies.collect{ '\n//= require ' + it.value }.join('\n') }
 //= require_self
 //= require_tree services
 //= require_tree controllers
