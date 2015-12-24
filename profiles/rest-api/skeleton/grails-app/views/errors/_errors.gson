@@ -7,7 +7,7 @@ model {
     Errors errors
 }
 
-page.status UNPROCESSABLE_ENTITY
+response.status UNPROCESSABLE_ENTITY
 
 json {
     Errors errorsObject = (Errors)this.errors
