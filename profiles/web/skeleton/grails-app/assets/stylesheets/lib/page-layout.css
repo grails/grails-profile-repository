@@ -1,47 +1,97 @@
-html {
-    background-color: #ddd;
-    background-image: -moz-linear-gradient(center top, #aaa, #ddd);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #ddd));
-    background-image: linear-gradient(top, #aaa, #ddd);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#aaaaaa', EndColorStr = '#dddddd');
-    background-repeat: no-repeat;
-    height: 100%;
-    /* change the box model to exclude the padding from the calculation of 100% height (IE8+) */
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+* {
+    margin: 0;
+    border: 0;
+}
+html, body {
+    background-color:#ffffff;
+    color:#000000;
+    padding:0;
+    margin:0;
 }
 
-body {
-    background: #ffffff;
-    color: #333333;
-    margin: 0 auto;
-    max-width: 960px;
-    overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
-       -moz-box-shadow: 0 0 0.3em #255b17;
-    -webkit-box-shadow: 0 0 0.3em #255b17;
-            box-shadow: 0 0 0.3em #255b17;
+html.no-cssgradients {
+    background-color: #aaa;
 }
 
-#grailsLogo {
-    background-color: #abbf78;
-}
-
-#grailsLogo a {
-    display: inline-block;
-    margin: 1em;
-}
-
-.footer {
-    background: #abbf78;
-    color: #000;
+#header, header {
+    background-color:#4d8618;
+    border:0
+    font-weight:400;
+    font-size:1.4em;
+    width:100%;
+    z-index:100;
+    top:0;
+    left:0;
     clear: both;
-    font-size: 0.8em;
-    margin-top: 1.5em;
-    padding: 1em;
-    min-height: 1em;
+}
+#footer, footer {
+    background-color:#aaaaaa;
+    border:0
+    text-transform: capitalize;
+    font-weight:100;
+    font-size:0.8em;
+    width:100%;
+    z-index:100;
+    top:0;
+    left:0;
+    clear: both;
 }
 
-.footer a {
-    color: #255b17;
+#logo img {
+    height: 1.4em;
 }
+
+/* For backwards compatibility, probably not needed in most moder browsers now */
+article, aside, header, footer, nav, section, hgroup, figure, figcaption {
+    display:block;
+}
+
+aside {
+    font-size:0.8em;
+    float:left;
+    padding: 1em;
+    vertical-align: top;
+}
+
+
+/* Sticky Containers sample: manually add the style to related tag in page to try it */
+header.sticky {
+    position:fixed;
+    z-index:1000000;
+    top:0px;
+}
+
+body.sticky {
+    top:0px;
+    /* margin-top:     100px; */  /* equal to header height */
+    /* margin-bottom: -100px; */  /* equal to footer height */
+}
+
+footer.sticky {
+    position:fixed;
+    z-index:1000000;
+}
+
+
+.container, .grid {
+    margin: 0 auto;
+    max-width: 90%;
+    vertical-align: top;
+}
+.container {
+    padding-left:  1em;
+    padding-right: 1em;
+}
+
+.group:before, .group:after {
+    content: "";
+    display: table;
+}
+.group:after {
+    clear: both;
+}
+.group {
+    clear: both;
+    *zoom: 1;
+}
+

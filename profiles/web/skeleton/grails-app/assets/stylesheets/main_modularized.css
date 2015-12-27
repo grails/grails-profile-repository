@@ -5,65 +5,155 @@
 *= require lib/scaffold
 */
 
-
-/* FONT STACK */
-body,
-input, select, textarea {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+html, body {
+    font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight:normal;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    line-height: 1.1;
+nav {
+    background-color:#4d8618;
+    border:0
+    text-transform: capitalize;
+    font-weight:400;
+    z-index:100000;
+    top:0;
+    left:0;
+    margin: 0px auto;
+    text-align: center;
 }
 
-/* BASE LAYOUT */
-
-html.no-cssgradients {
-    background-color: #aaa;
+nav ul, 
+#footer ul, footer ul {
+    list-style:none;
+    text-align:center;
+    padding:0;
+    margin:0;
+}
+nav ul li {
+    display:inline-block;
+    zoom:1;
+    letter-spacing:normal;
+    min-width:6em;
+    margin:0;
+    vertical-align: middle;
+}
+nav a, nav a:link, nav a:visited, 
+nav ul li a, nav ul li a:visited {
+    display: inline-block;
+    text-decoration:none;
+    color:#ffffff;
+    opacity:0.8;
+    padding:0.5em;
+}
+nav a:hover, nav ul li a:hover {
+    opacity:1
+}
+nav ul li:hover, nav ul li.active {
+}
+nav a:hover, nav ul li a:hover {
+    background-color:#db4800!important;
+    color:#ffffff!important
+}
+nav a, nav ul li a,
+#footer a, #footer ul li a,
+footer a, footer ul li a {
+    color:#000000;
 }
 
-html * {
-    margin: 0;
+#footer ul li, footer ul li {
+    display:inline-block;
+    padding:1px;
+    zoom:1;
+    min-width:1em;
+    margin:0;
+}
+#footer ul, footer ul {
+    list-style:none;
+    text-align:center;
+    padding:0;
+    margin:0;
+}
+#footer a, #footer a:link, #footer ul li a:visited, 
+footer a, footer a:link, footer ul li a:visited {
+    display: inline-block;
+    text-decoration:none;
+    opacity:0.8;
+    color:#ffffff;
+}
+#footer a, footer a, 
+#footer ul li, footer ul li {
+    text-transform:none;
+}
+#footer ul li:before, footer ul li:before {
+    content: "~";
+    padding-right:0.5em;
 }
 
-
-a:link, a:visited, a:hover {
-    color: #48802c;
-}
-
-a:hover, a:active {
-    outline: none; /* prevents outline in webkit on active links but retains it for tab focus */
+#footer p, footer p {
+    text-align: center;
 }
 
 h1 {
-    color: #48802c;
-    font-weight: normal;
-    font-size: 1.25em;
-    margin: 0.8em 0 0.3em 0;
+    color: #000000;
+    font-weight:600;
+    font-size:2em;
+    margin: 0.8em 0 0.25em 0;
 }
 
-ul {
-    padding: 0;
+h2 {
+    color: #000000;
+    font-weight:300;
+    font-size:1.5em;
+    margin: 0.6em 0 0.2em 0;
 }
 
-img {
-    border: 0;
+h3 {
+    color: #000000;
+    font-weight:200;
+    font-size:1.2em;
+    margin: 0.4em 0 0.15em 0;
 }
 
-/* GENERAL */
-
-
-.content h1 {
-    border-bottom: 1px solid #CCCCCC;
-    margin: 0.8em 1em 0.3em;
-    padding: 0 0.25em;
+hr {
+    background-color: #4d8618;
+    height: 1px;
+    margin: 0.5em;
 }
 
+a 
+{
+    color:#db4800;
+    text-decoration:underline;
+    font-weight:200;
+}
+a:hover {
+    color:#db4800;
+    text-decoration:none;
+}
+
+.grails_color {
+    background-color:#4d8618!important;
+}
+.grails_hilite_color {
+    background-color:#db4800!important;
+}
+.grails_test_color {
+    background-color:#00ff00!important;
+}
+
+.hidden {
+    display: none;
+}
+
+.responsive_image {
+    max-width: 100%;
+    height: auto;
+}
 
 .spinner {
     background: url(../images/spinner.gif) 50% 50% no-repeat transparent;
-    height: 16px;
-    width: 16px;
+    height: 1em;
+    width: 1em;
     padding: 0.5em;
     position: absolute;
     right: 0;
@@ -75,3 +165,4 @@ a.skip {
     position: absolute;
     left: -9999px;
 }
+

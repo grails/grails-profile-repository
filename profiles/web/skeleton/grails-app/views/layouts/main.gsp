@@ -11,9 +11,29 @@
         <g:layoutHead/>
     </head>
     <body>
-        <div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
+        <header id="header" class="" role="banner">
+            <nav class="container" role="navigation">
+                <ul>
+                    <li id="logo" role="banner" style="align:left;"><a href="http://grails.org"><asset:image src="grails-cupsonly-logo-white.svg" alt="Grails" title="Grails"/></a></li>
+                    <li><a href="/#">Home</a></li>
+                    <li><a href="/#controllers">Controllers</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="skip-to-content" class="hidden">
+            <a href="#page-body"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+        </div>
+
         <g:layoutBody/>
-        <div class="footer" role="contentinfo"></div>
-        <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+
+        <div id="spinner" class="spinner hidden"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+
+        <footer id="footer" class="footer" role="contentinfo">
+            <p>
+            <g:message code="poweredby" default="Powered by"/> &nbsp;
+            <a href="http://grails.org"><g:message code="grails" default="Grails"/></a>
+            </p>
+        </footer>
     </body>
 </html>
