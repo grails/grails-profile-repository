@@ -14,9 +14,9 @@
         <header id="header" class="" role="banner">
             <nav class="container" role="navigation">
                 <ul>
-                    <li id="logo" role="banner" style="align:left;"><a href="http://grails.org"><asset:image src="grails-cupsonly-logo-white.svg" alt="Grails" title="Grails"/></a></li>
-                    <li><a href="/#">Home</a></li>
-                    <li><a href="/#controllers">Controllers</a></li>
+                    <li id="logo" role="banner" style="align:left;"><a href="/#"><asset:image src="grails-cupsonly-logo-white.svg" alt="Home Page" title="Home Page"/></a></li>
+                    <li><a href="/#"><g:message code="home" default="Home"/></a></li>
+                    <li><a href="/#controllers"><g:message code="controllers" default="Controllers"/></a></li>
                 </ul>
             </nav>
         </header>
@@ -31,8 +31,8 @@
 
         <footer id="footer" class="footer" role="contentinfo">
             <p>
-            <g:message code="poweredby" default="Powered by"/> &nbsp;
-            <a href="http://grails.org"><g:message code="grails" default="Grails"/></a>
+                <g:message code="poweredBy" default="Powered by"/> &nbsp;
+                <a href="http://grails.org"><g:message code="grails" default="Grails"/></a>
             </p>
         </footer>
     </body>

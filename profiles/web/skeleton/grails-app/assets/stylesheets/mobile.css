@@ -21,6 +21,9 @@
     h1, h2, h3, h4 {
         font-size:1em;
     }
+    h5, h6 {
+        font-size:0.56em;
+    }
 
     aside {
         display:none;
