@@ -20,7 +20,7 @@ if (!file("${basePath}/${moduleModel.propertyName}.js").exists()) {
 }
 
 render template: template("tests/NgComponentSpec.js"),
-        destination: file("src/test/assets/${modulePath}/directives/${directiveModel.propertyName}Spec.js"),
+        destination: file("src/test/javascript/${modulePath}/directives/${directiveModel.propertyName}Spec.js"),
         model: [moduleName: moduleName,
                 propertyName: directiveModel.propertyName,
                 tagName: GrailsNameUtils.getScriptName(directiveModel.propertyName)],

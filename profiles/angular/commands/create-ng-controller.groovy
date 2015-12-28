@@ -25,7 +25,7 @@ final String fileName = controllerModel.propertyName.endsWith(type) ? controller
 final String controllerName = controllerModel.className.endsWith(type) ? controllerModel.className : controllerModel.convention(type)
 
 render template: template('tests/NgControllerSpec.js'),
-       destination: file("src/test/assets/${modulePath}/controllers/${fileName}Spec.js"),
+       destination: file("src/test/javascript/${modulePath}/controllers/${fileName}Spec.js"),
        model: [moduleName: moduleName, name: controllerName],
        overwrite: overwrite
 
