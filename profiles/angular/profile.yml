@@ -15,7 +15,7 @@ dependencies:
         - "org.grails:grails-plugin-gsp"
     build:
         - "com.bertramlabs.plugins:asset-pipeline-gradle:2.6.4"
-        - "gradle.plugin.com.craigburke.gradle:karma-gradle:1.4.0"
+        - "gradle.plugin.com.craigburke.gradle:karma-gradle:1.4.1"
         - "gradle.plugin.com.craigburke.gradle:bower-installer-gradle:2.5.1"
     assets:
         - "com.craigburke.angular:angular-template-asset-pipeline:2.2.6"
