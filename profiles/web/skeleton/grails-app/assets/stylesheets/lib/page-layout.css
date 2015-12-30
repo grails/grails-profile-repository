@@ -1,97 +1,158 @@
-* {
-    margin: 0;
-    border: 0;
-}
-html, body {
-    background-color:#ffffff;
-    color:#000000;
-    padding:0;
-    margin:0;
+/* Styles for page layout */
+
+/* body, */
+.container, .wrapper {
+    display: -webkit-flex;
+    display: flex;
+    /* flex-flow: row wrap; */
+    justify-content: space-around;
+    /* justify-content: space-between; */
 }
 
-html.no-cssgradients {
-    background-color: #aaa;
+#header, #page-body, #page-content, #footer, header, nav, aside, footer,
+.header, .main, .navigation, .primary, .secondary, .content, .footer {
+    /* flex: 0 1 auto; */
+}
+
+#header, header, .header {
+    -webkit-order: 10;
+    order: 10;
+}
+
+nav, .navigation {
+    -webkit-order: 20;
+    order: 20;
+}
+
+aside, .primary {
+    -webkit-order: 30;
+    order: 30;
+}
+
+#page-body, #page-content, .main, .content {
+    -webkit-order: 50;
+    order: 50;
+}
+
+.secondary {
+    -webkit-order: 70;
+    order: 70;
+}
+
+#footer, footer, .footer {
+    -webkit-order: 90;
+    order: 90;
 }
 
 #header, header {
     background-color:#4d8618;
-    border:0
     font-weight:400;
     font-size:1.4em;
-    width:100%;
-    z-index:100;
-    top:0;
-    left:0;
-    clear: both;
 }
+
 #footer, footer {
-    background-color:#aaaaaa;
-    border:0
+    background-color:#888888;
     text-transform: capitalize;
     font-weight:100;
     font-size:0.8em;
-    width:100%;
-    z-index:100;
+    padding:0.4em;
+}
+
+
+nav {
+    background-color:#4d8618;
+    text-transform: capitalize;
+    font-weight:400;
+    z-index:100000;
     top:0;
     left:0;
-    clear: both;
+    margin: 0px auto;
+    text-align: center;
+}
+
+nav ul, 
+#footer ul, footer ul {
+    list-style:none;
+    text-align:center;
+    padding:0;
+    margin:0;
+}
+nav ul li {
+    display: inline-block;
+    zoom:1;
+    letter-spacing:normal;
+    min-width:6em;
+    margin:0;
+    vertical-align: middle;
+}
+nav a, nav a:link, nav a:visited, 
+nav ul li a, nav ul li a:visited {
+    display: inline-block;
+    text-decoration:none;
+    color:#ffffff;
+    opacity:0.8;
+    padding:0.5em;
+}
+nav a:hover, nav ul li a:hover {
+    opacity:1
+}
+nav ul li:hover, nav ul li.active {
+}
+nav a:hover, nav ul li a:hover {
+    background-color:#db4800!important;
+    color:#ffffff!important
+}
+nav a, nav ul li a,
+#footer a, #footer ul li a,
+footer a, footer ul li a {
+    color:#000000;
+}
+
+#footer ul li, footer ul li {
+    display: inline-block;
+    padding:1px;
+    zoom:1;
+    min-width:1em;
+    margin:0;
+}
+#footer ul, footer ul {
+    list-style:none;
+    text-align:center;
+    padding:0;
+    margin:0;
+}
+#footer a, #footer a:link, #footer ul li a:visited, 
+footer a, footer a:link, footer ul li a:visited {
+    display: inline-block;
+    text-decoration:none;
+    opacity:0.8;
+    color:#ffffff;
+}
+#footer a, footer a, 
+#footer ul li, footer ul li {
+    text-transform:none;
+}
+#footer ul li:before, footer ul li:before {
+    content: "~";
+    padding-right:0.5em;
+}
+
+#footer p, footer p {
+    text-align: center;
 }
 
 #logo img {
     height: 1.4em;
 }
 
-/* For backwards compatibility, probably not needed in most moder browsers now */
-article, aside, header, footer, nav, section, hgroup, figure, figcaption {
-    display:block;
-}
 
-aside {
-    font-size:0.8em;
-    float:left;
-    padding: 1em;
-    vertical-align: top;
-}
+@media screen and (min-width: 48em) {
+    aside, .primary, .secondary {
+        font-size:0.6em;
+        max-width: 33%;
+    }
+    #page-content, .main, .content {
+        width: 67%;
+    }
 
-
-/* Sticky Containers sample: manually add the style to related tag in page to try it */
-header.sticky {
-    position:fixed;
-    z-index:1000000;
-    top:0px;
 }
-
-body.sticky {
-    top:0px;
-    /* margin-top:     100px; */  /* equal to header height */
-    /* margin-bottom: -100px; */  /* equal to footer height */
-}
-
-footer.sticky {
-    position:fixed;
-    z-index:1000000;
-}
-
-
-.container, .grid {
-    margin: 0 auto;
-    max-width: 90%;
-    vertical-align: top;
-}
-.container {
-    padding-left:  1em;
-    padding-right: 1em;
-}
-
-.group:before, .group:after {
-    content: "";
-    display: table;
-}
-.group:after {
-    clear: both;
-}
-.group {
-    clear: both;
-    *zoom: 1;
-}
-

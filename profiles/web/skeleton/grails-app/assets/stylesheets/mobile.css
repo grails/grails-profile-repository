@@ -1,23 +1,23 @@
 /* Styles for mobile devices */
 
-@media screen and (max-width: 768px) {
-    aside {
+@media screen and (max-width: 48em) {
+    aside, .primary, .secondary {
         font-size:0.6em;
+        max-width:33%;
+    }
+    #page-content, .main, .content {
+        width:67%;
     }
 
-    .container, .grid {
-        margin: 0 auto;
-        max-width: 96%;
-        vertical-align: top;
-    }
-    .container {
-        padding-left:  0.5em;
-        padding-right: 0.5em;
+    .container, .wrapper {
+        padding-left: 0.5em;
+        padding-right:0.5em;
     }
 }
 
-@media screen and (max-width: 480px) {
-    #header, header,
+
+@media screen and (max-width: 30em) {
+    #header, header .header,
     h1, h2, h3, h4 {
         font-size:1em;
     }
@@ -25,18 +25,22 @@
         font-size:0.56em;
     }
 
-    aside {
+    aside, .primary, .secondary {
         display:none;
     }
 
-    .container, .grid {
-        margin: 0 auto;
-        max-width: 100%;
-        vertical-align: top;
+    nav ul li,
+    #footer ul li, footer ul li {
+        display:block;
     }
-    .container {
-        padding-left:  0.1em;
-        padding-right: 0.1em;
+
+    #footer, footer, .footer {
+        display:none;
+    }
+
+    .container, .wrapper {
+        padding-left: 0.1em;
+        padding-right:0.1em;
     }
 }
 

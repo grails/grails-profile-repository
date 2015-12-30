@@ -5,92 +5,21 @@
 *= require lib/scaffold
 */
 
+* {
+    margin: 0;
+    border: 0;
+}
 html, body {
+    background-color:#ffffff;
+    color:#000000;
+    padding:0;
+    margin:0;
     font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight:normal;
 }
 
-nav {
-    background-color:#4d8618;
-    border:0
-    text-transform: capitalize;
-    font-weight:400;
-    z-index:100000;
-    top:0;
-    left:0;
-    margin: 0px auto;
-    text-align: center;
-}
-
-nav ul, 
-#footer ul, footer ul {
-    list-style:none;
-    text-align:center;
-    padding:0;
-    margin:0;
-}
-nav ul li {
-    display:inline-block;
-    zoom:1;
-    letter-spacing:normal;
-    min-width:6em;
-    margin:0;
-    vertical-align: middle;
-}
-nav a, nav a:link, nav a:visited, 
-nav ul li a, nav ul li a:visited {
-    display: inline-block;
-    text-decoration:none;
-    color:#ffffff;
-    opacity:0.8;
-    padding:0.5em;
-}
-nav a:hover, nav ul li a:hover {
-    opacity:1
-}
-nav ul li:hover, nav ul li.active {
-}
-nav a:hover, nav ul li a:hover {
-    background-color:#db4800!important;
-    color:#ffffff!important
-}
-nav a, nav ul li a,
-#footer a, #footer ul li a,
-footer a, footer ul li a {
-    color:#000000;
-}
-
-#footer ul li, footer ul li {
-    display:inline-block;
-    padding:1px;
-    zoom:1;
-    min-width:1em;
-    margin:0;
-}
-#footer ul, footer ul {
-    list-style:none;
-    text-align:center;
-    padding:0;
-    margin:0;
-}
-#footer a, #footer a:link, #footer ul li a:visited, 
-footer a, footer a:link, footer ul li a:visited {
-    display: inline-block;
-    text-decoration:none;
-    opacity:0.8;
-    color:#ffffff;
-}
-#footer a, footer a, 
-#footer ul li, footer ul li {
-    text-transform:none;
-}
-#footer ul li:before, footer ul li:before {
-    content: "~";
-    padding-right:0.5em;
-}
-
-#footer p, footer p {
-    text-align: center;
+html.no-cssgradients {
+    background-color: #aaa;
 }
 
 h1 {

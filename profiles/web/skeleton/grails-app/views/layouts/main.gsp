@@ -11,7 +11,7 @@
         <g:layoutHead/>
     </head>
     <body>
-        <header id="header" class="" role="banner">
+        <header id="header" role="banner">
             <nav class="container" role="navigation">
                 <ul>
                     <li id="logo" role="banner" style="align:left;"><a href="/#"><asset:image src="grails-cupsonly-logo-white.svg" alt="Home Page" title="Home Page"/></a></li>
@@ -29,7 +29,7 @@
 
         <div id="spinner" class="spinner hidden"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 
-        <footer id="footer" class="footer" role="contentinfo">
+        <footer id="footer" role="contentinfo">
             <p>
                 <g:message code="poweredBy" default="Powered by"/> &nbsp;
                 <a href="http://grails.org"><g:message code="grails" default="Grails"/></a>

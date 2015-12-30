@@ -2,13 +2,13 @@
 <html>
     <head>
         <meta name="layout" content="main"/>
-        <title>Welcome to Grails</title>
+        <title>Home _ Grails</title>
         <style type="text/css" media="screen">
             #status {
                 background-color: #eee;
                 border: .2em solid #fff;
                 margin: 1em 2em 1em;
-                float: left;
+                /* float: left; */
                 -moz-box-shadow: 0px 0px 1.25em #ccc;
                 -webkit-box-shadow: 0px 0px 1.25em #ccc;
                 box-shadow: 0px 0px 1.25em #ccc;
@@ -22,7 +22,7 @@
             #status li {
             }
 
-            @media screen and (max-width: 480px) {
+            @media screen and (max-width: 30em) {
                 #status {
                     display: none;
                 }
