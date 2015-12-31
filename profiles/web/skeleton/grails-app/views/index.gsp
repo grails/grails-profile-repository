@@ -5,15 +5,10 @@
         <title>Home _ Grails</title>
         <style type="text/css" media="screen">
             #status {
-                background-color: #eee;
-                border: .2em solid #fff;
+                background-color: #eeeeee;
+                border: .2em solid #ffffff;
                 margin: 1em 2em 1em;
-                /* float: left; */
-                -moz-box-shadow: 0px 0px 1.25em #ccc;
-                -webkit-box-shadow: 0px 0px 1.25em #ccc;
-                box-shadow: 0px 0px 1.25em #ccc;
-                -moz-border-radius: 0.6em;
-                -webkit-border-radius: 0.6em;
+                box-shadow: 0px 0px 1.25em #cccccc;
                 border-radius: 0.6em;
             }
             #status ul {
@@ -26,14 +21,14 @@
                 #status {
                     display: none;
                 }
-
+            }
         </style>
     </head>
     <body>
 
         <section id="page-body" class="container" role="main">
 
-            <aside id="status" role="complementary" style="">
+            <aside id="status" role="complementary" class="primary">
                 <h2>Application Status</h2>
                 <ul>
                     <li>Environment: ${grails.util.Environment.current.name}</li>
@@ -75,6 +70,8 @@
                         </g:each>
                     </ul>
                 </div>
+
+                <br/>
             </section>
 
         </section>

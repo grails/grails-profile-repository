@@ -1,8 +1,6 @@
 /* Styles for page layout */
 
-/* body, */
 .container, .wrapper {
-    display: -webkit-flex;
     display: flex;
     /* flex-flow: row wrap; */
     justify-content: space-around;
@@ -15,32 +13,26 @@
 }
 
 #header, header, .header {
-    -webkit-order: 10;
     order: 10;
 }
 
 nav, .navigation {
-    -webkit-order: 20;
     order: 20;
 }
 
 aside, .primary {
-    -webkit-order: 30;
     order: 30;
 }
 
 #page-body, #page-content, .main, .content {
-    -webkit-order: 50;
     order: 50;
 }
 
 .secondary {
-    -webkit-order: 70;
     order: 70;
 }
 
 #footer, footer, .footer {
-    -webkit-order: 90;
     order: 90;
 }
 
@@ -79,7 +71,6 @@ nav ul,
 }
 nav ul li {
     display: inline-block;
-    zoom:1;
     letter-spacing:normal;
     min-width:6em;
     margin:0;
@@ -111,7 +102,6 @@ footer a, footer ul li a {
 #footer ul li, footer ul li {
     display: inline-block;
     padding:1px;
-    zoom:1;
     min-width:1em;
     margin:0;
 }
@@ -132,7 +122,7 @@ footer a, footer a:link, footer ul li a:visited {
 #footer ul li, footer ul li {
     text-transform:none;
 }
-#footer ul li:before, footer ul li:before {
+#footer ul li:after, footer ul li:after {
     content: "~";
     padding-right:0.5em;
 }
@@ -149,10 +139,12 @@ footer a, footer a:link, footer ul li a:visited {
 @media screen and (min-width: 48em) {
     aside, .primary, .secondary {
         font-size:0.6em;
+        min-width: 25%;
         max-width: 33%;
     }
     #page-content, .main, .content {
-        width: 67%;
+        min-width: 50%;
+        /* min-width: 67%; */
     }
 
 }

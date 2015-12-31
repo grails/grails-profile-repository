@@ -1,13 +1,11 @@
-/* PAGINATION */
+/* Scaffold - pagination */
 
 .pagination {
     border-top: 0;
     margin: 0;
     padding: 0.3em 0.2em;
     text-align: center;
-       -moz-box-shadow: 0 0 3px 1px #AAAAAA;
-    -webkit-box-shadow: 0 0 3px 1px #AAAAAA;
-            box-shadow: 0 0 3px 1px #AAAAAA;
+    box-shadow: 0 0 3px 1px #AAAAAA;
     background-color: #EFEFEF;
 }
 
@@ -18,9 +16,7 @@
     margin: 0 0.1em;
     padding: 0.25em 0.7em;
     text-decoration: none;
-       -moz-border-radius: 0.3em;
-    -webkit-border-radius: 0.3em;
-            border-radius: 0.3em;
+    border-radius: 0.3em;
 }
 
 .pagination a:hover, .pagination a:focus,

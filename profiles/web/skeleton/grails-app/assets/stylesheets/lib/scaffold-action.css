@@ -1,12 +1,10 @@
-/* ACTION BUTTONS */
+/* Scaffold - action buttons */
 
 .buttons {
     background-color: #efefef;
     overflow: hidden;
     padding: 0.3em;
-       -moz-box-shadow: 0 0 3px 1px #aaaaaa;
-    -webkit-box-shadow: 0 0 3px 1px #aaaaaa;
-            box-shadow: 0 0 3px 1px #aaaaaa;
+    box-shadow: 0 0 3px 1px #aaaaaa;
     margin: 0.1em 0 0 0;
     border: none;
 }
@@ -22,10 +20,7 @@
     overflow: visible;
     padding: 0.25em 0.7em;
     text-decoration: none;
-
-       -moz-border-radius: 0.3em;
-    -webkit-border-radius: 0.3em;
-            border-radius: 0.3em;
+    border-radius: 0.3em;
 }
 
 .buttons input:hover, .buttons input:focus,
@@ -34,9 +29,7 @@
     color: #ffffff;
     outline: none;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
-       -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
 }
 
 .no-borderradius .buttons input:hover, .no-borderradius .buttons input:focus,

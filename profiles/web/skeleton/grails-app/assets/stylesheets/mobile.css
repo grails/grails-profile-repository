@@ -3,10 +3,11 @@
 @media screen and (max-width: 48em) {
     aside, .primary, .secondary {
         font-size:0.6em;
-        max-width:33%;
+        max-width:25%;
     }
     #page-content, .main, .content {
-        width:67%;
+        min-width: 50%;
+        /* min-width: 67%; */
     }
 
     .container, .wrapper {
@@ -34,9 +35,11 @@
         display:block;
     }
 
+    /*
     #footer, footer, .footer {
         display:none;
     }
+     */
 
     .container, .wrapper {
         padding-left: 0.1em;

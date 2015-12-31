@@ -1,11 +1,12 @@
 <!doctype html>
 <html>
     <head>
-        <title><g:if env="development">Grails Runtime Exception</g:if><g:else>Error</g:else></title>
+        <title><g:if env="development"><g:message code="error.dev" default="Grails Runtime Exception"/></g:if><g:else><g:message code="error" default="Error"/></g:else></title>
         <meta name="layout" content="main">
         <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
     </head>
     <body>
+        <section id="page-content" class="error">
         <g:if env="development">
             <g:if test="${Throwable.isInstance(exception)}">
                 <g:renderException exception="${exception}" />
@@ -27,5 +28,6 @@
                 <li>An error has occurred</li>
             </ul>
         </g:else>
+        </section>
     </body>
 </html>

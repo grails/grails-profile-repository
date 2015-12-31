@@ -1,8 +1,9 @@
+/* Scaffold - list */
+
 .scaffold-list h1 {
     border: none;
 }
 
-/* TABLES */
 
 table {
     border-top: 1px solid #DFDFDF;

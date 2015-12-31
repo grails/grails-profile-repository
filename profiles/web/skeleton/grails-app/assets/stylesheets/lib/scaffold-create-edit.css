@@ -1,18 +1,16 @@
-/* CREATE/EDIT FORMS AND SHOW PAGES */
+/* Scaffold - create/edit forms and show pages */
 
 fieldset,
 .property-list {
     margin: 0.6em 1.25em 0 1.25em;
     padding: 0.3em 1.8em 1.25em;
     position: relative;
-    zoom: 1;
     border: none;
 }
 
 .property-list .fieldcontain {
     list-style: none;
     overflow: hidden;
-    zoom: 1;
 }
 
 .fieldcontain {
@@ -59,7 +57,7 @@ select[multiple] {
 textarea {
     width: 250px;
     height: 150px;
-    overflow: auto; /* IE always renders vertical scrollbar without this */
+    overflow: auto;
     vertical-align: top;
 }
 
@@ -73,9 +71,7 @@ input:focus, select:focus, textarea:focus {
     background-color: #ffffff;
     border: 1px solid #eeeeee;
     outline: 0;
-       -moz-box-shadow: 0 0 0.5em #ffffff;
-    -webkit-box-shadow: 0 0 0.5em #ffffff;
-            box-shadow: 0 0 0.5em #ffffff;
+    box-shadow: 0 0 0.5em #ffffff;
 }
 
 .required-indicator {
@@ -97,8 +93,6 @@ ul.one-to-many li.add {
     list-style-type: none;
 }
 
-/* EMBEDDED PROPERTIES */
-
 fieldset.embedded {
     background-color: transparent;
     border: 1px solid #CCCCCC;
@@ -106,9 +100,7 @@ fieldset.embedded {
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
-       -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
 }
 
 fieldset.embedded legend {

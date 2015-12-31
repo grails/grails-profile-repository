@@ -1,18 +1,14 @@
-/* NAVIGATION MENU */
+/* Scaffold - navigation menu */
 
 .nav {
     background-color: #efefef;
     padding: 0.5em 0.75em;
-       -moz-box-shadow: 0 0 3px 1px #aaaaaa;
-    -webkit-box-shadow: 0 0 3px 1px #aaaaaa;
-            box-shadow: 0 0 3px 1px #aaaaaa;
-    zoom: 1;
+    box-shadow: 0 0 3px 1px #aaaaaa;
 }
 
 .nav ul {
     overflow: hidden;
     padding-left: 0;
-    zoom: 1;
 }
 
 .nav li {
@@ -28,9 +24,7 @@
     display: block;
     padding: 0.25em 0.7em;
     text-decoration: none;
-       -moz-border-radius: 0.3em;
-    -webkit-border-radius: 0.3em;
-            border-radius: 0.3em;
+    border-radius: 0.3em;
 }
 
 .nav a:active, .nav a:visited {

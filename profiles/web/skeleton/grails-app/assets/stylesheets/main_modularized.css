@@ -19,7 +19,7 @@ html, body {
 }
 
 html.no-cssgradients {
-    background-color: #aaa;
+    background-color: #aaaaaa;
 }
 
 h1 {
@@ -47,8 +47,7 @@ h4 {
     margin: 0.2em 0 0.1em 0;
 }
 
-a 
-{
+a {
     color:#db4800;
     text-decoration:underline;
     font-weight:200;
