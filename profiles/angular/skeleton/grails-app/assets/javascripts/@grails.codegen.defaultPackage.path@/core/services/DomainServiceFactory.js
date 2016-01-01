@@ -7,9 +7,9 @@
 
 angular
     .module("@grails.codegen.defaultPackage@.core")
-    .factory("DomainServiceFactory", DomainServiceFactory);
+    .factory("domainServiceFactory", domainServiceFactory);
 
-function DomainServiceFactory($resource) {
+function domainServiceFactory($resource) {
     return function(url, paramDefaults, actions, options) {
         var resourceActions = {"update": {method: "PUT"}, "list": {method: "GET", isArray: true}};
         angular.extend(resourceActions, actions);
