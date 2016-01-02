@@ -1,11 +1,14 @@
 /* Scaffold - create/edit forms and show pages */
 
-fieldset,
+.scaffold-edit fieldset.form,
+.scaffold-create fieldset.form,
 .property-list {
     margin: 0.6em 1.25em 0 1.25em;
     padding: 0.3em 1.8em 1.25em;
+/*
     position: relative;
     border: none;
+ */
 }
 
 .property-list .fieldcontain {
@@ -21,53 +24,57 @@ fieldset,
 .fieldcontain .property-label {
     color: #666666;
     text-align: right;
-    width: 25%;
+    /* width: 25%; */
+    min-width: 25%;
+    max-width: 33%;
 }
 
+.fieldcontain label,
 .fieldcontain .property-label {
-    float: left;
-}
-
-.fieldcontain .property-value {
-    display: block;
-    margin-left: 27%;
-}
-
-label {
-    cursor: pointer;
     display: inline-block;
     margin: 0 0.25em 0 0;
 }
 
-input, select, textarea {
+.fieldcontain label {
+    cursor: pointer;
+}
+
+.fieldcontain .property-value {
+    /* display: block; */
+    /* margin-left: 27%; */
+    display: inline-block;
+}
+
+.fieldcontain input, .fieldcontain select, .fieldcontain textarea {
     background-color: #fcfcfc;
     border: 1px solid #cccccc;
     font-size: 1em;
     padding: 0.2em 0.4em;
 }
 
-select {
+.fieldcontain select {
     padding: 0.2em 0.2em 0.2em 0;
 }
 
-select[multiple] {
+.fieldcontain select[multiple] {
     vertical-align: top;
 }
 
-textarea {
-    width: 250px;
-    height: 150px;
+.fieldcontain textarea {
+    width: 16em;
+    min-height: 10em;
+    max-height: 20em;
     overflow: auto;
     vertical-align: top;
 }
 
-input[type=checkbox], input[type=radio] {
+.fieldcontain input[type=checkbox], .fieldcontain input[type=radio] {
     background-color: transparent;
-    border: 0;
+    /* border: 0; */
     padding: 0;
 }
 
-input:focus, select:focus, textarea:focus {
+.fieldcontain input:focus, .fieldcontain select:focus, .fieldcontain textarea:focus {
     background-color: #ffffff;
     border: 1px solid #eeeeee;
     outline: 0;
@@ -83,19 +90,19 @@ input:focus, select:focus, textarea:focus {
     top: 0.1em;
 }
 
-ul.one-to-many {
+.fieldcontain ul.one-to-many {
     display: inline-block;
     list-style-position: inside;
     vertical-align: top;
 }
 
-ul.one-to-many li.add {
+.fieldcontain ul.one-to-many li.add {
     list-style-type: none;
 }
 
-fieldset.embedded {
+.fieldcontain fieldset.embedded {
     background-color: transparent;
-    border: 1px solid #CCCCCC;
+    border: 1px solid #cccccc;
     margin-left: 0;
     margin-right: 0;
     padding-left: 0;
@@ -103,6 +110,6 @@ fieldset.embedded {
     box-shadow: none;
 }
 
-fieldset.embedded legend {
+.fieldcontain fieldset.embedded legend {
     margin: 0 1em;
 }

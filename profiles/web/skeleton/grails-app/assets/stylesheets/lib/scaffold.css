@@ -4,4 +4,5 @@
 *= require scaffold-list
 *= require scaffold-paginate
 *= require scaffold-action
+*= require scaffold-mobile
 */

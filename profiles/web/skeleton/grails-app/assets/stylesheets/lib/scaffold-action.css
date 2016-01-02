@@ -9,6 +9,10 @@
     border: none;
 }
 
+.buttons input {
+    font-size: 1em;
+}
+
 .buttons input,
 .buttons a {
     background-color: transparent;

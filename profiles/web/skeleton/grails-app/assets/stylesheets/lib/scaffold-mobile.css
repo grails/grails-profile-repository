@@ -1,0 +1,53 @@
+/* Scaffold - Styles for mobile devices */
+
+@media screen and (max-width: 48em) {
+    .scaffold-edit fieldset.form,
+    .scaffold-create fieldset.form,
+    .property-list {
+        margin: 0.3em 1em 0 1em;
+        padding: 0.2em 1em 1em;
+    }
+    .fieldcontain label,
+    .fieldcontain .property-label {
+        color: #666666;
+        text-align: right;
+        min-width: 33%;
+        max-width: 50%;
+    }
+    .fieldcontain label {
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 0.25em 0 0;
+    }
+    .fieldcontain .property-value {
+        display: inline-block;
+    }
+
+}
+
+
+@media screen and (max-width: 30em) {
+    .scaffold-edit fieldset.form,
+    .scaffold-create fieldset.form,
+    .property-list {
+        margin: 0.2em 0.5em 0 0.5em;
+        padding: 0.2em 1em 1em;
+    }
+    .fieldcontain label,
+    .fieldcontain .property-label {
+        color: #666666;
+        text-align: left;
+    }
+    .fieldcontain label,
+    .fieldcontain .property-label {
+        display: block;
+        margin: 0 0.25em 0 0;
+    }
+    .fieldcontain label {
+        cursor: pointer;
+    }
+    .fieldcontain .property-value {
+        display: inline-block;
+    }
+
+}

@@ -5,83 +5,86 @@
 }
 
 
-table {
+.scaffold-list table {
     border-top: 1px solid #DFDFDF;
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 1em;
 }
 
-tr {
+.scaffold-list tr {
     border: 0;
 }
 
-tr>td:first-child, tr>th:first-child {
+.scaffold-list tr>td:first-child, .scaffold-list tr>th:first-child {
     padding-left: 1.25em;
 }
 
-tr>td:last-child, tr>th:last-child {
+.scaffold-list tr>td:last-child, tr>th:last-child {
     padding-right: 1.25em;
 }
 
-td, th {
+.scaffold-list td, .scaffold-list th {
     line-height: 1.5em;
     padding: 0.5em 0.6em;
     text-align: left;
     vertical-align: top;
 }
 
-th {
+.scaffold-list th {
     background-color: #efefef;
+/*
     background-image: -moz-linear-gradient(top, #ffffff, #eaeaea);
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #eaeaea));
         filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#ffffff', EndColorStr = '#eaeaea');
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#eaeaea')";
+ */
+    background: linear-gradient(180deg, #ffffff, #eaeaea);
     color: #666666;
     font-weight: bold;
     line-height: 1.7em;
     padding: 0.2em 0.6em;
 }
 
-thead th {
+.scaffold-list thead th {
     white-space: nowrap;
 }
 
-th a {
+.scaffold-list th a {
     display: block;
     text-decoration: none;
 }
 
-th a:link, th a:visited {
+.scaffold-list th a:link, .scaffold-list th a:visited {
     color: #666666;
 }
 
-th a:hover, th a:focus {
+.scaffold-list th a:hover, .scaffold-list th a:focus {
     color: #333333;
 }
 
-th.sortable a {
+.scaffold-list th.sortable a {
     background-position: right;
     background-repeat: no-repeat;
     padding-right: 1.1em;
 }
 
-th.asc a {
+.scaffold-list th.asc a {
     background-image: url(../../images/skin/sorted_asc.gif);
 }
 
-th.desc a {
+.scaffold-list th.desc a {
     background-image: url(../../images/skin/sorted_desc.gif);
 }
 
-.odd {
+.scaffold-list .odd {
     background: #f7f7f7;
 }
 
-.even {
+.scaffold-list .even {
     background: #ffffff;
 }
 
-th:hover, tr:hover {
+.scaffold-list th:hover, .scaffold-list tr:hover {
     background: #E1F2B6;
 }

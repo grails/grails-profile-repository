@@ -50,13 +50,13 @@
 }
 
 /* same effects for browsers that support HTML5 client-side validation (these have to be specified separately or IE will ignore the entire rule) */
-input:invalid, select:invalid, textarea:invalid {
+.fieldcontain input:invalid, .fieldcontain select:invalid, .fieldcontain textarea:invalid {
     background: #fff3f3;
     border-color: #ffaaaa;
     color: #cc0000;
 }
 
-input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
+.fieldcontain input:invalid:focus, .fieldcontain select:invalid:focus, .fieldcontain textarea:invalid:focus {
     box-shadow: 0 0 0.5em #ffaaaa;
 }
 
