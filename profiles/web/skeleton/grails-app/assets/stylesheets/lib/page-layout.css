@@ -8,17 +8,14 @@
 
 .container, .wrapper {
     display: flex;
-    /* flex-flow: row wrap; */
     justify-content: space-around;
-    /* justify-content: space-between; */
 }
 
-#header, #page-body, #page-content, #footer, header, nav, aside, footer,
+#page-body, #page-content, header, nav, aside, footer,
 .header, .main, .navigation, .primary, .secondary, .content, .footer {
-    /* flex: 0 1 auto; */
 }
 
-#header, header, .header {
+header, .header {
     order: 10;
 }
 
@@ -38,17 +35,17 @@ aside, .primary {
     order: 70;
 }
 
-#footer, footer, .footer {
+footer, .footer {
     order: 90;
 }
 
-#header, header, .header {
+header, .header {
     background-color:#4d8618;
     font-weight:400;
     font-size:1.4em;
 }
 
-#footer, footer, .footer {
+footer, .footer {
     background-color:#888888;
     text-transform: capitalize;
     font-weight:100;
@@ -69,7 +66,7 @@ nav, .navigation {
 }
 
 nav ul, .navigation ul 
-#footer ul, footer ul, .footer ul {
+footer ul, .footer ul {
     list-style:none;
     text-align:center;
     padding:0;
@@ -101,25 +98,23 @@ nav a:hover, nav ul li a:hover {
     color:#ffffff!important
 }
 nav a, nav ul li a,
-#footer a, #footer ul li a,
 footer a, footer ul li a,
 .footer a, .footer ul li a {
     color:#000000;
 }
 
-#footer ul li, footer ul li, .footer ul li {
+footer ul li, .footer ul li {
     display: inline-block;
     padding:1px;
     min-width:1em;
     margin:0;
 }
-#footer ul, footer ul, .footer ul {
+footer ul, .footer ul {
     list-style:none;
     text-align:center;
     padding:0;
     margin:0;
 }
-#footer a, #footer a:link, #footer ul li a:visited, 
 footer a, footer a:link, footer ul li a:visited,
 .footer a, .footer a:link, .footer ul li a:visited {
     display: inline-block;
@@ -127,16 +122,16 @@ footer a, footer a:link, footer ul li a:visited,
     opacity:0.8;
     color:#ffffff;
 }
-#footer a, footer a, .footer a, 
-#footer ul li, footer ul li, .footer ul li {
+footer a, .footer a, 
+footer ul li, .footer ul li {
     text-transform:none;
 }
-#footer ul li:after, footer ul li:after, .footer ul li:after {
+footer ul li:after, .footer ul li:after {
     content: "~";
     padding-right:0.5em;
 }
 
-#footer p, footer p, .footer p {
+footer p, .footer p {
     text-align: center;
 }
 
@@ -153,7 +148,6 @@ footer a, footer a:link, footer ul li a:visited,
     }
     #page-content, .main, .content {
         min-width: 50%;
-        /* min-width: 67%; */
     }
 
 }

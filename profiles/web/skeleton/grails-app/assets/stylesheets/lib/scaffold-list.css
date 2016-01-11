@@ -1,19 +1,10 @@
 /* Scaffold - list */
 
-.scaffold-list h1 {
-    border: none;
-}
-
-
 .scaffold-list table {
     border-top: 1px solid #DFDFDF;
     border-collapse: collapse;
     width: 100%;
     margin-bottom: 1em;
-}
-
-.scaffold-list tr {
-    border: 0;
 }
 
 .scaffold-list tr>td:first-child, .scaffold-list tr>th:first-child {
@@ -33,12 +24,6 @@
 
 .scaffold-list th {
     background-color: #efefef;
-/*
-    background-image: -moz-linear-gradient(top, #ffffff, #eaeaea);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #eaeaea));
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#ffffff', EndColorStr = '#eaeaea');
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#eaeaea')";
- */
     background: linear-gradient(180deg, #ffffff, #eaeaea);
     color: #666666;
     font-weight: bold;

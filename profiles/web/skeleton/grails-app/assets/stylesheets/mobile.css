@@ -7,7 +7,6 @@
     }
     #page-content, .main, .content {
         min-width: 50%;
-        /* min-width: 67%; */
     }
 
     .container, .wrapper {
@@ -18,7 +17,7 @@
 
 
 @media screen and (max-width: 30em) {
-    #header, header .header,
+    header .header,
     h1, h2, h3, h4 {
         font-size:1em;
     }
@@ -31,15 +30,9 @@
     }
 
     nav ul li,
-    #footer ul li, footer ul li, .footer ul li {
+    footer ul li, .footer ul li {
         display:block;
     }
-
-    /*
-    #footer, footer, .footer {
-        display:none;
-    }
-     */
 
     .container, .wrapper {
         padding-left: 0.1em;
