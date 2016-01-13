@@ -1,14 +1,26 @@
 /* Styles for page layout */
 
 .main-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column;
-    justify-content: space-around;
+    -webkit-flex-flow: column;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
 }
 
 .container, .wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
 }
 
 #page-body, #page-content, header, nav, aside, footer,
@@ -16,27 +28,45 @@
 }
 
 header, .header {
-    order: 10;
+    -webkit-box-ordinal-group: 11;
+    -webkit-order: 10;
+        -ms-flex-order: 10;
+            order: 10;
 }
 
 nav, .navigation {
-    order: 20;
+    -webkit-box-ordinal-group: 21;
+    -webkit-order: 20;
+        -ms-flex-order: 20;
+            order: 20;
 }
 
 aside, .primary {
-    order: 30;
+    -webkit-box-ordinal-group: 31;
+    -webkit-order: 30;
+        -ms-flex-order: 30;
+            order: 30;
 }
 
 #page-body, #page-content, .main, .content {
-    order: 50;
+    -webkit-box-ordinal-group: 51;
+    -webkit-order: 50;
+        -ms-flex-order: 50;
+            order: 50;
 }
 
 .secondary {
-    order: 70;
+    -webkit-box-ordinal-group: 71;
+    -webkit-order: 70;
+        -ms-flex-order: 70;
+            order: 70;
 }
 
 footer, .footer {
-    order: 90;
+    -webkit-box-ordinal-group: 91;
+    -webkit-order: 90;
+        -ms-flex-order: 90;
+            order: 90;
 }
 
 header, .header {

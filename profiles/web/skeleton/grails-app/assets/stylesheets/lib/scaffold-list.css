@@ -24,6 +24,7 @@
 
 .scaffold-list th {
     background-color: #efefef;
+    background: -webkit-linear-gradient(top, #ffffff, #eaeaea);
     background: linear-gradient(180deg, #ffffff, #eaeaea);
     color: #666666;
     font-weight: bold;
