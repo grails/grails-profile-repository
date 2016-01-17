@@ -7,11 +7,11 @@
     margin-bottom: 1em;
 }
 
-.scaffold-list tr>td:first-child, .scaffold-list tr>th:first-child {
+.scaffold-list tr > td:first-child, .scaffold-list tr > th:first-child {
     padding-left: 1.25em;
 }
 
-.scaffold-list tr>td:last-child, tr>th:last-child {
+.scaffold-list tr > td:last-child, tr > th:last-child {
     padding-right: 1.25em;
 }
 
@@ -24,7 +24,6 @@
 
 .scaffold-list th {
     background-color: #efefef;
-    background: -webkit-linear-gradient(top, #ffffff, #eaeaea);
     background: linear-gradient(180deg, #ffffff, #eaeaea);
     color: #666666;
     font-weight: bold;

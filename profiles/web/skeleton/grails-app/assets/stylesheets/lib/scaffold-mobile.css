@@ -37,6 +37,7 @@
     .fieldcontain .property-label {
         color: #666666;
         text-align: left;
+        width: 100%;
     }
     .fieldcontain label,
     .fieldcontain .property-label {
@@ -48,6 +49,16 @@
     }
     .fieldcontain .property-value {
         display: inline-block;
+    }
+    .fieldcontain textarea {
+        width: 100%;
+        min-height: 3em;
+        max-height: 10em;
+        overflow: auto;
+        vertical-align: top;
+    }
+    .fieldcontain input {
+        width: 100%;
     }
 
 }

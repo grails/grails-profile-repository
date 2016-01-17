@@ -54,8 +54,7 @@
 }
 
 .fieldcontain textarea {
-    width: 16em;
-    min-height: 10em;
+    min-height: 5em;
     max-height: 20em;
     overflow: auto;
     vertical-align: top;
