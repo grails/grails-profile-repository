@@ -1,6 +1,9 @@
 /* Scaffold - Styles for mobile devices */
 
 @media screen and (max-width: 48em) {
+    .scaffold-list table {
+        overflow-x: auto;
+    }
     .scaffold-edit fieldset.form,
     .scaffold-create fieldset.form,
     .property-list {
@@ -27,6 +30,10 @@
 
 
 @media screen and (max-width: 30em) {
+    .scaffold-list table {
+        overflow-x: auto;
+        display: block;
+    }
     .scaffold-edit fieldset.form,
     .scaffold-create fieldset.form,
     .property-list {
