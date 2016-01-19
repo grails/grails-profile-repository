@@ -8,6 +8,9 @@ bower {
     'angular-mocks'('1.4.x') {
         source 'angular-mocks.js' >> '/angular/'
     }
+    'angular-bootstrap'('1.1.x') {
+        source 'ui-bootstrap-tpls.js' >> '/angular/'
+    }
 }
 
 karma {
