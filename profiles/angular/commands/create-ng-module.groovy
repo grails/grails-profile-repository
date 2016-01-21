@@ -5,36 +5,29 @@ description( "Creates an Angular module" ) {
     argument name:'Module Name', description:"The name of the Angular module to create", required:true
     flag name:'force', description:"Whether to overwrite existing files"
 }
-
-def model = [:]
-model.fullName = args[0]
-model.propertyName = GrailsNameUtils.getPropertyName(model.fullName)
-model.packageName = GrailsNameUtils.getPackageName(model.fullName)
-model.packagePath = model.packageName.replace('.' as char, File.separatorChar)
+addStatus args[0]
+def model = model(args[0])
 
 boolean overwrite = flag('force')
 
 final String basePath = "grails-app/assets/javascripts"
 final String modulePath = "${model.packagePath}/${model.propertyName}"
+final String moduleName = "${model.packageName}.${model.propertyName}"
 
 Map dependencies = [:]
 
-if (file("${basePath}/${model.packagePath}/core/core.js").exists()) {
-    String moduleName = "\"${model.packageName}.core\""
-    String assetPath = "/${model.packagePath}/core/core"
-    dependencies[moduleName] = assetPath
+if (file("${basePath}/${model.packagePath}/core/${model.packageName}.core.js").exists()) {
+    String coreModuleName = "\"${model.packageName}.core\""
+    String assetPath = "/${model.packagePath.replaceAll('\\\\','/')}/core/${model.packageName}.core"
+    dependencies[coreModuleName] = assetPath
 }
 
 render template: template('tests/NgModuleSpec.js'),
-        destination: file("src/test/assets/${modulePath}/${model.propertyName}Spec.js"),
-        model: [fullName: model.fullName],
+        destination: file("src/test/javascripts/${modulePath}/${moduleName}Spec.js"),
+        model: [fullName: moduleName],
         overwrite: overwrite
 
 render template: template('NgModule.js'),
-       destination: file("${basePath}/${modulePath}/${model.propertyName}.js"),
-       model: [fullName: model.fullName, rootPath: model.packagePath, dependencies: dependencies],
+       destination: file("${basePath}/${modulePath}/${moduleName}.js"),
+       model: [fullName: moduleName, dependencies: dependencies],
        overwrite: overwrite
-
-["controllers", "directives", "domain", "services", "templates"].each {
-    fileSystemInteraction.mkdir "${basePath}/${modulePath}/${it}"
-}

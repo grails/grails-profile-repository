@@ -7,42 +7,30 @@ description( "Creates an Angular domain" ) {
     flag name:'force', description:"Whether to overwrite existing files"
 }
 
-def domainModel = model(args[0])
+def model = model(args[0])
 boolean overwrite = flag('force')
 
-final String javascriptRoot = "grails-app/assets/javascripts/"
-
-def hasFactoryFile = {
-    boolean factoryFileExists = false
-    file(javascriptRoot).eachFileRecurse(FileType.FILES) { file ->
-        if (file.name == 'DomainServiceFactory.js') {
-            factoryFileExists = true
-        }
-    }
-    factoryFileExists
-}
-
-final String modulePath = domainModel.packagePath ?: domainModel.propertyName
-final String moduleName = domainModel.packageName ?: domainModel.propertyName
-
-def moduleModel = model(moduleName)
+final String modulePath = model.packagePath ?: model.propertyName
+final String moduleName = model.packageName ?: model.propertyName
 
 final String basePath = "grails-app/assets/javascripts/${modulePath}"
-if (!file("${basePath}/${moduleModel.propertyName}.js").exists()) {
+if (!file("${basePath}/${moduleName}.js").exists()) {
     createNgModule(moduleName)
 }
 
 render template: template("tests/NgDomainSpec.js"),
-        destination: file("src/test/assets/${modulePath}/domain/${domainModel.className}Spec.js"),
+        destination: file("src/test/javascripts/${modulePath}/domain/${model.className}Spec.js"),
         model: [moduleName: moduleName,
-                className: domainModel.className]
+                className: model.className]
         overwrite: overwrite
 
-String templateName = hasFactoryFile() ? 'NgDomainFactory.js' : 'NgDomain.js'
+final Boolean hasFactoryFile = file("${basePath}/core/services/DomainServiceFactory.js").exists()
+
+String templateName = hasFactoryFile ? 'NgDomainFactory.js' : 'NgDomain.js'
 
 render template: template(templateName),
-       destination: file("${basePath}/domain/${domainModel.className}.js"),
+       destination: file("${basePath}/domain/${model.className}.js"),
        model: [moduleName: moduleName,
-               propertyName: domainModel.propertyName,
-               className: domainModel.className]
+               propertyName: model.propertyName,
+               className: model.className]
        overwrite: overwrite

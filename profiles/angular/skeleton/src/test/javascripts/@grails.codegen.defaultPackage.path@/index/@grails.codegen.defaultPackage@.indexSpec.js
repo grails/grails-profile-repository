@@ -1,4 +1,4 @@
-describe("Index module", function() {
+describe("@grails.codegen.defaultPackage@.index", function() {
     beforeEach(angular.mock.module('@grails.codegen.defaultPackage@.index', function($provide) {
         $provide.constant('contextPath', '/GrailsApp');
     }));

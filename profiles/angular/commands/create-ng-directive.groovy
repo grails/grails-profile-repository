@@ -6,30 +6,28 @@ description( "Creates an Angular directive" ) {
     flag name:'force', description:"Whether to overwrite existing files"
 }
 
-def directiveModel = model(args[0])
+def model = model(args[0])
 boolean overwrite = flag('force')
 
-final String modulePath = directiveModel.packagePath ?: directiveModel.propertyName
-final String moduleName = directiveModel.packageName ?: directiveModel.propertyName
-
-def moduleModel = model(moduleName)
+final String modulePath = model.packagePath ?: model.propertyName
+final String moduleName = model.packageName ?: model.propertyName
 
 final String basePath = "grails-app/assets/javascripts/${modulePath}"
-if (!file("${basePath}/${moduleModel.propertyName}.js").exists()) {
+if (!file("${basePath}/${moduleName}.js").exists()) {
     createNgModule(moduleName)
 }
 
 render template: template("tests/NgDirectiveSpec.js"),
-        destination: file("src/test/assets/${modulePath}/directives/${directiveModel.propertyName}Spec.js"),
+        destination: file("src/test/javascripts/${modulePath}/directives/${model.propertyName}Spec.js"),
         model: [moduleName: moduleName,
-                propertyName: directiveModel.propertyName,
-                tagName: GrailsNameUtils.getScriptName(directiveModel.propertyName)],
+                propertyName: model.propertyName,
+                tagName: GrailsNameUtils.getScriptName(model.propertyName)],
         overwrite: overwrite
 
 
 render template: template("NgDirective.js"),
-       destination: file("${basePath}/directives/${directiveModel.propertyName}.js"),
+       destination: file("${basePath}/directives/${model.propertyName}.js"),
        model: [moduleName: moduleName,
-               propertyName: directiveModel.propertyName,
-               templatePath: directiveModel.packagePath?.replaceAll("\\\\", "/") ?: directiveModel.propertyName]
+               propertyName: model.propertyName,
+               templatePath: model.packagePath?.replaceAll("\\\\", "/") ?: model.propertyName]
        overwrite: overwrite
