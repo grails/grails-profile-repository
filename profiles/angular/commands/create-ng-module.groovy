@@ -26,7 +26,7 @@ if (file("${basePath}/${model.packagePath}/core/core.js").exists()) {
 }
 
 render template: template('tests/NgModuleSpec.js'),
-        destination: file("src/test/assets/${modulePath}/${model.propertyName}Spec.js"),
+        destination: file("src/test/javascript/${modulePath}/${model.propertyName}Spec.js"),
         model: [fullName: model.fullName],
         overwrite: overwrite
 

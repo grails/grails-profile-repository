@@ -33,7 +33,7 @@ if (!file("${basePath}/${moduleModel.propertyName}.js").exists()) {
 }
 
 render template: template("tests/NgDomainSpec.js"),
-        destination: file("src/test/assets/${modulePath}/domain/${domainModel.className}Spec.js"),
+        destination: file("src/test/javascript/${modulePath}/domain/${domainModel.className}Spec.js"),
         model: [moduleName: moduleName,
                 className: domainModel.className]
         overwrite: overwrite

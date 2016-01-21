@@ -33,7 +33,7 @@ if (!["service", "factory", "value", "provider", "constant"].contains(typeFlag))
     }
 
     render template: template("tests/NgServiceSpec.js"),
-            destination: file("src/test/assets/${modulePath}/services/${name}Spec.js"),
+            destination: file("src/test/javascript/${modulePath}/services/${name}Spec.js"),
             model: [moduleName: moduleName, name: name],
             overwrite: overwrite
 
