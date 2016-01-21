@@ -4,5 +4,6 @@
 //= require_tree controllers
 //= require_tree directives
 //= require_tree templates
+//= require /angular/ui-bootstrap-tpls
 
-angular.module("@grails.codegen.defaultPackage@.index", ["@grails.codegen.defaultPackage@.core"]);
+angular.module("@grails.codegen.defaultPackage@.index", ["@grails.codegen.defaultPackage@.core", 'ui.bootstrap.dropdown']);

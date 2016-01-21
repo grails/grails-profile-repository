@@ -5,7 +5,7 @@ description("Runs the applications tests") {
     completer TestsCompleter
     synonyms 'test'
     argument name:"Test Name", description:"The name of the test to run (optional)", required:false
-    flag name:'debug-jvm'
+    flag name:'debug-jvm', description:"Starts the JVM in debug mode allowing attachment of a remote debugger"
     flag name:'unit', description:"Run unit tests (test target)"
     flag name:'integration', description:"Run integration tests (integrationTest target)"
     flag name:'clean', description:"Re-run all tests (cleanTest cleanIntegrationTest target)"
