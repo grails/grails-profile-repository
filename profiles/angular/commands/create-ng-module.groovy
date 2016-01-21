@@ -5,21 +5,22 @@ description( "Creates an Angular module" ) {
     argument name:'Module Name', description:"The name of the Angular module to create", required:true
     flag name:'force', description:"Whether to overwrite existing files"
 }
-addStatus args[0]
 def model = model(args[0])
 
 boolean overwrite = flag('force')
 
-final String basePath = "grails-app/assets/javascripts"
+final String assetPath = config.getProperty("grails.codegen.angular.assetDir", String) ?: "javascripts"
+final String basePath = "grails-app/assets/${assetPath}"
 final String modulePath = "${model.packagePath}/${model.propertyName}"
 final String moduleName = "${model.packageName}.${model.propertyName}"
+
 
 Map dependencies = [:]
 
 if (file("${basePath}/${model.packagePath}/core/${model.packageName}.core.js").exists()) {
     String coreModuleName = "\"${model.packageName}.core\""
-    String assetPath = "/${model.packagePath.replaceAll('\\\\','/')}/core/${model.packageName}.core"
-    dependencies[coreModuleName] = assetPath
+    String coreAssetPath = "/${model.packagePath.replaceAll('\\\\','/')}/core/${model.packageName}.core"
+    dependencies[coreModuleName] = coreAssetPath
 }
 
 render template: template('tests/NgModuleSpec.js'),

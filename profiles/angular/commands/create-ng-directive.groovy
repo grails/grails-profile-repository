@@ -11,8 +11,9 @@ boolean overwrite = flag('force')
 
 final String modulePath = model.packagePath ?: model.propertyName
 final String moduleName = model.packageName ?: model.propertyName
+final String assetPath = config.getProperty("grails.codegen.angular.assetDir", String) ?: "javascripts"
+final String basePath = "grails-app/assets/${assetPath}/${modulePath}"
 
-final String basePath = "grails-app/assets/javascripts/${modulePath}"
 if (!file("${basePath}/${moduleName}.js").exists()) {
     createNgModule(moduleName)
 }
