@@ -47,7 +47,7 @@
 
     <div class="svg" role="presentation">
         <div class="grails-logo-container">
-            <img src="https://grails.org/img/grails-cupsonly-logo-white.svg" class="grails-logo" />
+            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
         </div>
     </div>
 
