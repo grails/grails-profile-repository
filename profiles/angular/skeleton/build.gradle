@@ -11,6 +11,9 @@ bower {
     'angular-bootstrap'('1.1.x') {
         source 'ui-bootstrap-tpls.js' >> '/angular/'
     }
+    'bootstrap'('3.x.x') {
+        source 'dist/css/bootstrap.min.css' >> '/bootstrap/'
+    }
 }
 
 karma {

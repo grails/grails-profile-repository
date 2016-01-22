@@ -6,13 +6,16 @@
     <title>Welcome to Grails</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous"/>
-
-    <link rel="stylesheet" type="text/css" href="https://grails.org/css/style.css"/>
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
 
     <asset:stylesheet src="application.css"/>
 
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
+
     <script type="text/javascript">
         window.contextPath = "${request.contextPath}";
     </script>
@@ -89,7 +92,7 @@
 
             <div id="controllers" role="navigation">
                 <h2>Available Controllers:</h2>
-                <ul>
+                <ul ng-cloak>
                     <li ng-repeat="c in vm.applicationData.controllers | orderBy:'name'" class="controller">
                         <a ng-href="{{vm.contextPath}}/{{c.logicalPropertyName}}">{{c.name}}</a>
                     </li>
@@ -104,10 +107,6 @@
         <g:message code="spinner.alt" default="Loading&hellip;"/>
     </div>
 
-    %{--<link rel="stylesheet" href="https://code.jquery.com/jquery-2.2.0.min.js" crossorigin="anonymous"/>--}%
-
-    %{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>--}%
-
-    <asset:javascript src="@grails.codegen.defaultPackage.path@/app" />
+    <asset:javascript src="/@grails.codegen.defaultPackage.path@/@grails.codegen.defaultPackage@.js" />
 </body>
 </html>
