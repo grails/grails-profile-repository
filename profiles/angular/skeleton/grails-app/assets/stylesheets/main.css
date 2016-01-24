@@ -258,7 +258,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .required-indicator {
-    color: #48802C;
+    color: #cc0000;
     display: inline-block;
     font-weight: bold;
     margin-left: 0.3em;
