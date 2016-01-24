@@ -1,4 +1,4 @@
-describe('Index module', function() {
+describe('@grails.codegen.defaultPackage@.index module', function() {
 
     beforeEach(angular.mock.module('@grails.codegen.defaultPackage@.index', function() {
     }));

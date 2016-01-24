@@ -1,39 +1,55 @@
 <!doctype html>
 <html lang="en" class="no-js">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><g:layoutTitle default="Grails"/></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <asset:stylesheet src="application.css"/>
-        <asset:javascript src="application.js"/>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>
+        <g:layoutTitle default="Grails"/>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-        <g:layoutHead/>
-    </head>
-    <body>
-        <header id="header" role="banner">
-            <nav class="container" role="navigation">
-                <ul>
-                    <li id="logo" role="banner" style="float:left;"><a href="/#"><asset:image src="grails-cupsonly-logo-white.svg" alt="Home Page" title="Home Page"/></a></li>
-                    <li><a href="/#"><g:message code="home" default="Home"/></a></li>
-                    <li><a href="/#controllers"><g:message code="controllers" default="Controllers"/></a></li>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="https://grails.org/css/style.css"/>
+    <asset:stylesheet src="application.css"/>
+
+    <g:layoutHead/>
+
+</head>
+<body>
+
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#">
+                    <i class="fa grails-icon">
+                        <asset:image src="grails-cupsonly-logo-white.svg"/>
+                    </i> Grails
+                </a>
+            </div>
+            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
+                <ul class="nav navbar-nav navbar-right">
+                    <g:pageProperty name="page.nav" />
                 </ul>
-            </nav>
-        </header>
-
-        <div id="skip-to-content" class="hidden">
-            <a href="#page-body"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+            </div>
         </div>
+    </div>
 
-        <g:layoutBody/>
+    <g:layoutBody/>
 
-        <div id="spinner" class="spinner hidden"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+    <div class="footer" role="contentinfo"></div>
 
-        <footer id="footer" role="contentinfo">
-            <p>
-                    <g:message code="poweredBy" default="Powered by"/> &nbsp;
-                    <a href="http://grails.org"><g:message code="grails" default="Grails"/></a>
-            </p>
-        </footer>
-    </body>
+    <div id="spinner" class="spinner" style="display:none;">
+        <g:message code="spinner.alt" default="Loading&hellip;"/>
+    </div>
+
+    <asset:javascript src="application.js"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+</body>
 </html>

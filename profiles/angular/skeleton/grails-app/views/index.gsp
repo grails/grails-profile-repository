@@ -1,91 +1,113 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Welcome to Grails</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" type="text/css" href="https://grails.org/css/style.css"/>
+
+    <asset:stylesheet src="application.css"/>
+
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
     <script type="text/javascript">
         window.contextPath = "${request.contextPath}";
     </script>
-    <style type="text/css" media="screen">
-        #status {
-            background-color: #eee;
-            border: .2em solid #fff;
-            margin: 2em 2em 1em;
-            padding: 1em;
-            width: 12em;
-            float: left;
-            -moz-box-shadow: 0px 0px 1.25em #ccc;
-            -webkit-box-shadow: 0px 0px 1.25em #ccc;
-            box-shadow: 0px 0px 1.25em #ccc;
-            -moz-border-radius: 0.6em;
-            -webkit-border-radius: 0.6em;
-            border-radius: 0.6em;
-        }
-
-        #status ul {
-            font-size: 0.9em;
-            list-style-type: none;
-            margin-bottom: 0.6em;
-            padding: 0;
-        }
-
-        #status li {
-            line-height: 1.3;
-        }
-
-        #status h1 {
-            text-transform: uppercase;
-            font-size: 1.1em;
-            margin: 0 0 0.3em;
-        }
-
-        #page-body {
-            margin: 2em 1em 1.25em 18em;
-        }
-
-        h2 {
-            margin-top: 1em;
-            margin-bottom: 0.3em;
-            font-size: 1em;
-        }
-
-        p {
-            line-height: 1.5;
-            margin: 0.25em 0;
-        }
-
-        #controller-list ul {
-            list-style-position: inside;
-        }
-
-        #controller-list li {
-            line-height: 1.3;
-            list-style-position: inside;
-            margin: 0.25em 0;
-        }
-
-        @media screen and (max-width: 480px) {
-            #status {
-                display: none;
-            }
-
-            #page-body {
-                margin: 0 1em 1em;
-            }
-
-            #page-body h1 {
-                margin-top: 0;
-            }
-        }
-    </style>
 </head>
-<body ng-app="@grails.codegen.defaultPackage@">
-    <div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a></div>
-    <a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-    <application-data></application-data>
+
+<body ng-app="@grails.codegen.defaultPackage@" ng-controller="IndexController as vm">
+
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#">
+                    <i class="fa grails-icon">
+                        <asset:image src="grails-cupsonly-logo-white.svg"/>
+                    </i> Grails
+                </a>
+            </div>
+            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" uib-dropdown>
+                        <a href="#" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
+                        <ul class="dropdown-menu" uib-dropdown-menu>
+                            <li><a href="#">Environment: {{vm.applicationData.environment}}</a></li>
+                            <li><a href="#">App profile: {{vm.applicationData.appprofile}}</a></li>
+                            <li><a href="#">App version: {{vm.applicationData.appversion}}</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Grails version: {{vm.applicationData.grailsversion}}</a></li>
+                            <li><a href="#">Groovy version: {{vm.applicationData.groovyversion}}</a></li>
+                            <li><a href="#">JVM version: {{vm.applicationData.jvmversion}}</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Reloading active: {{vm.applicationData.reloadingagentenabled}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" uib-dropdown>
+                        <a href="#" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
+                        <ul class="dropdown-menu" uib-dropdown-menu>
+                            <li><a href="#">Controllers: {{vm.applicationData.artefacts.controllers}}</a></li>
+                            <li><a href="#">Domains: {{vm.applicationData.artefacts.domains}}</a></li>
+                            <li><a href="#">Services: {{vm.applicationData.artefacts.services}}</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" uib-dropdown>
+                        <a href="#" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Installed Plugins <span class="caret"></span></a>
+                        <ul class="dropdown-menu" uib-dropdown-menu>
+                            <li ng-repeat="plugin in vm.applicationData.plugins"><a href="#">{{plugin.name}} - {{plugin.version}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="svg" role="presentation">
+        <div class="grails-logo-container">
+            <img src="https://grails.org/img/grails-cupsonly-logo-white.svg" class="grails-logo" />
+        </div>
+    </div>
+
+    <div id="content" role="main">
+        <section class="row colset-2-its">
+            <h1>Welcome to Grails</h1>
+
+            <p>
+                Congratulations, you have successfully started your first Grails application! At the moment
+                this is the default page, feel free to modify it to either redirect to a controller or display
+                whatever content you may choose. Below is a list of controllers that are currently deployed in
+                this application, click on each to execute its default action:
+            </p>
+
+            <div id="controllers" role="navigation">
+                <h2>Available Controllers:</h2>
+                <ul>
+                    <li ng-repeat="c in vm.applicationData.controllers | orderBy:'name'" class="controller">
+                        <a ng-href="{{vm.contextPath}}/{{c.logicalPropertyName}}">{{c.name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
     <div class="footer" role="contentinfo"></div>
+
+    <div id="spinner" class="spinner" style="display:none;">
+        <g:message code="spinner.alt" default="Loading&hellip;"/>
+    </div>
+
+    %{--<link rel="stylesheet" href="https://code.jquery.com/jquery-2.2.0.min.js" crossorigin="anonymous"/>--}%
+
+    %{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>--}%
+
     <asset:javascript src="@grails.codegen.defaultPackage.path@/app" />
 </body>
 </html>
