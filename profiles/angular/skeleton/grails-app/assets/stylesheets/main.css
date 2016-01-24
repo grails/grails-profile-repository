@@ -45,16 +45,11 @@ body {
     background-color: #abbf78;
 }
 
-a:link, a:visited, a:hover {
-    color: #48802c;
-}
-
 a:hover, a:active {
     outline: none; /* prevents outline in webkit on active links but retains it for tab focus */
 }
 
 h1, h2, h3 {
-    color: #48802c;
     font-weight: normal;
     font-size: 1.25em;
     margin: 0.8em 0 0.3em 0;
