@@ -17,5 +17,15 @@ bower {
 }
 
 karma {
+    dependencies(['karma-wrap-preprocessor'])
+
     profile 'angularJS'
+
+    preprocessors = [
+        'grails-app/assets/javascripts/**/*.js': ['wrap']
+    ]
+
+    wrapPreprocessor = [
+        template: "(function () { 'use strict';  <%= contents %> })()"
+    ]
 }
