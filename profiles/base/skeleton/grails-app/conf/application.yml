@@ -3,7 +3,8 @@ grails:
     codegen:
         defaultPackage: @grails.codegen.defaultPackage@
     spring:
-        transactionManagement: false
+        transactionManagement:
+            proxies: false
 info:
     app:
         name: '@info.app.name@'
