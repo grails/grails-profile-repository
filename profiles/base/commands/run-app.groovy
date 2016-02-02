@@ -35,6 +35,8 @@ try {
         arguments << "-D${key}=$value".toString()
     }
 
+    arguments << "-Dgrails.run.active=true"
+    
     if(port) {
         arguments << "-Dgrails.server.port=$port"
     }

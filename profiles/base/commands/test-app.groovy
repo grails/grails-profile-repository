@@ -58,6 +58,8 @@ runTests = { List args ->
         additionalArguments << "-D${key}=$value".toString()
     }
 
+    additionalArguments << "-Dgrails.run.active=true"
+
     try {
         gradle."${args.join(' ')}"(*additionalArguments)
         addStatus "Tests PASSED"
