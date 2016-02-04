@@ -2,4 +2,4 @@ description: Adds Spring Security REST to the project
 dependencies:
     compile:
         - org.grails:grails-plugin-gsp
-        - org.grails.plugins:spring-security-rest:2.0.0.M1
+        - org.grails.plugins:spring-security-rest:2.0.0.M2
