@@ -34,6 +34,7 @@ def pathToInfo = [
     [name: "Tag Libraries",      path: "^grails-app.taglib",           filetype: ["TagLib.groovy"]],
     [name: "Groovy Helpers",     path: "^src.main.groovy",             filetype: [".groovy"]],
     [name: "Unit Tests",         path: "^src.test.groovy",             filetype: [".groovy"]],
+    [name: "Integration Tests",  path: "^src.integration-test.groovy", filetype: [".groovy"]],
     [name: "Scripts",            path: "^src.main.scripts",            filetype: [".groovy"]],
 ]
 
