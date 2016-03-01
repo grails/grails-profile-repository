@@ -17,7 +17,7 @@ subprojects {
     apply plugin: "org.grails.grails-profile-publish"
 
     group 'org.grails.profiles'
-    version System.getenv('TRAVIS_TAG') ? project.grailsVersion : "${project.grailsVersion}-SNAPSHOT"
+    version project.grailsVersion
 
     grailsPublish {
         userOrg = 'grails'  
