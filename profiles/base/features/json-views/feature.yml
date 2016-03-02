@@ -4,6 +4,6 @@ build:
         - org.grails.plugins.views-json
 dependencies:
     build:
-        - "org.grails.plugins:views-gradle:1.0.1"
+        - "org.grails.plugins:views-gradle:1.0.3"
     compile:
         - "org.grails.plugins:views-json"
