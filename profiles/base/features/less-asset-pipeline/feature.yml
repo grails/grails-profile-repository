@@ -1,0 +1,11 @@
+description: Adds LESS Transpiler Asset Pipeline to a Grails project
+build:
+    plugins:
+        - asset-pipeline
+dependencies:
+    build:
+        - 'com.bertramlabs.plugins:asset-pipeline-gradle:2.8.1'
+    runtime:
+        - "org.grails.plugins:asset-pipeline"
+    assets:
+        - "com.bertramlabs.plugins:less-asset-pipeline:2.8.1"
