@@ -10,7 +10,8 @@ command:
     excludes:
         - war
 features:
-    defaults:[]
+    defaults:
+        - asset-pipeline-plugin
 build:
     merge:
         - base
