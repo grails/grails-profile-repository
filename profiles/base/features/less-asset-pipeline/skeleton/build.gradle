@@ -1,0 +1,12 @@
+
+assets {
+    minifyJs = true
+    minifyCss = true
+    excludes = ['**/*.less']
+    includes = ['application.less']
+    configOptions = [
+      less: [
+        compiler: 'less4j' // or standard
+      ]
+    ]
+}
