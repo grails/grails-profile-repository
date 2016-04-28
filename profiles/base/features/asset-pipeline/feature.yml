@@ -4,6 +4,6 @@ build:
         - asset-pipeline
 dependencies:
     build:
-        - 'com.bertramlabs.plugins:asset-pipeline-gradle:2.8.1'
+        - 'com.bertramlabs.plugins:asset-pipeline-gradle:2.8.2'
     runtime:
-        - "org.grails.plugins:asset-pipeline"
+        - "org.grails.plugins:grails-asset-pipeline"
