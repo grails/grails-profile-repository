@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         mavenLocal()
-        maven { url "https://repo.grails.org/grails/core" }
+@buildRepositories@
     }
     dependencies {
 @buildDependencies@
@@ -15,7 +15,7 @@ group "@grails.app.group@"
 
 repositories {
     mavenLocal()
-    maven { url "https://repo.grails.org/grails/core" }
+@repositories@
 }
 
 dependencyManagement {

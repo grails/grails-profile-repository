@@ -7,7 +7,7 @@ angular
 function ${className}(\$resource) {
     var ${className} = \$resource(
         "${propertyName}/:id",
-        null,
+        {"id": "@id"},
         {"update": {method: "PUT"}, "list": {method: "GET", isArray: true}}
     );
     return ${className};

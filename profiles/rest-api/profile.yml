@@ -6,6 +6,7 @@ features:
         - json-views
 build:
     plugins:
+        - war
         - org.grails.grails-web
     excludes:
         - org.grails.grails-core

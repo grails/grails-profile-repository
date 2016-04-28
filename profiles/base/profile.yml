@@ -2,13 +2,15 @@ description: The base profile extended by other profiles
 repositories:
     - "https://repo.grails.org/grails/core"
 build:
+    repositories:
+        - "https://repo.grails.org/grails/core"
     plugins:
         - eclipse
         - idea
         - org.grails.grails-core
 dependencies:
     build:
-        - "org.grails:grails-gradle-plugin:$grailsVersion" 
+        - "org.grails:grails-gradle-plugin:$grailsVersion"
     compile:
         - "org.springframework.boot:spring-boot-starter-logging"
         - "org.springframework.boot:spring-boot-autoconfigure"

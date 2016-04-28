@@ -6,13 +6,16 @@
     <title>Welcome to Grails</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous"/>
-
-    <link rel="stylesheet" type="text/css" href="https://grails.org/css/style.css"/>
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
 
     <asset:stylesheet src="application.css"/>
 
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
+
     <script type="text/javascript">
         window.contextPath = "${request.contextPath}";
     </script>
@@ -23,8 +26,8 @@
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only"></span>
+                <button type="button" class="navbar-toggle" ng-click="navExpanded = !navExpanded">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -35,7 +38,7 @@
                     </i> Grails
                 </a>
             </div>
-            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
+            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;" uib-collapse="!navExpanded">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown" uib-dropdown>
                         <a href="#" class="dropdown-toggle" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
@@ -72,7 +75,7 @@
 
     <div class="svg" role="presentation">
         <div class="grails-logo-container">
-            <img src="https://grails.org/img/grails-cupsonly-logo-white.svg" class="grails-logo" />
+            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
         </div>
     </div>
 
@@ -89,7 +92,7 @@
 
             <div id="controllers" role="navigation">
                 <h2>Available Controllers:</h2>
-                <ul>
+                <ul ng-cloak>
                     <li ng-repeat="c in vm.applicationData.controllers | orderBy:'name'" class="controller">
                         <a ng-href="{{vm.contextPath}}/{{c.logicalPropertyName}}">{{c.name}}</a>
                     </li>
@@ -104,10 +107,6 @@
         <g:message code="spinner.alt" default="Loading&hellip;"/>
     </div>
 
-    %{--<link rel="stylesheet" href="https://code.jquery.com/jquery-2.2.0.min.js" crossorigin="anonymous"/>--}%
-
-    %{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>--}%
-
-    <asset:javascript src="@grails.codegen.defaultPackage.path@/app" />
+    <asset:javascript src="/@grails.codegen.defaultPackage.path@/@grails.codegen.defaultPackage@.js" />
 </body>
 </html>

@@ -4,6 +4,6 @@ angular
     .module("${moduleName}")
     .factory("${className}", ${className});
 
-function ${className}(domainServiceFactory) {
-    return domainServiceFactory("${propertyName}/:id");
+function ${className}(DomainServiceFactory) {
+    return DomainServiceFactory("${propertyName}/:id", {"id": "@id"});
 }

@@ -8,12 +8,9 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous"/>
-    <link rel="stylesheet" type="text/css" href="https://grails.org/css/style.css"/>
     <asset:stylesheet src="application.css"/>
 
     <g:layoutHead/>
-
 </head>
 <body>
 
@@ -21,7 +18,7 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only"></span>
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -49,7 +46,6 @@
     </div>
 
     <asset:javascript src="application.js"/>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
