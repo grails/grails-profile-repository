@@ -16,7 +16,7 @@ function config($httpProvider) {
 function httpRequestInterceptor(contextPath) {
     return {
         request: function (config) {
-            if (!config.url.indexOf("/") == 0 && contextPath) {
+            if (!config.url.indexOf("/") == 0 && contextPath && config.url.indexOf("uib/template") == -1) {
                 config.url = contextPath + "/" + config.url;
             }
             return config;
