@@ -9,14 +9,14 @@ build:
     plugins:
         - org.grails.grails-gsp
         - com.craigburke.karma
-        - com.craigburke.bower-installer
+        - com.craigburke.client-dependencies
 dependencies:
     compile:
         - "org.grails:grails-plugin-gsp"
     build:
         - "com.bertramlabs.plugins:asset-pipeline-gradle:2.6.4"
         - "gradle.plugin.com.craigburke.gradle:karma-gradle:1.4.3"
-        - "gradle.plugin.com.craigburke.gradle:bower-installer-gradle:2.5.1"
+        - "com.craigburke.gradle:client-dependencies:1.1.1"
     assets:
         - "com.craigburke.angular:angular-template-asset-pipeline:2.2.6"
         - "com.craigburke.angular:angular-annotate-asset-pipeline:2.4.0"
