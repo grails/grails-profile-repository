@@ -18,8 +18,8 @@
         <div id="controllers" role="navigation">
             <h2>Available Controllers:</h2>
             <ul ng-cloak>
-                <li ng-repeat="c in vm.applicationData.controllers | orderBy:'name'" class="controller">
-                    <a ng-href="{{vm.contextPath}}/{{c.logicalPropertyName}}">{{c.name}}</a>
+                <li ng-repeat="c in indexCtrl.applicationData.controllers | orderBy:'name'" class="controller">
+                    <a ng-href="{{indexCtrl.contextPath}}/{{c.logicalPropertyName}}">{{c.name}}</a>
                 </li>
             </ul>
         </div>
