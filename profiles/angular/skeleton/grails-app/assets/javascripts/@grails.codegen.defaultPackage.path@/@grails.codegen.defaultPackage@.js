@@ -4,6 +4,6 @@
 //= require /@grails.codegen.defaultPackage.path@/index/@grails.codegen.defaultPackage@.index
 
 angular.module("@grails.codegen.defaultPackage@", [
-    "@grails.codegen.defaultPackage@.core",
-    "@grails.codegen.defaultPackage@.index"
-]);
+        "@grails.codegen.defaultPackage@.core",
+        "@grails.codegen.defaultPackage@.index"
+    ]);
