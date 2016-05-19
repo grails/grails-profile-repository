@@ -1,4 +1,9 @@
-description: Profile for REST API applications
+description: Profile for REST API plugins
+skeleton:
+    excludes:
+        - grails-app/controllers/**/*.*
+        - grails-app/views/**/*.*
+        - grails-app/i18n/**/*.*
 features:
     defaults: 
         - hibernate
@@ -6,14 +11,16 @@ features:
         - json-views
 build:
     plugins:
-        - war
-        - org.grails.grails-web
+        - org.grails.grails-plugin
+        - org.grails.grails-plugin-publish
     excludes:
         - org.grails.grails-core
+        - org.grails.grails-web
+        - war
 dependencies:
-    compile:
-        - "org.springframework.boot:spring-boot-starter-actuator"
+    provided:
         - "org.springframework.boot:spring-boot-starter-tomcat"
+    compile:
         - "org.grails:grails-plugin-url-mappings"
         - "org.grails:grails-plugin-rest"
         - "org.grails:grails-plugin-codecs"
@@ -24,7 +31,6 @@ dependencies:
         - "org.grails:grails-plugin-async"
         - "org.grails:grails-web-boot"
         - "org.grails:grails-logging"
-        - "org.grails.plugins:cache"
     testCompile:
         - "org.grails:grails-plugin-testing"    
         - "org.grails.plugins:geb" 
