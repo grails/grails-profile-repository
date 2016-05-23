@@ -1,7 +1,4 @@
 buildscript {
-    ext {
-        grailsVersion = project.grailsVersion
-    }
     repositories {
         mavenLocal()
         maven { url "https://repo.grails.org/grails/core" }
@@ -24,11 +21,6 @@ apply plugin: "war"
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: "org.grails.grails-web"
-
-ext {
-    grailsVersion = project.grailsVersion
-    gradleWrapperVersion = project.gradleWrapperVersion
-}
 
 repositories {
     mavenLocal()
