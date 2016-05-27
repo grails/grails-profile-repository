@@ -19,7 +19,8 @@
             <h2>Available Controllers:</h2>
             <ul ng-cloak>
                 <li ng-repeat="c in indexCtrl.applicationData.controllers | orderBy:'name'" class="controller">
-                    <a ng-href="{{indexCtrl.contextPath}}/{{c.logicalPropertyName}}">{{c.name}}</a>
+                    <a ng-if="!indexCtrl.stateExists(c.logicalPropertyName+'.list')" ng-href="{{indexCtrl.contextPath}}/{{c.logicalPropertyName}}">{{c.name}}</a>
+                    <a ng-if="indexCtrl.stateExists(c.logicalPropertyName+'.list')" ui-sref="{{c.logicalPropertyName}}.list">{{c.name}}</a>
                 </li>
             </ul>
         </div>
