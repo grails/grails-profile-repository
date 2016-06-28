@@ -12,6 +12,7 @@ build:
         - org.grails.grails-core
 dependencies:
     compile:
+        - "org.springframework.boot:spring-boot-starter-actuator"
         - "org.springframework.boot:spring-boot-starter-tomcat"
         - "org.grails:grails-dependencies"
         - "org.grails:grails-web-boot"
