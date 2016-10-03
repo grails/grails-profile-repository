@@ -12,3 +12,7 @@ grailsPublish {
     portalUser = ""
     portalPassword = ""    
 }
+
+assets {
+    packagePlugin=true
+}

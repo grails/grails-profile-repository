@@ -1,11 +1,14 @@
 description: Profile for plugins designed to work across all profiles
 build:
     plugins:
+        - asset-pipeline
         - org.grails.grails-plugin
         - org.grails.grails-plugin-publish
     excludes:
         - org.grails.grails-core
 dependencies:
+    build:
+        - 'com.bertramlabs.plugins:asset-pipeline-gradle:2.8.1'
     provided:
         - "org.grails:grails-plugin-services"
         - "org.grails:grails-plugin-domain-class"
