@@ -235,7 +235,7 @@ a.navbar-brand {
 
 @media (max-width: 1010px) {
     .event-logo {
-        height: ;
+        height: 180px;
     }
 
 }
@@ -753,14 +753,14 @@ h8 {
 
 #content.page-1 .row article h1 {
     margin: 0;
-    paddnig: 0;
+    padding: 0;
     text-align: left;
     font-size: 26px
 }
 
 #content.page-1 .row article h2 {
     margin: 0;
-    paddnig: 0
+    padding: 0
 }
 
 #content.page-1 .row article h3 {
