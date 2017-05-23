@@ -1,4 +1,4 @@
-description: Installs a Grails application or plugin into the local Maven cache
+description: Installs plugin into the local Maven cache
 minArguments: 0
 usage: |
  install
