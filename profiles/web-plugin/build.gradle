@@ -1,4 +1,0 @@
-dependencies {
-	runtime project(":plugin")
-	runtime project(":web")
-}

@@ -1,1 +1,0 @@
-include 'base', 'web', 'rest-api', 'rest-api-plugin', 'web-plugin', 'plugin', 'profile', 'angular'

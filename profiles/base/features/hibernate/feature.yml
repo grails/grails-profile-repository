@@ -1,9 +1,0 @@
-description: Adds GORM for Hibernate to the project
-dependencies:
-    build:
-        - 'org.grails.plugins:hibernate4:5.0.6'
-    compile:
-        - "org.grails.plugins:hibernate4"
-        - "org.hibernate:hibernate-ehcache"
-    runtime:
-        - "com.h2database:h2"
