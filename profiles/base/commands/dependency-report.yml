@@ -1,8 +1,0 @@
-description: Prints out the Grails application's dependencies
-minArguments: 0
-usage: |
- dependency-report
-steps:
- - command: gradle
-   tasks:
-     - dependencies
